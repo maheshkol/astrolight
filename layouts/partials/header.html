@@ -1,5 +1,5 @@
 <header class="site-header">
-  <a href="{{ "/" | relURL }}" class="logo"><span class="logo-mark">✦</span>{{ .Site.Title }}</a>
+  <a href="{{ site.Home.RelPermalink }}" class="logo"><span class="logo-mark">✦</span>{{ .Site.Title }}</a>
   <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
   <nav class="site-nav">
     <ul>
@@ -21,3 +21,4 @@
   });
 })();
 </script>
+
