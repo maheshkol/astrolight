@@ -254,7 +254,7 @@
         {{ $other := index site.Data.zodiac . }}
 
         <a
-          href="{{ printf "/zodiac/%s/" . | relURL }}"
+          href="{{ site.Home.RelPermalink }}zodiac/{{ . }}/"
           class="zodiac-single-relationship-card"
         >
 
@@ -273,7 +273,7 @@
     </div>
 
     <a
-      href="{{ "/compatibility/" | relURL }}"
+      href="{{ site.Home.RelPermalink }}compatibility/"
       class="zodiac-single-compatibility-cta"
     >
       Compare {{ $data.name }} with another sign →
@@ -294,7 +294,7 @@
     <div class="zodiac-single-explore-grid">
 
       <a
-        href="{{ "/compatibility/" | relURL }}"
+        href="{{ site.Home.RelPermalink }}compatibility/"
         class="zodiac-single-explore-card"
       >
         <span class="zodiac-explore-number">01</span>
@@ -306,7 +306,7 @@
       </a>
 
       <a
-        href="{{ "/birth-chart/" | relURL }}"
+        href="{{ site.Home.RelPermalink }}birth-chart/"
         class="zodiac-single-explore-card"
       >
         <span class="zodiac-explore-number">02</span>
@@ -318,7 +318,7 @@
       </a>
 
       <a
-        href="{{ "/zodiac/" | relURL }}"
+        href="{{ site.Home.RelPermalink }}zodiac/"
         class="zodiac-single-explore-card"
       >
         <span class="zodiac-explore-number">03</span>
@@ -333,13 +333,13 @@
 
     <div class="zodiac-single-next-links">
 
-      <a href="{{ "/zodiac/" | relURL }}">
+      <a href="{{ site.Home.RelPermalink }}zodiac/">
         <span>BACK TO</span>
         Zodiac Explorer →
       </a>
 
       {{ if eq $data.name "Aries" }}
-        <a href="{{ "/zodiac/taurus/" | relURL }}">
+        <a href="{{ site.Home.RelPermalink }}zodiac/taurus/">
           <span>NEXT SIGN</span>
           Taurus →
         </a>

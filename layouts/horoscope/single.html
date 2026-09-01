@@ -18,7 +18,7 @@
   <p>{{ $data.name }} is traditionally associated with the {{ $data.element }} element, {{ $data.modality }} modality and {{ $data.ruling_planet }}. For a more personalized calculation, use the <a href="{{ "/birth-chart/" | relURL }}">birth-chart tool</a>.</p>
 
   <h2>Learn more about {{ $data.name }}</h2>
-  <p><a href="{{ printf "/zodiac/%s/" $sign | relURL }}">Read the full {{ $data.name }} profile →</a></p>
+  <p><a href="{{ site.Home.RelPermalink }}zodiac/{{ $sign }}/">Read the full {{ $data.name }} profile →</a></p>
 </article>
 
 <script src="{{ "js/horoscope-rotator.js" | relURL }}" defer></script>

@@ -15,8 +15,8 @@
   <div class="article-body">{{ .Content }}</div>
 
   <div class="feature-grid">
-    <a class="feature-card" href="{{ printf "/zodiac/%s/" .Params.sign1 | relURL }}">Read {{ $sign1.name }} →</a>
-    <a class="feature-card" href="{{ printf "/zodiac/%s/" .Params.sign2 | relURL }}">Read {{ $sign2.name }} →</a>
+    <a class="feature-card" href="{{ site.Home.RelPermalink }}zodiac/{{ .Params.sign1 }}/">Read {{ $sign1.name }} →</a>
+    <a class="feature-card" href="{{ site.Home.RelPermalink }}zodiac/{{ .Params.sign2 }}/">Read {{ $sign2.name }} →</a>
   </div>
 </article>
 

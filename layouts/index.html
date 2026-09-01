@@ -12,7 +12,7 @@
     <h1 id="hero-title">Look up.<br><span>Understand your sky.</span></h1>
     <p class="hero-lede">AstroLight turns dates, times and places into calculated celestial positions — then shows you what the numbers mean.</p>
     <div class="hero-actions">
-      <a href="{{ "/birth-chart/" | relURL }}" class="cta cta-primary">Generate your birth chart <span>↗</span></a>
+      <a href="{{ site.Home.RelPermalink }}birth-chart/" class="cta cta-primary">Generate your birth chart <span>↗</span></a>
       <a href="#how-it-works" class="cta cta-ghost">How it works <span>↓</span></a>
     </div>
     <div class="hero-proof" aria-label="AstroLight facts">
@@ -60,7 +60,7 @@
     <h2>Numbers first. Meaning second.</h2>
     <p>A zodiac sign occupies 30° of the 360° ecliptic. The 27 Nakshatras divide that same circle into 13°20′ sections, each split into four 3°20′ padas.</p>
     <div class="formula-row"><code>360° ÷ 12 = 30°</code><code>360° ÷ 27 = 13°20′</code></div>
-    <a href="{{ "/learn/astrology-math/" | relURL }}" class="text-link">Explore astrology mathematics <span>→</span></a>
+    <a href="{{ site.Home.RelPermalink }}learn/astrology-math/" class="text-link">Explore astrology mathematics <span>→</span></a>
   </div>
 </section>
 
@@ -72,7 +72,7 @@
   </div>
   <div class="sign-grid landing-sign-grid">
     {{ range $key, $s := site.Data.zodiac }}
-    <a href="{{ printf "/zodiac/%s/" $key | relURL }}" class="sign-tile reveal">
+    <a href="{{ site.Home.RelPermalink }}zodiac/{{ $key }}/" class="sign-tile reveal">
       <span class="sign-symbol">{{ $s.symbol }}</span>
       <span class="sign-meta"><strong>{{ $s.name }}</strong><small>{{ $s.element }} · {{ $s.modality }}</small></span>
       <span class="sign-degree">{{ mul (int $s.index) 30 }}°</span>
@@ -87,15 +87,15 @@
     <h2>More than a horoscope.</h2>
   </div>
   <div class="feature-grid">
-    <a class="feature-card feature-card-chart reveal" href="{{ "/birth-chart/" | relURL }}">
+    <a class="feature-card feature-card-chart reveal" href="{{ site.Home.RelPermalink }}birth-chart/">
       <span class="feature-kicker">01 · CALCULATE</span><span class="feature-icon">◌</span>
       <h3>Birth Chart</h3><p>Turn birth date, time and location into a visual map of planetary positions, houses and aspects.</p><span class="feature-arrow">Explore chart →</span>
     </a>
-    <a class="feature-card reveal" href="{{ "/birth-chart/nakshatras/" | relURL }}">
+    <a class="feature-card reveal" href="{{ site.Home.RelPermalink }}birth-chart/nakshatras/">
       <span class="feature-kicker">02 · DISCOVER</span><span class="feature-icon">✦</span>
       <h3>Nakshatras</h3><p>See how the Moon's sidereal longitude maps to one of 27 lunar mansions and four padas.</p><span class="feature-arrow">Explore Nakshatras →</span>
     </a>
-    <a class="feature-card reveal" href="{{ "/compatibility/" | relURL }}">
+    <a class="feature-card reveal" href="{{ site.Home.RelPermalink }}compatibility/">
       <span class="feature-kicker">03 · COMPARE</span><span class="feature-icon">∞</span>
       <h3>Compatibility</h3><p>Explore a transparent educational scoring model built from sign, element, modality and planetary relationships.</p><span class="feature-arrow">Compare signs →</span>
     </a>
