@@ -1,0 +1,11 @@
+{{ define "main" }}
+{{ $house := .Params.house }}
+{{ $data := index site.Data.houses (string $house) }}
+<article>
+  <h1>The {{ $house }}th House: {{ $data.name }}</h1>
+  <p><strong>Governs:</strong> {{ delimit $data.keywords ", " }}</p>
+
+  {{ partial "ad-slot.html" (dict "Site" .Site "slot" "5555555555") }}
+{{ .Content }}
+</article>
+{{ end }}

@@ -1,0 +1,22 @@
+{{ define "main" }}
+<article>
+  <h1>{{ .Title }}</h1>
+  <p>{{ .Content }}</p>
+
+  <form id="sun-sign-form">
+    <label>Date of birth <input type="date" name="date" required></label>
+    <button type="submit">Calculate</button>
+  </form>
+  <div id="sun-sign-result"></div>
+
+  {{ partial "ad-slot.html" (dict "Site" .Site "slot" "9111111111") }}
+</article>
+
+<script type="module">
+  import { initSunSignTool } from "/js/tools/sun-sign.js";
+  initSunSignTool(
+    document.getElementById("sun-sign-form"),
+    document.getElementById("sun-sign-result")
+  );
+</script>
+{{ end }}

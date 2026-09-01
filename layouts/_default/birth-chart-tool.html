@@ -1,0 +1,56 @@
+{{ define "main" }}
+<article class="birth-chart-page">
+  <h1>{{ .Title }}</h1>
+  <p>{{ .Content }}</p>
+
+  <div class="chart-mode-toggle">
+    <label><input type="radio" name="chart-mode" value="western" checked> Western (Tropical)</label>
+    <label><input type="radio" name="chart-mode" value="vedic"> Vedic (Sidereal)</label>
+  </div>
+
+  <form id="birth-chart-form">
+    <label>Date of birth
+      <input type="date" name="date" required>
+    </label>
+    <label>Time of birth
+      <input type="time" name="time">
+    </label>
+    <label>UTC offset at birth (hours)
+      <input type="number" step="0.25" name="utcOffset" value="5.5" required>
+      <small>Example: India Standard Time is +5.5. Historical daylight-saving rules can change the correct offset.</small>
+    </label>
+    <label>Birth latitude (° north, negative for south)
+      <input type="number" step="0.0001" name="latitude" required>
+    </label>
+    <label>Birth longitude (° east, negative for west)
+      <input type="number" step="0.0001" name="longitude" required>
+    </label>
+<button type="submit">Generate My Birth Chart</button>
+  </form>
+
+  <div id="calculating-sequence"></div>
+  <div id="birth-chart-wheel"></div>
+  <div id="birth-chart-table"></div>
+
+
+
+  <p><a href="{{ "/birth-chart/guide/" | relURL }}">Not sure how to read your chart? See the guide →</a></p>
+</article>
+
+<script type="module">
+  import { initChartGenerator } from "/js/tools/chart-generator.js";
+
+  const modeInputs = document.querySelectorAll('input[name="chart-mode"]');
+  const fakeToggle = { addEventListener: (evt, cb) => {
+    modeInputs.forEach((el) => el.addEventListener("change", (e) => cb({ target: { value: e.target.value } })));
+  }};
+
+  initChartGenerator({
+    formEl: document.getElementById("birth-chart-form"),
+    wheelEl: document.getElementById("birth-chart-wheel"),
+    sequenceEl: document.getElementById("calculating-sequence"),
+    tableEl: document.getElementById("birth-chart-table"),
+    modeToggleEl: fakeToggle,
+  });
+</script>
+{{ end }}

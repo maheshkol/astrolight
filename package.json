@@ -1,0 +1,9 @@
+{
+  "name": "astrolight",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:engine": "node tests/engine-smoke.mjs",
+    "test": "node tests/engine-smoke.mjs"
+  }
+}

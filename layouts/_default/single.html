@@ -1,0 +1,7 @@
+{{ define "main" }}
+<article>
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  {{ partial "ad-slot.html" (dict "Site" .Site "slot" "7777777777") }}
+</article>
+{{ end }}

@@ -1,0 +1,197 @@
+{{ define "main" }}
+
+<section class="zodiac-explorer">
+
+  <div class="zodiac-explorer-hero">
+    <div class="zodiac-explorer-copy">
+      <p class="eyebrow">THE 360° ZODIAC</p>
+
+      <h1>Explore the<br><span>12 signs.</span></h1>
+
+      <p class="zodiac-lede">
+        A complete tour of the zodiac circle — from 0° Aries to 360°,
+        with every sign, degree, element, modality and ruling planet
+        mapped to its traditional position.
+      </p>
+
+      <div class="zodiac-equation">
+        <span>360°</span>
+        <i>÷</i>
+        <span>12 signs</span>
+        <i>=</i>
+        <strong>30° each</strong>
+      </div>
+
+      <p class="zodiac-explainer">
+        Select a sign on the wheel to explore its position and
+        traditional characteristics.
+      </p>
+    </div>
+
+    <div class="zodiac-wheel-stage">
+
+      <div class="wheel-orbit orbit-one"></div>
+      <div class="wheel-orbit orbit-two"></div>
+
+      <div id="zodiac-wheel"
+           class="zodiac-explorer-wheel"
+           aria-label="Interactive zodiac wheel">
+      </div>
+
+     
+    </div>
+  </div>
+
+
+  <section class="zodiac-selection" aria-live="polite">
+
+    <div class="selection-heading">
+      <p class="eyebrow">SELECTED SIGN</p>
+      <h2 id="selected-title">♈ Aries</h2>
+      <p id="selected-dates">March 21 – April 19</p>
+    </div>
+
+    <div class="selection-grid">
+
+      <div class="selection-main">
+        <div class="selection-position">
+          <span>CELESTIAL POSITION</span>
+
+          <div class="degree-range">
+            <strong id="selected-range">0° — 30°</strong>
+            <small>of the 360° zodiac circle</small>
+          </div>
+
+          <div class="degree-track">
+            <div id="degree-progress"></div>
+          </div>
+        </div>
+
+        <p id="selected-description">
+          Aries begins the traditional zodiac at 0° and occupies the
+          first 30° of the celestial circle.
+        </p>
+
+        <a id="selected-link"
+           href="{{ "/zodiac/aries/" | relURL }}"
+           class="cta cta-primary">
+          Explore Aries →
+        </a>
+      </div>
+
+      <div class="selection-facts">
+
+        <div class="zodiac-fact">
+          <span>ELEMENT</span>
+          <strong id="selected-element">Fire</strong>
+        </div>
+
+        <div class="zodiac-fact">
+          <span>MODALITY</span>
+          <strong id="selected-modality">Cardinal</strong>
+        </div>
+
+        <div class="zodiac-fact">
+          <span>RULING PLANET</span>
+          <strong id="selected-ruler">Mars</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="zodiac-mathematics">
+
+    <div>
+      <p class="eyebrow">THE MATHEMATICS</p>
+
+      <h2>One circle.<br>12 equal sectors.</h2>
+
+      <p>
+        The zodiac can be understood geometrically as a complete
+        360° circle divided into twelve equal sections.
+      </p>
+    </div>
+
+    <div class="math-diagram">
+
+      <div class="math-number">
+        <strong>360°</strong>
+        <span>complete circle</span>
+      </div>
+
+      <div class="math-operation">÷</div>
+
+      <div class="math-number">
+        <strong>12</strong>
+        <span>signs</span>
+      </div>
+
+      <div class="math-operation">=</div>
+
+      <div class="math-number math-result">
+        <strong>30°</strong>
+        <span>per sign</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="zodiac-signs-section">
+
+    <div class="section-heading">
+      <p class="eyebrow">THE TWELVE SIGNS</p>
+
+      <h2>Find your place on the circle.</h2>
+
+      <p>
+        Every sign begins at a specific longitude and spans exactly
+        30° of the traditional zodiac.
+      </p>
+    </div>
+
+    <div id="zodiac-sign-grid" class="zodiac-explorer-grid"></div>
+
+  </section>
+
+
+  <section class="zodiac-how-it-works">
+
+    <div class="how-icon">360°</div>
+
+    <div>
+      <p class="eyebrow">HOW ASTROLIGHT THINKS ABOUT THE ZODIAC</p>
+
+      <h2>Position first. Interpretation second.</h2>
+
+      <p>
+        AstroLight separates calculation from interpretation.
+        A position is calculated from a degree on the celestial
+        circle; traditional astrology then associates that position
+        with a sign and its symbolic themes.
+      </p>
+    </div>
+
+  </section>
+
+</section>
+
+
+<script>
+window.ASTROLIGHT_ZODIAC_DATA =
+  {{ site.Data.zodiac | jsonify | safeJS }};
+
+window.ASTROLIGHT_ZODIAC_BASE_URL =
+  "{{ "zodiac/" | relURL }}".replace(/\/$/, "");
+</script>
+
+{{ $zodiacJS := resources.Get "js/zodiac-explorer.js" | minify | fingerprint }}
+
+<script src="{{ $zodiacJS.RelPermalink }}"></script>
+
+{{ end }}

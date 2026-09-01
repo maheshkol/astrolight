@@ -1,0 +1,402 @@
+# NOTE: the numeric compatibility score is now calculated live at
+# render-time by static/js/astrology/compatibility.js (a transparent,
+# rule-based model), NOT read from the 'score' field below. The
+# 'score' field is left as unused reference data — feel free to delete
+# it once you're relying entirely on the calculated version. Only
+# 'summary' is still used, and still needs real written text per pair.
+
+aries-taurus:
+  sign1: "aries"
+  sign2: "taurus"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Aries-Taurus dynamic."
+
+aries-gemini:
+  sign1: "aries"
+  sign2: "gemini"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Aries-Gemini dynamic."
+
+aries-cancer:
+  sign1: "aries"
+  sign2: "cancer"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Aries-Cancer dynamic."
+
+aries-leo:
+  sign1: "aries"
+  sign2: "leo"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Aries-Leo dynamic."
+
+aries-virgo:
+  sign1: "aries"
+  sign2: "virgo"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Aries-Virgo dynamic."
+
+aries-libra:
+  sign1: "aries"
+  sign2: "libra"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Aries-Libra dynamic."
+
+aries-scorpio:
+  sign1: "aries"
+  sign2: "scorpio"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Aries-Scorpio dynamic."
+
+aries-sagittarius:
+  sign1: "aries"
+  sign2: "sagittarius"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Aries-Sagittarius dynamic."
+
+aries-capricorn:
+  sign1: "aries"
+  sign2: "capricorn"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Aries-Capricorn dynamic."
+
+aries-aquarius:
+  sign1: "aries"
+  sign2: "aquarius"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Aries-Aquarius dynamic."
+
+aries-pisces:
+  sign1: "aries"
+  sign2: "pisces"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Aries-Pisces dynamic."
+
+taurus-gemini:
+  sign1: "taurus"
+  sign2: "gemini"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Taurus-Gemini dynamic."
+
+taurus-cancer:
+  sign1: "taurus"
+  sign2: "cancer"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Taurus-Cancer dynamic."
+
+taurus-leo:
+  sign1: "taurus"
+  sign2: "leo"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Taurus-Leo dynamic."
+
+taurus-virgo:
+  sign1: "taurus"
+  sign2: "virgo"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Taurus-Virgo dynamic."
+
+taurus-libra:
+  sign1: "taurus"
+  sign2: "libra"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Taurus-Libra dynamic."
+
+taurus-scorpio:
+  sign1: "taurus"
+  sign2: "scorpio"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Taurus-Scorpio dynamic."
+
+taurus-sagittarius:
+  sign1: "taurus"
+  sign2: "sagittarius"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Taurus-Sagittarius dynamic."
+
+taurus-capricorn:
+  sign1: "taurus"
+  sign2: "capricorn"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Taurus-Capricorn dynamic."
+
+taurus-aquarius:
+  sign1: "taurus"
+  sign2: "aquarius"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Taurus-Aquarius dynamic."
+
+taurus-pisces:
+  sign1: "taurus"
+  sign2: "pisces"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Taurus-Pisces dynamic."
+
+gemini-cancer:
+  sign1: "gemini"
+  sign2: "cancer"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Gemini-Cancer dynamic."
+
+gemini-leo:
+  sign1: "gemini"
+  sign2: "leo"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Gemini-Leo dynamic."
+
+gemini-virgo:
+  sign1: "gemini"
+  sign2: "virgo"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Gemini-Virgo dynamic."
+
+gemini-libra:
+  sign1: "gemini"
+  sign2: "libra"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Gemini-Libra dynamic."
+
+gemini-scorpio:
+  sign1: "gemini"
+  sign2: "scorpio"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Gemini-Scorpio dynamic."
+
+gemini-sagittarius:
+  sign1: "gemini"
+  sign2: "sagittarius"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Gemini-Sagittarius dynamic."
+
+gemini-capricorn:
+  sign1: "gemini"
+  sign2: "capricorn"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Gemini-Capricorn dynamic."
+
+gemini-aquarius:
+  sign1: "gemini"
+  sign2: "aquarius"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Gemini-Aquarius dynamic."
+
+gemini-pisces:
+  sign1: "gemini"
+  sign2: "pisces"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Gemini-Pisces dynamic."
+
+cancer-leo:
+  sign1: "cancer"
+  sign2: "leo"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Cancer-Leo dynamic."
+
+cancer-virgo:
+  sign1: "cancer"
+  sign2: "virgo"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Cancer-Virgo dynamic."
+
+cancer-libra:
+  sign1: "cancer"
+  sign2: "libra"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Cancer-Libra dynamic."
+
+cancer-scorpio:
+  sign1: "cancer"
+  sign2: "scorpio"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Cancer-Scorpio dynamic."
+
+cancer-sagittarius:
+  sign1: "cancer"
+  sign2: "sagittarius"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Cancer-Sagittarius dynamic."
+
+cancer-capricorn:
+  sign1: "cancer"
+  sign2: "capricorn"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Cancer-Capricorn dynamic."
+
+cancer-aquarius:
+  sign1: "cancer"
+  sign2: "aquarius"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Cancer-Aquarius dynamic."
+
+cancer-pisces:
+  sign1: "cancer"
+  sign2: "pisces"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Cancer-Pisces dynamic."
+
+leo-virgo:
+  sign1: "leo"
+  sign2: "virgo"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Leo-Virgo dynamic."
+
+leo-libra:
+  sign1: "leo"
+  sign2: "libra"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Leo-Libra dynamic."
+
+leo-scorpio:
+  sign1: "leo"
+  sign2: "scorpio"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Leo-Scorpio dynamic."
+
+leo-sagittarius:
+  sign1: "leo"
+  sign2: "sagittarius"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Leo-Sagittarius dynamic."
+
+leo-capricorn:
+  sign1: "leo"
+  sign2: "capricorn"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Leo-Capricorn dynamic."
+
+leo-aquarius:
+  sign1: "leo"
+  sign2: "aquarius"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Leo-Aquarius dynamic."
+
+leo-pisces:
+  sign1: "leo"
+  sign2: "pisces"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Leo-Pisces dynamic."
+
+virgo-libra:
+  sign1: "virgo"
+  sign2: "libra"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Virgo-Libra dynamic."
+
+virgo-scorpio:
+  sign1: "virgo"
+  sign2: "scorpio"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Virgo-Scorpio dynamic."
+
+virgo-sagittarius:
+  sign1: "virgo"
+  sign2: "sagittarius"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Virgo-Sagittarius dynamic."
+
+virgo-capricorn:
+  sign1: "virgo"
+  sign2: "capricorn"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Virgo-Capricorn dynamic."
+
+virgo-aquarius:
+  sign1: "virgo"
+  sign2: "aquarius"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Virgo-Aquarius dynamic."
+
+virgo-pisces:
+  sign1: "virgo"
+  sign2: "pisces"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Virgo-Pisces dynamic."
+
+libra-scorpio:
+  sign1: "libra"
+  sign2: "scorpio"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Libra-Scorpio dynamic."
+
+libra-sagittarius:
+  sign1: "libra"
+  sign2: "sagittarius"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Libra-Sagittarius dynamic."
+
+libra-capricorn:
+  sign1: "libra"
+  sign2: "capricorn"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Libra-Capricorn dynamic."
+
+libra-aquarius:
+  sign1: "libra"
+  sign2: "aquarius"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Libra-Aquarius dynamic."
+
+libra-pisces:
+  sign1: "libra"
+  sign2: "pisces"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Libra-Pisces dynamic."
+
+scorpio-sagittarius:
+  sign1: "scorpio"
+  sign2: "sagittarius"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Scorpio-Sagittarius dynamic."
+
+scorpio-capricorn:
+  sign1: "scorpio"
+  sign2: "capricorn"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Scorpio-Capricorn dynamic."
+
+scorpio-aquarius:
+  sign1: "scorpio"
+  sign2: "aquarius"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Scorpio-Aquarius dynamic."
+
+scorpio-pisces:
+  sign1: "scorpio"
+  sign2: "pisces"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Scorpio-Pisces dynamic."
+
+sagittarius-capricorn:
+  sign1: "sagittarius"
+  sign2: "capricorn"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Sagittarius-Capricorn dynamic."
+
+sagittarius-aquarius:
+  sign1: "sagittarius"
+  sign2: "aquarius"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Sagittarius-Aquarius dynamic."
+
+sagittarius-pisces:
+  sign1: "sagittarius"
+  sign2: "pisces"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Sagittarius-Pisces dynamic."
+
+capricorn-aquarius:
+  sign1: "capricorn"
+  sign2: "aquarius"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Capricorn-Aquarius dynamic."
+
+capricorn-pisces:
+  sign1: "capricorn"
+  sign2: "pisces"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Capricorn-Pisces dynamic."
+
+aquarius-pisces:
+  sign1: "aquarius"
+  sign2: "pisces"
+  score: 75  # 0-100, fill in per pair
+  summary: "Short one-line summary of the Aquarius-Pisces dynamic."

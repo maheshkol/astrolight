@@ -1,0 +1,36 @@
+{{ define "main" }}
+{{ $sign1 := index site.Data.zodiac .Params.sign1 }}
+{{ $sign2 := index site.Data.zodiac .Params.sign2 }}
+
+<article class="content-page compatibility-page">
+  <p class="eyebrow">SUN-SIGN COMPATIBILITY</p>
+  <h1>{{ $sign1.symbol }} {{ $sign1.name }} + {{ $sign2.symbol }} {{ $sign2.name }}</h1>
+
+  <div id="compat-score" data-sign-a="{{ .Params.sign1 }}" data-sign-b="{{ .Params.sign2 }}">
+    Calculating the transparent score…
+  </div>
+
+  {{ partial "ad-slot.html" (dict "Site" .Site "slot" "2222222222") }}
+
+  <div class="article-body">{{ .Content }}</div>
+
+  <div class="feature-grid">
+    <a class="feature-card" href="{{ printf "/zodiac/%s/" .Params.sign1 | relURL }}">Read {{ $sign1.name }} →</a>
+    <a class="feature-card" href="{{ printf "/zodiac/%s/" .Params.sign2 | relURL }}">Read {{ $sign2.name }} →</a>
+  </div>
+</article>
+
+<script type="module">
+  import { scoreCompatibility } from "{{ "js/astrology/compatibility.js" | relURL }}";
+  const el = document.getElementById("compat-score");
+  if (el) {
+    const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+    const result = scoreCompatibility(cap(el.dataset.signA), cap(el.dataset.signB));
+    el.innerHTML = `
+      <div class="score-total">Overall Compatibility: ${result.total}%</div>
+      <ul class="score-breakdown">${result.breakdown.map(b => `<li>${b.label}: ${b.points}/${b.outOf}</li>`).join("")}</ul>
+      <p class="score-disclaimer"><em>${result.disclaimer}</em></p>
+    `;
+  }
+</script>
+{{ end }}

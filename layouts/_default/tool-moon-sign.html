@@ -1,0 +1,24 @@
+{{ define "main" }}
+<article>
+  <h1>{{ .Title }}</h1>
+  <p>{{ .Content }}</p>
+
+  <form id="moon-sign-form">
+    <label>Date of birth <input type="date" name="date" required></label>
+    <label>Time of birth <input type="time" name="time"></label>
+    <label>UTC offset (hours) <input type="number" step="0.25" name="utcOffset" value="0"></label>
+    <button type="submit">Calculate</button>
+  </form>
+  <div id="moon-sign-result"></div>
+
+  {{ partial "ad-slot.html" (dict "Site" .Site "slot" "9222222222") }}
+</article>
+
+<script type="module">
+  import { initMoonSignTool } from "/js/tools/moon-sign.js";
+  initMoonSignTool(
+    document.getElementById("moon-sign-form"),
+    document.getElementById("moon-sign-result")
+  );
+</script>
+{{ end }}

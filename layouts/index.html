@@ -1,0 +1,114 @@
+{{ define "main" }}
+<section class="landing-hero" aria-labelledby="hero-title">
+  <canvas id="star-field" aria-hidden="true"></canvas>
+  <div class="hero-noise" aria-hidden="true"></div>
+  <div class="hero-orbit hero-orbit-a" aria-hidden="true"></div>
+  <div class="hero-orbit hero-orbit-b" aria-hidden="true"></div>
+  <div class="hero-glow hero-glow-a" aria-hidden="true"></div>
+  <div class="hero-glow hero-glow-b" aria-hidden="true"></div>
+
+  <div class="hero-copy reveal is-visible">
+    <p class="eyebrow">ASTROLOGY · ASTRONOMY · MATHEMATICS</p>
+    <h1 id="hero-title">Look up.<br><span>Understand your sky.</span></h1>
+    <p class="hero-lede">AstroLight turns dates, times and places into calculated celestial positions — then shows you what the numbers mean.</p>
+    <div class="hero-actions">
+      <a href="{{ "/birth-chart/" | relURL }}" class="cta cta-primary">Generate your birth chart <span>↗</span></a>
+      <a href="#how-it-works" class="cta cta-ghost">How it works <span>↓</span></a>
+    </div>
+    <div class="hero-proof" aria-label="AstroLight facts">
+      <span><b>360°</b> ecliptic</span><span><b>12</b> signs</span><span><b>27</b> nakshatras</span><span><b>12</b> houses</span>
+    </div>
+  </div>
+
+  <div class="hero-sky" aria-label="Animated zodiac visualization">
+    <div class="sky-label sky-label-top">TODAY'S CELESTIAL SNAPSHOT</div>
+    <div id="landing-wheel" class="landing-wheel"></div>
+    <div class="sky-caption" id="sky-caption">Calculating the sky…</div>
+  </div>
+
+  <a class="scroll-cue" href="#how-it-works" aria-label="Scroll to learn how AstroLight works"><span></span>SCROLL TO EXPLORE</a>
+</section>
+
+<section class="landing-snapshot section" id="how-it-works">
+  <div class="snapshot-intro reveal">
+    <p class="eyebrow">THE IDEA</p>
+    <h2>Astrology starts with a circle, a clock and a coordinate.</h2>
+    <p>At the calculation layer, a birth chart is a snapshot of where celestial bodies appear from Earth at a particular moment and place. AstroLight keeps that calculation separate from the traditional interpretations layered on top of it.</p>
+  </div>
+  <div class="snapshot-card reveal">
+    <div class="snapshot-card-head"><span>LIVE SKY</span><time id="sky-date">—</time></div>
+    <div class="sky-results" id="sky-results" aria-live="polite">
+      <div class="sky-result"><span>☉ Sun</span><strong>—</strong><small>sign</small></div>
+      <div class="sky-result"><span>☽ Moon</span><strong>—</strong><small>sign</small></div>
+      <div class="sky-result"><span>♂ Mars</span><strong>—</strong><small>longitude</small></div>
+      <div class="sky-result"><span>♃ Jupiter</span><strong>—</strong><small>longitude</small></div>
+    </div>
+    <p class="snapshot-note">Positions are calculated in your browser from the current UTC time using Astronomy Engine.</p>
+  </div>
+</section>
+
+<section class="landing-math section">
+  <div class="math-visual reveal" aria-hidden="true">
+    <div class="math-circle"><span>360°</span><small>celestial circle</small></div>
+    <div class="math-line math-line-one"></div>
+    <div class="math-line math-line-two"></div>
+    <div class="math-node node-one">12 × 30°</div>
+    <div class="math-node node-two">27 × 13°20′</div>
+  </div>
+  <div class="math-copy reveal">
+    <p class="eyebrow">SEE THE MATH</p>
+    <h2>Numbers first. Meaning second.</h2>
+    <p>A zodiac sign occupies 30° of the 360° ecliptic. The 27 Nakshatras divide that same circle into 13°20′ sections, each split into four 3°20′ padas.</p>
+    <div class="formula-row"><code>360° ÷ 12 = 30°</code><code>360° ÷ 27 = 13°20′</code></div>
+    <a href="{{ "/learn/astrology-math/" | relURL }}" class="text-link">Explore astrology mathematics <span>→</span></a>
+  </div>
+</section>
+
+<section class="landing-zodiac section">
+  <div class="section-heading reveal">
+    <p class="eyebrow">START WITH THE BASICS</p>
+    <h2>Explore the zodiac.</h2>
+    <p>Each sign has an element, modality, ruling planet and a 30° place on the celestial circle.</p>
+  </div>
+  <div class="sign-grid landing-sign-grid">
+    {{ range $key, $s := site.Data.zodiac }}
+    <a href="{{ printf "/zodiac/%s/" $key | relURL }}" class="sign-tile reveal">
+      <span class="sign-symbol">{{ $s.symbol }}</span>
+      <span class="sign-meta"><strong>{{ $s.name }}</strong><small>{{ $s.element }} · {{ $s.modality }}</small></span>
+      <span class="sign-degree">{{ mul (int $s.index) 30 }}°</span>
+    </a>
+    {{ end }}
+  </div>
+</section>
+
+<section class="landing-features section">
+  <div class="section-heading reveal">
+    <p class="eyebrow">EXPLORE</p>
+    <h2>More than a horoscope.</h2>
+  </div>
+  <div class="feature-grid">
+    <a class="feature-card feature-card-chart reveal" href="{{ "/birth-chart/" | relURL }}">
+      <span class="feature-kicker">01 · CALCULATE</span><span class="feature-icon">◌</span>
+      <h3>Birth Chart</h3><p>Turn birth date, time and location into a visual map of planetary positions, houses and aspects.</p><span class="feature-arrow">Explore chart →</span>
+    </a>
+    <a class="feature-card reveal" href="{{ "/birth-chart/nakshatras/" | relURL }}">
+      <span class="feature-kicker">02 · DISCOVER</span><span class="feature-icon">✦</span>
+      <h3>Nakshatras</h3><p>See how the Moon's sidereal longitude maps to one of 27 lunar mansions and four padas.</p><span class="feature-arrow">Explore Nakshatras →</span>
+    </a>
+    <a class="feature-card reveal" href="{{ "/compatibility/" | relURL }}">
+      <span class="feature-kicker">03 · COMPARE</span><span class="feature-icon">∞</span>
+      <h3>Compatibility</h3><p>Explore a transparent educational scoring model built from sign, element, modality and planetary relationships.</p><span class="feature-arrow">Compare signs →</span>
+    </a>
+  </div>
+</section>
+
+<section class="landing-disclaimer section reveal">
+  <div><p class="eyebrow">A CLEAR DISTINCTION</p><h2>Calculated positions are not scientific predictions.</h2></div>
+  <p>AstroLight uses astronomy calculations to locate celestial bodies. Astrological interpretations are presented as a traditional cultural framework for reflection and entertainment, not as scientific evidence or professional advice.</p>
+</section>
+
+<script type="module">
+  import { renderLandingExperience } from "{{ "js/landing.js" | relURL }}";
+  renderLandingExperience();
+</script>
+{{ end }}

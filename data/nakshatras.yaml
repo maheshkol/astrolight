@@ -1,0 +1,188 @@
+ashwini:
+  name: "Ashwini"
+  index: 0
+  ruling_planet: "Ketu"
+  sidereal_start_deg: 0.0
+  sidereal_end_deg: 13.3333
+
+bharani:
+  name: "Bharani"
+  index: 1
+  ruling_planet: "Venus"
+  sidereal_start_deg: 13.3333
+  sidereal_end_deg: 26.6667
+
+krittika:
+  name: "Krittika"
+  index: 2
+  ruling_planet: "Sun"
+  sidereal_start_deg: 26.6667
+  sidereal_end_deg: 40.0
+
+rohini:
+  name: "Rohini"
+  index: 3
+  ruling_planet: "Moon"
+  sidereal_start_deg: 40.0
+  sidereal_end_deg: 53.3333
+
+mrigashira:
+  name: "Mrigashira"
+  index: 4
+  ruling_planet: "Mars"
+  sidereal_start_deg: 53.3333
+  sidereal_end_deg: 66.6667
+
+ardra:
+  name: "Ardra"
+  index: 5
+  ruling_planet: "Rahu"
+  sidereal_start_deg: 66.6667
+  sidereal_end_deg: 80.0
+
+punarvasu:
+  name: "Punarvasu"
+  index: 6
+  ruling_planet: "Jupiter"
+  sidereal_start_deg: 80.0
+  sidereal_end_deg: 93.3333
+
+pushya:
+  name: "Pushya"
+  index: 7
+  ruling_planet: "Saturn"
+  sidereal_start_deg: 93.3333
+  sidereal_end_deg: 106.6667
+
+ashlesha:
+  name: "Ashlesha"
+  index: 8
+  ruling_planet: "Mercury"
+  sidereal_start_deg: 106.6667
+  sidereal_end_deg: 120.0
+
+magha:
+  name: "Magha"
+  index: 9
+  ruling_planet: "Ketu"
+  sidereal_start_deg: 120.0
+  sidereal_end_deg: 133.3333
+
+purva-phalguni:
+  name: "Purva Phalguni"
+  index: 10
+  ruling_planet: "Venus"
+  sidereal_start_deg: 133.3333
+  sidereal_end_deg: 146.6667
+
+uttara-phalguni:
+  name: "Uttara Phalguni"
+  index: 11
+  ruling_planet: "Sun"
+  sidereal_start_deg: 146.6667
+  sidereal_end_deg: 160.0
+
+hasta:
+  name: "Hasta"
+  index: 12
+  ruling_planet: "Moon"
+  sidereal_start_deg: 160.0
+  sidereal_end_deg: 173.3333
+
+chitra:
+  name: "Chitra"
+  index: 13
+  ruling_planet: "Mars"
+  sidereal_start_deg: 173.3333
+  sidereal_end_deg: 186.6667
+
+swati:
+  name: "Swati"
+  index: 14
+  ruling_planet: "Rahu"
+  sidereal_start_deg: 186.6667
+  sidereal_end_deg: 200.0
+
+vishakha:
+  name: "Vishakha"
+  index: 15
+  ruling_planet: "Jupiter"
+  sidereal_start_deg: 200.0
+  sidereal_end_deg: 213.3333
+
+anuradha:
+  name: "Anuradha"
+  index: 16
+  ruling_planet: "Saturn"
+  sidereal_start_deg: 213.3333
+  sidereal_end_deg: 226.6667
+
+jyeshtha:
+  name: "Jyeshtha"
+  index: 17
+  ruling_planet: "Mercury"
+  sidereal_start_deg: 226.6667
+  sidereal_end_deg: 240.0
+
+mula:
+  name: "Mula"
+  index: 18
+  ruling_planet: "Ketu"
+  sidereal_start_deg: 240.0
+  sidereal_end_deg: 253.3333
+
+purva-ashadha:
+  name: "Purva Ashadha"
+  index: 19
+  ruling_planet: "Venus"
+  sidereal_start_deg: 253.3333
+  sidereal_end_deg: 266.6667
+
+uttara-ashadha:
+  name: "Uttara Ashadha"
+  index: 20
+  ruling_planet: "Sun"
+  sidereal_start_deg: 266.6667
+  sidereal_end_deg: 280.0
+
+shravana:
+  name: "Shravana"
+  index: 21
+  ruling_planet: "Moon"
+  sidereal_start_deg: 280.0
+  sidereal_end_deg: 293.3333
+
+dhanishta:
+  name: "Dhanishta"
+  index: 22
+  ruling_planet: "Mars"
+  sidereal_start_deg: 293.3333
+  sidereal_end_deg: 306.6667
+
+shatabhisha:
+  name: "Shatabhisha"
+  index: 23
+  ruling_planet: "Rahu"
+  sidereal_start_deg: 306.6667
+  sidereal_end_deg: 320.0
+
+purva-bhadrapada:
+  name: "Purva Bhadrapada"
+  index: 24
+  ruling_planet: "Jupiter"
+  sidereal_start_deg: 320.0
+  sidereal_end_deg: 333.3333
+
+uttara-bhadrapada:
+  name: "Uttara Bhadrapada"
+  index: 25
+  ruling_planet: "Saturn"
+  sidereal_start_deg: 333.3333
+  sidereal_end_deg: 346.6667
+
+revati:
+  name: "Revati"
+  index: 26
+  ruling_planet: "Mercury"
+  sidereal_start_deg: 346.6667
+  sidereal_end_deg: 360.0

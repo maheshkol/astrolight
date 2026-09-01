@@ -1,0 +1,25 @@
+{{ define "main" }}
+{{ $sign := .Params.sign }}
+{{ $period := .Params.period }}
+{{ $data := index site.Data.zodiac $sign }}
+
+<article class="content-page horoscope-page">
+  <p class="eyebrow">{{ upper $period }} HOROSCOPE</p>
+  <h1>{{ $data.symbol }} {{ $data.name }} {{ humanize $period }} Horoscope</h1>
+
+  <div id="horoscope-text" class="quote-panel" data-sign="{{ $sign }}" data-period="{{ $period }}">
+    Loading the {{ $data.name }} horoscope…
+  </div>
+
+  {{ partial "ad-slot.html" (dict "Site" .Site "slot" "3333333333") }}
+
+  <h2>How to use this horoscope</h2>
+  <p>This page uses a pre-written, date-indexed content bank so the same URL can change over time without generating arbitrary text in the browser. The horoscope is a broad Sun-sign reading and should be treated as a reflective prompt, not a guaranteed prediction.</p>
+  <p>{{ $data.name }} is traditionally associated with the {{ $data.element }} element, {{ $data.modality }} modality and {{ $data.ruling_planet }}. For a more personalized calculation, use the <a href="{{ "/birth-chart/" | relURL }}">birth-chart tool</a>.</p>
+
+  <h2>Learn more about {{ $data.name }}</h2>
+  <p><a href="{{ printf "/zodiac/%s/" $sign | relURL }}">Read the full {{ $data.name }} profile →</a></p>
+</article>
+
+<script src="{{ "js/horoscope-rotator.js" | relURL }}" defer></script>
+{{ end }}

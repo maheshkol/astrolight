@@ -1,0 +1,167 @@
+aries:
+  index: 0
+  name: "Aries"
+  symbol: "♈"
+  dates: "March 21 – April 19"
+  element: "Fire"
+  modality: "Cardinal"
+  ruling_planet: "Mars"
+  lucky_color: "Red"
+  lucky_number: 9
+  lucky_day: "Tuesday"
+  traits: ["Bold", "Energetic", "Impulsive", "Competitive", "Independent"]
+  compatible: ["leo", "sagittarius", "gemini", "aquarius"]
+
+taurus:
+  index: 1
+  name: "Taurus"
+  symbol: "♉"
+  dates: "April 20 – May 20"
+  element: "Earth"
+  modality: "Fixed"
+  ruling_planet: "Venus"
+  lucky_color: "Green"
+  lucky_number: 6
+  lucky_day: "Friday"
+  traits: ["Reliable", "Patient", "Stubborn", "Practical", "Devoted"]
+  compatible: ["virgo", "capricorn", "cancer", "pisces"]
+
+gemini:
+  index: 2
+  name: "Gemini"
+  symbol: "♊"
+  dates: "May 21 – June 20"
+  element: "Air"
+  modality: "Mutable"
+  ruling_planet: "Mercury"
+  lucky_color: "Yellow"
+  lucky_number: 5
+  lucky_day: "Wednesday"
+  traits: ["Curious", "Adaptable", "Witty", "Indecisive", "Sociable"]
+  compatible: ["libra", "aquarius", "aries", "leo"]
+
+cancer:
+  index: 3
+  name: "Cancer"
+  symbol: "♋"
+  dates: "June 21 – July 22"
+  element: "Water"
+  modality: "Cardinal"
+  ruling_planet: "Moon"
+  lucky_color: "Silver"
+  lucky_number: 2
+  lucky_day: "Monday"
+  traits: ["Nurturing", "Emotional", "Protective", "Intuitive", "Moody"]
+  compatible: ["scorpio", "pisces", "taurus", "virgo"]
+
+leo:
+  index: 4
+  name: "Leo"
+  symbol: "♌"
+  dates: "July 23 – August 22"
+  element: "Fire"
+  modality: "Fixed"
+  ruling_planet: "Sun"
+  lucky_color: "Gold"
+  lucky_number: 1
+  lucky_day: "Sunday"
+  traits: ["Confident", "Generous", "Dramatic", "Loyal", "Stubborn"]
+  compatible: ["aries", "sagittarius", "gemini", "libra"]
+
+virgo:
+  index: 5
+  name: "Virgo"
+  symbol: "♍"
+  dates: "August 23 – September 22"
+  element: "Earth"
+  modality: "Mutable"
+  ruling_planet: "Mercury"
+  lucky_color: "Navy"
+  lucky_number: 5
+  lucky_day: "Wednesday"
+  traits: ["Analytical", "Practical", "Modest", "Critical", "Hardworking"]
+  compatible: ["taurus", "capricorn", "cancer", "scorpio"]
+
+libra:
+  index: 6
+  name: "Libra"
+  symbol: "♎"
+  dates: "September 23 – October 22"
+  element: "Air"
+  modality: "Cardinal"
+  ruling_planet: "Venus"
+  lucky_color: "Pink"
+  lucky_number: 6
+  lucky_day: "Friday"
+  traits: ["Diplomatic", "Fair-minded", "Social", "Indecisive", "Charming"]
+  compatible: ["gemini", "aquarius", "leo", "sagittarius"]
+
+scorpio:
+  index: 7
+  name: "Scorpio"
+  symbol: "♏"
+  dates: "October 23 – November 21"
+  element: "Water"
+  modality: "Fixed"
+  ruling_planet: "Pluto"
+  lucky_color: "Maroon"
+  lucky_number: 8
+  lucky_day: "Tuesday"
+  traits: ["Passionate", "Resourceful", "Secretive", "Loyal", "Intense"]
+  compatible: ["cancer", "pisces", "virgo", "capricorn"]
+
+sagittarius:
+  index: 8
+  name: "Sagittarius"
+  symbol: "♐"
+  dates: "November 22 – December 21"
+  element: "Fire"
+  modality: "Mutable"
+  ruling_planet: "Jupiter"
+  lucky_color: "Purple"
+  lucky_number: 3
+  lucky_day: "Thursday"
+  traits: ["Adventurous", "Optimistic", "Blunt", "Philosophical", "Restless"]
+  compatible: ["aries", "leo", "libra", "aquarius"]
+
+capricorn:
+  index: 9
+  name: "Capricorn"
+  symbol: "♑"
+  dates: "December 22 – January 19"
+  element: "Earth"
+  modality: "Cardinal"
+  ruling_planet: "Saturn"
+  lucky_color: "Brown"
+  lucky_number: 4
+  lucky_day: "Saturday"
+  traits: ["Disciplined", "Ambitious", "Reserved", "Responsible", "Patient"]
+  compatible: ["taurus", "virgo", "scorpio", "pisces"]
+
+aquarius:
+  index: 10
+  name: "Aquarius"
+  symbol: "♒"
+  dates: "January 20 – February 18"
+  element: "Air"
+  modality: "Fixed"
+  ruling_planet: "Uranus"
+  lucky_color: "Turquoise"
+  lucky_number: 7
+  lucky_day: "Saturday"
+  traits: ["Independent", "Inventive", "Aloof", "Humanitarian", "Unpredictable"]
+  compatible: ["gemini", "libra", "aries", "sagittarius"]
+
+pisces:
+  index: 11
+  name: "Pisces"
+  symbol: "♓"
+  dates: "February 19 – March 20"
+  element: "Water"
+  modality: "Mutable"
+  ruling_planet: "Neptune"
+  lucky_color: "Sea Green"
+  lucky_number: 3
+  lucky_day: "Thursday"
+  traits: ["Compassionate", "Artistic", "Escapist", "Intuitive", "Gentle"]
+  compatible: ["cancer", "scorpio", "taurus", "capricorn"]

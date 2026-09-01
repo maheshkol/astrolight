@@ -1,0 +1,1328 @@
+{{ define "main" }}
+{{ $sign := .Params.sign }}
+{{ $data := index site.Data.zodiac $sign }}
+
+<article class="content-page zodiac-page zodiac-single-page">
+
+  <section class="zodiac-single-hero">
+
+    <div class="zodiac-single-hero-copy">
+      <p class="eyebrow">ZODIAC REFERENCE · {{ $data.degree_start }}° — {{ $data.degree_end }}°</p>
+
+      <h1>{{ $data.symbol }} {{ $data.name }}</h1>
+
+      <p class="zodiac-single-tagline">
+        {{ if eq $data.name "Aries" }}Begin boldly.{{ else }}Explore {{ $data.name }}.{{ end }}
+      </p>
+
+      <p class="zodiac-single-first-sign">
+        The First Sign
+      </p>
+
+      <p class="zodiac-single-intro">
+        {{ $data.dates }} · {{ $data.element }} · {{ $data.modality }} · Ruled by {{ $data.ruling_planet }}
+      </p>
+
+      <div class="zodiac-single-degree-track" aria-label="{{ $data.name }} zodiac position">
+        <span>{{ $data.degree_start }}°</span>
+        <div><i></i></div>
+        <span>{{ $data.degree_end }}°</span>
+      </div>
+    </div>
+
+    <div class="zodiac-single-art">
+      <div class="zodiac-single-orbit zodiac-single-orbit-a"></div>
+      <div class="zodiac-single-orbit zodiac-single-orbit-b"></div>
+      <div class="zodiac-single-glow"></div>
+
+      <img
+        src="../{{ $data.name }}.png"
+        alt="{{ $data.name }} zodiac illustration"
+        class="zodiac-single-image"
+      >
+
+      <div class="zodiac-single-symbol">{{ $data.symbol }}</div>
+    </div>
+
+  </section>
+
+
+  <section class="zodiac-single-overview">
+
+    <div class="zodiac-single-heading">
+      <p class="eyebrow">AT A GLANCE</p>
+      <h2>The structure of {{ $data.name }}.</h2>
+      <p>
+        Explore the traditional element, modality and ruling planet
+        associated with this zodiac sign.
+      </p>
+    </div>
+
+    <div class="zodiac-single-facts">
+
+      <button type="button" class="zodiac-single-fact" data-zodiac-modal="element">
+        <span>01</span>
+        <small>ELEMENT</small>
+        <strong>{{ $data.element }}</strong>
+        <em>Explore →</em>
+      </button>
+
+      <button type="button" class="zodiac-single-fact" data-zodiac-modal="modality">
+        <span>02</span>
+        <small>MODALITY</small>
+        <strong>{{ $data.modality }}</strong>
+        <em>Explore →</em>
+      </button>
+
+      <button type="button" class="zodiac-single-fact" data-zodiac-modal="ruler">
+        <span>03</span>
+        <small>RULING PLANET</small>
+        <strong>{{ $data.ruling_planet }}</strong>
+        <em>Explore →</em>
+      </button>
+
+    </div>
+  </section>
+
+
+  <section class="zodiac-single-explore">
+
+    <div class="zodiac-single-heading">
+      <p class="eyebrow">EXPLORE {{ upper $data.name }}</p>
+      <h2>More than a symbol.</h2>
+      <p>Select a topic to explore its traditional meaning.</p>
+    </div>
+
+    <div class="zodiac-single-topics">
+
+      <button type="button" class="zodiac-single-topic" data-zodiac-modal="symbol">
+        <span>01</span>
+        <h3>{{ $data.symbol }} The Symbol</h3>
+        <p>Traditional symbolism</p>
+      </button>
+
+      <button type="button" class="zodiac-single-topic" data-zodiac-modal="element">
+        <span>02</span>
+        <h3>{{ $data.element }}</h3>
+        <p>The elemental nature</p>
+      </button>
+
+      <button type="button" class="zodiac-single-topic" data-zodiac-modal="modality">
+        <span>03</span>
+        <h3>{{ $data.modality }}</h3>
+        <p>The mode of operation</p>
+      </button>
+
+      <button type="button" class="zodiac-single-topic" data-zodiac-modal="ruler">
+        <span>04</span>
+        <h3>{{ $data.ruling_planet }}</h3>
+        <p>The traditional ruler</p>
+      </button>
+
+      <button type="button" class="zodiac-single-topic" data-zodiac-modal="strengths">
+        <span>05</span>
+        <h3>Strengths</h3>
+        <p>Traditional qualities</p>
+      </button>
+
+      <button type="button" class="zodiac-single-topic" data-zodiac-modal="growth">
+        <span>06</span>
+        <h3>Growth Areas</h3>
+        <p>Where awareness matters</p>
+      </button>
+
+    </div>
+  </section>
+
+
+  <section class="zodiac-single-position">
+
+    <div>
+      <p class="eyebrow">ZODIAC POSITION</p>
+      <h2>
+        {{ $data.name }} occupies<br>
+      <span class="zodiac-position-degrees">
+        {{ $data.degree_start }}° — {{ $data.degree_end }}°
+      </span>
+      </h2>
+      <p>
+        The tropical zodiac is represented as a 360° circle divided
+        into twelve equal 30° sectors.
+      </p>
+
+      <div class="zodiac-single-equation">
+        <span>{{ $data.degree_start }}°</span>
+        <div><i></i></div>
+        <span>{{ $data.degree_end }}°</span>
+      </div>
+
+      <p class="zodiac-single-math">
+        360° ÷ 12 signs = 30° per sign
+      </p>
+    </div>
+
+    <div class="zodiac-single-wheel">
+      <div class="zodiac-single-wheel-ring"></div>
+      <div class="zodiac-single-wheel-sector"></div>
+
+      <div class="zodiac-single-wheel-center">
+        <span>{{ $data.symbol }}</span>
+        <strong>{{ upper $data.name }}</strong>
+        <small>{{ $data.degree_start }}° — {{ $data.degree_end }}°</small>
+      </div>
+    </div>
+
+  </section>
+
+
+  <section class="zodiac-single-content">
+
+    <div class="zodiac-single-heading">
+      <p class="eyebrow">THE DETAILS</p>
+      <h2>Understanding {{ $data.name }}.</h2>
+    </div>
+
+    <div class="article-body">
+      {{ .Content }}
+    </div>
+
+  </section>
+
+
+  <section class="zodiac-single-data">
+
+    <div>
+      <p class="eyebrow">TRADITIONAL SIGN KEYWORDS</p>
+      <h2>{{ $data.name }} themes.</h2>
+    </div>
+
+    <div class="zodiac-single-keywords">
+      {{ range $data.traits }}
+        <span>{{ . }}</span>
+      {{ end }}
+    </div>
+
+  </section>
+  <section class="zodiac-single-compatibility">
+
+    <p class="eyebrow">ARIES &amp; RELATIONSHIPS</p>
+
+    <h2>How {{ $data.name }} connects with other signs.</h2>
+
+    <p class="zodiac-single-relationship-intro">
+      In traditional compatibility readings, {{ $data.name }}
+      is compared with another person's element, modality,
+      ruling planets and—when birth data is available—the
+      Moon, Venus, Mars and other chart factors.
+    </p>
+
+    <div class="zodiac-single-links zodiac-single-relationship-links">
+
+      {{ range $data.compatible }}
+
+        {{ $other := index site.Data.zodiac . }}
+
+        <a
+          href="{{ printf "/zodiac/%s/" . | relURL }}"
+          class="zodiac-single-relationship-card"
+        >
+
+          <span class="zodiac-single-relationship-symbol">
+            {{ $other.symbol }}
+          </span>
+
+          <strong>{{ $other.name }}</strong>
+
+          <small>Explore compatibility →</small>
+
+        </a>
+
+      {{ end }}
+
+    </div>
+
+    <a
+      href="{{ "/compatibility/" | relURL }}"
+      class="zodiac-single-compatibility-cta"
+    >
+      Compare {{ $data.name }} with another sign →
+    </a>
+
+  </section>
+<section class="zodiac-single-next">
+
+    <div class="zodiac-single-next-heading">
+      <p class="eyebrow">EXPLORE MORE</p>
+      <h2>Continue your journey.</h2>
+      <p>
+        Explore compatibility, build a birth chart, or discover another
+        sign in the zodiac.
+      </p>
+    </div>
+
+    <div class="zodiac-single-explore-grid">
+
+      <a
+        href="{{ "/compatibility/" | relURL }}"
+        class="zodiac-single-explore-card"
+      >
+        <span class="zodiac-explore-number">01</span>
+        <div>
+          <h3>Compatibility</h3>
+          <p>See how {{ $data.name }} connects with other signs.</p>
+        </div>
+        <strong>→</strong>
+      </a>
+
+      <a
+        href="{{ "/birth-chart/" | relURL }}"
+        class="zodiac-single-explore-card"
+      >
+        <span class="zodiac-explore-number">02</span>
+        <div>
+          <h3>Birth Chart</h3>
+          <p>Go beyond the Sun sign and explore the full chart.</p>
+        </div>
+        <strong>→</strong>
+      </a>
+
+      <a
+        href="{{ "/zodiac/" | relURL }}"
+        class="zodiac-single-explore-card"
+      >
+        <span class="zodiac-explore-number">03</span>
+        <div>
+          <h3>Other Zodiac Signs</h3>
+          <p>Explore the complete twelve-sign zodiac.</p>
+        </div>
+        <strong>→</strong>
+      </a>
+
+    </div>
+
+    <div class="zodiac-single-next-links">
+
+      <a href="{{ "/zodiac/" | relURL }}">
+        <span>BACK TO</span>
+        Zodiac Explorer →
+      </a>
+
+      {{ if eq $data.name "Aries" }}
+        <a href="{{ "/zodiac/taurus/" | relURL }}">
+          <span>NEXT SIGN</span>
+          Taurus →
+        </a>
+      {{ end }}
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       MODAL
+       ===================================================== -->
+
+  <div class="zodiac-single-modal" id="zodiac-single-modal" aria-hidden="true">
+
+    <div class="zodiac-single-modal-backdrop"></div>
+
+    <div
+      class="zodiac-single-modal-panel"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="zodiac-single-modal-title"
+    >
+
+      <button
+        type="button"
+        class="zodiac-single-modal-close"
+        aria-label="Close"
+      >×</button>
+
+      <p class="eyebrow" id="zodiac-single-modal-label"></p>
+      <h2 id="zodiac-single-modal-title"></h2>
+      <div id="zodiac-single-modal-content"></div>
+
+    </div>
+  </div>
+
+
+  <style>
+    /* =====================================================
+       ASTROLIGHT — ZODIAC SINGLE PAGE
+       Scoped styles. No existing main.css replacement needed.
+       ===================================================== */
+
+    .zodiac-single-page {
+      --zsgold: #f4d58d;
+      --zscyan: #5ee8ff;
+      --zstext: #f5f1e8;
+      --zsmuted: #8d99b3;
+      --zspanel: rgba(255,255,255,.025);
+      --zsborder: rgba(255,255,255,.09);
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 80% 8%, rgba(92,70,160,.15), transparent 32%),
+        #05060d;
+    }
+
+    .zodiac-single-hero {
+      max-width: 1320px;
+      min-height: 700px;
+      margin: 0 auto;
+      padding: 90px 55px 70px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .zodiac-single-hero-copy {
+      position: relative;
+      z-index: 3;
+      animation: astrolightSingleCopyIn .8s ease both;
+    }
+
+    .zodiac-single-page .eyebrow {
+      color: var(--zscyan);
+      letter-spacing: 3px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .zodiac-single-hero h1 {
+      margin: 12px 0;
+      color: var(--zstext);
+      font-size: clamp(70px, 10vw, 150px);
+      line-height: .85;
+      letter-spacing: -6px;
+    }
+
+    .zodiac-single-tagline {
+      margin: 25px 0 8px;
+      color: var(--zsgold);
+      font: 32px Georgia, serif;
+    }
+
+    .zodiac-single-first-sign {
+      margin: 14px 0 0;
+      color: var(--zsgold);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .zodiac-single-intro {
+      color: var(--zsmuted);
+      line-height: 1.8;
+      max-width: 560px;
+    }
+
+    .zodiac-single-degree-track,
+    .zodiac-single-equation {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      color: var(--zsgold);
+      font: 13px monospace;
+    }
+
+    .zodiac-single-degree-track {
+      margin-top: 30px;
+    }
+
+    .zodiac-single-degree-track > div,
+    .zodiac-single-equation > div {
+      width: 130px;
+      height: 2px;
+      background: rgba(255,255,255,.1);
+    }
+
+    .zodiac-single-degree-track i,
+    .zodiac-single-equation i {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: var(--zsgold);
+      transform-origin: left;
+      animation: astrolightSingleLineIn 1.2s ease both;
+    }
+
+    .zodiac-single-art {
+      position: relative;
+      min-height: 500px;
+      display: grid;
+      place-items: center;
+    }
+
+    .zodiac-single-image {
+      position: relative;
+      z-index: 4;
+      width: min(390px, 72%);
+      height: auto;
+      object-fit: contain;
+      filter:
+        drop-shadow(0 0 18px rgba(244,213,141,.22))
+        drop-shadow(0 0 55px rgba(244,213,141,.08));
+      animation:
+        astrolightSingleImageIn 1s ease .15s both,
+        astrolightSingleFloat 5s ease-in-out 1.15s infinite;
+    }
+
+    .zodiac-single-glow {
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(244,213,141,.17), transparent 70%);
+      animation: astrolightSingleGlow 4s ease-in-out infinite;
+    }
+
+    .zodiac-single-orbit {
+      position: absolute;
+      border: 1px solid rgba(244,213,141,.20);
+      border-radius: 50%;
+    }
+
+    .zodiac-single-orbit-a {
+      width: 430px;
+      height: 430px;
+      animation: astrolightSingleOrbit 24s linear infinite;
+    }
+
+    .zodiac-single-orbit-b {
+      width: 540px;
+      height: 540px;
+      border-color: rgba(94,232,255,.08);
+      animation: astrolightSingleOrbitReverse 34s linear infinite;
+    }
+
+    .zodiac-single-symbol {
+      position: absolute;
+      z-index: 5;
+      bottom: 25px;
+      color: var(--zsgold);
+      font-size: 30px;
+      text-shadow: 0 0 15px rgba(244,213,141,.55);
+      animation: astrolightSinglePulse 3s ease-in-out infinite;
+    }
+
+    .zodiac-single-overview,
+    .zodiac-single-explore,
+    .zodiac-single-content,
+    .zodiac-single-data,
+    .zodiac-single-compatibility,
+    .zodiac-single-next {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 100px 40px;
+    }
+
+    .zodiac-single-heading {
+      max-width: 720px;
+      margin-bottom: 45px;
+    }
+
+    .zodiac-single-heading h2,
+    .zodiac-single-position h2,
+    .zodiac-single-data h2,
+    .zodiac-single-compatibility h2 {
+      color: var(--zstext);
+      font-size: clamp(40px, 5vw, 68px);
+      line-height: .95;
+      letter-spacing: -3px;
+      margin: 0 0 20px;
+    }
+
+    .zodiac-single-heading p:not(.eyebrow) {
+      color: var(--zsmuted);
+      line-height: 1.8;
+    }
+
+    .zodiac-single-facts,
+    .zodiac-single-topics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .zodiac-single-fact,
+    .zodiac-single-topic {
+      min-height: 190px;
+      padding: 28px;
+      text-align: left;
+      color: var(--zstext);
+      background: var(--zspanel);
+      border: 1px solid var(--zsborder);
+      cursor: pointer;
+      transition: transform .3s ease, border-color .3s ease, background .3s ease;
+    }
+
+    .zodiac-single-fact:hover,
+    .zodiac-single-topic:hover {
+      transform: translateY(-5px);
+      border-color: rgba(244,213,141,.4);
+      background: rgba(244,213,141,.045);
+    }
+
+    .zodiac-single-fact > span,
+    .zodiac-single-topic > span {
+      display: block;
+      color: #58627b;
+      font: 12px monospace;
+    }
+
+    .zodiac-single-fact small {
+      display: block;
+      margin-top: 35px;
+      color: #6d7894;
+      letter-spacing: 2px;
+      font-size: 10px;
+    }
+
+    .zodiac-single-fact strong {
+      display: block;
+      margin-top: 7px;
+      color: var(--zsgold);
+      font-size: 28px;
+    }
+
+    .zodiac-single-fact em {
+      display: block;
+      margin-top: 25px;
+      color: var(--zscyan);
+      font-size: 12px;
+      font-style: normal;
+    }
+
+    .zodiac-single-topic h3 {
+      margin: 55px 0 7px;
+      font-size: 24px;
+    }
+
+    .zodiac-single-topic p {
+      margin: 0;
+      color: #74819e;
+    }
+
+.zodiac-single-position {
+  min-height: 600px;
+  width: min(1180px, calc(100% - 80px));
+  margin: 0 auto;
+  padding: 100px 0;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 60px;
+  align-items: center;
+
+  background: radial-gradient(
+    circle at 75% 50%,
+    rgba(92,70,160,.12),
+    transparent 38%
+  );
+}
+
+    .zodiac-single-position > div:first-child > p:not(.eyebrow) {
+      max-width: 580px;
+      color: var(--zsmuted);
+      line-height: 1.8;
+    }
+
+    .zodiac-single-equation {
+      margin-top: 35px;
+    }
+
+    .zodiac-single-math {
+      color: var(--zscyan) !important;
+      font: 13px monospace;
+    }
+
+    .zodiac-single-wheel {
+      position: relative;
+      width: 390px;
+      height: 390px;
+      margin: auto;
+      display: grid;
+      place-items: center;
+    }
+
+    .zodiac-single-wheel-ring {
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(244,213,141,.25);
+      border-radius: 50%;
+    }
+
+    .zodiac-single-wheel-ring::before {
+      content: "";
+      position: absolute;
+      inset: 35px;
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 50%;
+    }
+
+    .zodiac-single-wheel-sector {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: conic-gradient(
+        from -15deg,
+        rgba(244,213,141,.24) 0deg 30deg,
+        transparent 30deg 360deg
+      );
+      animation: astrolightSingleSectorIn 1.2s ease both;
+    }
+
+    .zodiac-single-wheel-center {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .zodiac-single-wheel-center span {
+      color: var(--zsgold);
+      font-size: 42px;
+    }
+
+    .zodiac-single-wheel-center strong {
+      color: var(--zstext);
+      letter-spacing: 2px;
+    }
+
+    .zodiac-single-wheel-center small {
+      color: #7d89a4;
+      font: 11px monospace;
+    }
+
+    .zodiac-single-content .article-body {
+      max-width: 820px;
+      color: #aab4ca;
+      line-height: 1.9;
+    }
+
+    .zodiac-single-content .article-body h2 {
+      margin-top: 55px;
+      color: var(--zstext);
+    }
+
+    .zodiac-single-content .article-body h3 {
+      color: var(--zsgold);
+    }
+
+    .zodiac-single-content .article-body a {
+      color: var(--zscyan);
+    }    
+    /* =====================================================
+       ZODIAC ARTICLE TABLE
+       ===================================================== */
+
+    .zodiac-single-content .article-body table {
+      width: 100%;
+      margin: 35px 0 45px;
+      border-collapse: separate;
+      border-spacing: 0;
+      border: 1px solid var(--zsborder);
+      background: rgba(255,255,255,.015);
+      overflow: hidden;
+    }
+
+    .zodiac-single-content .article-body thead {
+      background: rgba(244,213,141,.055);
+    }
+
+    .zodiac-single-content .article-body th {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--zsborder);
+      color: var(--zsgold);
+      text-align: left;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .zodiac-single-content .article-body td {
+      padding: 15px 20px;
+      border-bottom: 1px solid rgba(255,255,255,.055);
+      color: #aab4ca;
+      font-size: 15px;
+      line-height: 1.6;
+      vertical-align: top;
+    }
+
+    .zodiac-single-content .article-body tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .zodiac-single-content .article-body tbody tr:hover {
+      background: rgba(244,213,141,.035);
+    }
+
+    .zodiac-single-content .article-body td:first-child {
+      width: 28%;
+      color: var(--zstext);
+      font-weight: 600;
+    }
+
+    @media (max-width: 700px) {
+      .zodiac-single-content .article-body {
+        overflow-x: auto;
+      }
+
+      .zodiac-single-content .article-body table {
+        min-width: 560px;
+      }
+
+      .zodiac-single-content .article-body th,
+      .zodiac-single-content .article-body td {
+        padding: 13px 15px;
+      }
+    }
+
+
+    .zodiac-single-keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .zodiac-single-keywords span {
+      padding: 10px 15px;
+      border: 1px solid var(--zsborder);
+      color: #aab4ca;
+      background: rgba(255,255,255,.02);
+    }
+
+    .zodiac-single-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 35px;
+    }
+
+    .zodiac-single-links a,
+    .zodiac-single-next a {
+      display: block;
+      padding: 22px 26px;
+      border: 1px solid var(--zsborder);
+      color: var(--zstext);
+      text-decoration: none;
+      transition: .3s ease;
+    }
+
+    .zodiac-single-links a:hover,
+    .zodiac-single-next a:hover {
+      transform: translateY(-4px);
+      border-color: rgba(244,213,141,.4);
+    }
+
+    .zodiac-single-links span,
+    .zodiac-single-next span {
+      margin-right: 8px;
+      color: var(--zsgold);
+      font-size: 24px;
+    }
+
+    .zodiac-single-next {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      padding-top: 20px;
+      padding-bottom: 140px;
+    }
+
+    .zodiac-single-next a span {
+      display: block;
+      margin: 0 0 10px;
+      color: #68748f;
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    .zodiac-single-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .25s ease, visibility .25s ease;
+    }
+
+    .zodiac-single-modal.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .zodiac-single-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.78);
+      backdrop-filter: blur(10px);
+    }
+
+    .zodiac-single-modal-panel {
+      position: relative;
+      z-index: 2;
+      width: min(680px, 100%);
+      max-height: 80vh;
+      overflow-y: auto;
+      padding: 45px;
+      background: #0a0b14;
+      border: 1px solid rgba(244,213,141,.22);
+      box-shadow: 0 30px 100px rgba(0,0,0,.55);
+      transform: translateY(20px) scale(.97);
+      transition: transform .3s ease;
+    }
+
+    .zodiac-single-modal.is-open .zodiac-single-modal-panel {
+      transform: translateY(0) scale(1);
+    }
+
+    .zodiac-single-modal-close {
+      position: absolute;
+      top: 12px;
+      right: 18px;
+      border: 0;
+      background: transparent;
+      color: #9aa5bd;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    .zodiac-single-modal-panel h2 {
+      margin: 0 0 25px;
+      color: var(--zstext);
+      font-size: 48px;
+    }
+
+    .zodiac-single-modal-panel p,
+    .zodiac-single-modal-panel li {
+      color: #9ca8c0;
+      line-height: 1.9;
+    }
+
+    .zodiac-single-modal-panel ul {
+      padding-left: 20px;
+    }
+
+    @keyframes astrolightSingleCopyIn {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes astrolightSingleImageIn {
+      from { opacity: 0; transform: scale(.72); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes astrolightSingleFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes astrolightSingleGlow {
+      0%, 100% { opacity: .55; transform: scale(.92); }
+      50% { opacity: 1; transform: scale(1.08); }
+    }
+
+    @keyframes astrolightSingleOrbit {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes astrolightSingleOrbitReverse {
+      from { transform: rotate(360deg); }
+      to { transform: rotate(0deg); }
+    }
+
+    @keyframes astrolightSinglePulse {
+      0%, 100% { opacity: .6; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes astrolightSingleLineIn {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+
+    @keyframes astrolightSingleSectorIn {
+      from { opacity: 0; transform: scale(.85); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 850px) {
+      .zodiac-single-hero,
+      .zodiac-single-position {
+        grid-template-columns: 1fr;
+      }
+
+      .zodiac-single-hero {
+        min-height: auto;
+        padding-top: 70px;
+      }
+
+      .zodiac-single-art {
+        min-height: 420px;
+      }
+
+      .zodiac-single-facts,
+      .zodiac-single-topics {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .zodiac-single-position {
+        width: calc(100% - 60px);
+        padding: 80px 0;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .zodiac-single-hero {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .zodiac-single-hero h1 {
+        font-size: 75px;
+        letter-spacing: -4px;
+      }
+
+      .zodiac-single-facts,
+      .zodiac-single-topics,
+      .zodiac-single-next {
+        grid-template-columns: 1fr;
+      }
+
+      .zodiac-single-orbit-a {
+        width: 320px;
+        height: 320px;
+      }
+
+      .zodiac-single-orbit-b {
+        width: 390px;
+        height: 390px;
+      }
+
+      .zodiac-single-wheel {
+        width: 300px;
+        height: 300px;
+      }
+
+      .zodiac-single-modal-panel {
+        padding: 35px 25px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .zodiac-single-page *,
+      .zodiac-single-page *::before,
+      .zodiac-single-page *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  
+    /* =====================================================
+       EXPLORE MORE — FINAL LAYOUT
+       ===================================================== */
+
+    .zodiac-single-next {
+      display: grid !important;
+      grid-template-columns: minmax(260px, 0.8fr) minmax(480px, 1.2fr) !important;
+      column-gap: 70px !important;
+      row-gap: 18px !important;
+      align-items: start !important;
+      max-width: 1180px !important;
+      margin: 0 auto !important;
+      padding: 100px 40px 140px !important;
+    }
+
+    /* Left heading */
+
+    .zodiac-single-next-heading {
+      grid-column: 1 !important;
+      grid-row: 1 !important;
+      max-width: 430px !important;
+      margin: 0 !important;
+    }
+
+    .zodiac-single-next-heading h2 {
+      margin: 0 0 22px !important;
+    }
+
+    .zodiac-single-next-heading p {
+      max-width: 400px !important;
+      margin: 0 !important;
+      line-height: 1.8 !important;
+    }
+
+    /* Right-side cards */
+
+    .zodiac-single-explore-grid {
+      grid-column: 2 !important;
+      grid-row: 1 !important;
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      gap: 0 !important;
+      width: 100% !important;
+      margin: 0 !important;
+    }
+
+    .zodiac-single-explore-card {
+      min-height: 0 !important;
+      padding: 30px 28px !important;
+      display: grid !important;
+      grid-template-columns: 45px 1fr 30px !important;
+      align-items: center !important;
+      gap: 12px !important;
+      border: 1px solid var(--zsborder) !important;
+      background: rgba(255,255,255,.015) !important;
+      color: var(--zstext) !important;
+      text-decoration: none !important;
+      transition:
+        transform .3s ease,
+        border-color .3s ease,
+        background .3s ease !important;
+    }
+
+    .zodiac-single-explore-card + .zodiac-single-explore-card {
+      border-top: 0 !important;
+    }
+
+    .zodiac-single-explore-card:hover {
+      transform: translateX(5px) !important;
+      border-color: rgba(244,213,141,.4) !important;
+      background: rgba(255,255,255,.035) !important;
+    }
+
+    .zodiac-explore-number {
+      display: block !important;
+      align-self: start !important;
+      padding-top: 3px !important;
+      color: #68748f !important;
+      font-size: 10px !important;
+      letter-spacing: 2px !important;
+    }
+
+    .zodiac-single-explore-card h3 {
+      margin: 0 0 8px !important;
+      color: var(--zstext) !important;
+      font-size: 22px !important;
+    }
+
+    .zodiac-single-explore-card p {
+      margin: 0 !important;
+      color: var(--zsmuted) !important;
+      line-height: 1.6 !important;
+    }
+
+    .zodiac-single-explore-card > strong {
+      display: block !important;
+      margin: 0 !important;
+      color: var(--zsgold) !important;
+      font-size: 20px !important;
+      text-align: right !important;
+    }
+
+    /* Back / Next navigation */
+
+    .zodiac-single-next > a {
+      grid-column: 1 !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .zodiac-single-next > a:first-of-type {
+      grid-row: 2 !important;
+      margin-top: 45px !important;
+    }
+
+    .zodiac-single-next > a:last-of-type {
+      grid-row: 3 !important;
+    }
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 899px) {
+
+      .zodiac-single-next {
+        display: block !important;
+        padding: 80px 24px 100px !important;
+      }
+
+      .zodiac-single-next-heading {
+        margin-bottom: 40px !important;
+      }
+
+      .zodiac-single-explore-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        margin-bottom: 40px !important;
+      }
+
+      .zodiac-single-explore-card {
+        grid-template-columns: 35px 1fr 25px !important;
+        padding: 24px 20px !important;
+      }
+
+      .zodiac-single-next > a {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+      }
+
+    }
+
+</style>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const modal = document.getElementById("zodiac-single-modal");
+
+      if (!modal) return;
+
+      const label = document.getElementById("zodiac-single-modal-label");
+      const title = document.getElementById("zodiac-single-modal-title");
+      const content = document.getElementById("zodiac-single-modal-content");
+
+      const signName = {{ $data.name | jsonify }};
+      const element = {{ $data.element | jsonify }};
+      const modality = {{ $data.modality | jsonify }};
+      const ruler = {{ $data.ruling_planet | jsonify }};
+      const symbol = {{ $data.symbol | jsonify }};
+
+      const traits = [
+        {{ range $i, $trait := $data.traits }}{{ if $i }},{{ end }}{{ $trait | jsonify }}{{ end }}
+      ];
+
+      const topics = {
+
+        symbol: {
+          label: "THE RAM",
+          title: "The Ram",
+          html:
+            "<p>Aries is traditionally represented by the Ram, a symbol associated with initiative, courage and the instinct to move forward.</p>" +
+            "<p>The Ram's horns suggest directness and determination: Aries energy is traditionally described as willing to meet an obstacle rather than wait for the path to clear.</p>" +
+            "<p>As the first sign of the zodiac, Aries carries a strong association with beginnings, emergence and the impulse to act.</p>"
+        },
+
+        element: {
+          label: "ELEMENT",
+          title: "Fire",
+          html:
+            "<p>Fire is the traditional element associated with Aries.</p>" +
+            "<p>In traditional astrology, Fire describes an expressive and active quality of energy. It is associated with enthusiasm, vitality, inspiration and movement.</p>" +
+            "<p>For Aries, Fire is expressed through the desire to begin, explore and experience things directly.</p>"
+        },
+
+        modality: {
+          label: "MODALITY",
+          title: "Cardinal",
+          html:
+            "<p>Aries is a Cardinal sign.</p>" +
+            "<p>Cardinal signs are traditionally associated with initiation. Their role is to begin a cycle, establish direction and create movement.</p>" +
+            "<p>In Aries, Cardinal Fire combines initiative with immediacy: the emphasis is traditionally placed on taking the first step.</p>"
+        },
+
+        ruler: {
+          label: "TRADITIONAL RULER",
+          title: "Mars",
+          html:
+            "<p>Mars is the traditional ruling planet of Aries.</p>" +
+            "<p>In traditional astrology, Mars is associated with action, assertion, courage, competition and the ability to confront challenges.</p>" +
+            "<p>Through Mars, Aries is traditionally understood as having a direct relationship with action and personal initiative.</p>" +
+            "<p>This is a traditional astrological association, not a scientifically established planetary effect.</p>"
+        },
+
+        strengths: {
+          label: "TRADITIONAL QUALITIES",
+          title: "Aries strengths",
+          html:
+            "<p>Traditional interpretations commonly associate Aries with qualities such as:</p>" +
+            "<ul>" +
+            "<li>Initiative and willingness to begin</li>" +
+            "<li>Courage in unfamiliar situations</li>" +
+            "<li>Directness and decisiveness</li>" +
+            "<li>Enthusiasm and energetic engagement</li>" +
+            "<li>Independence and self-direction</li>" +
+            "<li>Persistence when pursuing an immediate goal</li>" +
+            "</ul>" +
+            "<p>These qualities are interpretive themes within astrology rather than measurements of personality.</p>"
+        },
+
+        growth: {
+          label: "SELF-AWARENESS",
+          title: "Growth areas",
+          html:
+            "<p>The same qualities that make Aries effective at beginning things can become challenging when expressed without reflection.</p>" +
+            "<p>Traditional interpretations may therefore point toward patience, listening, timing and considering consequences before acting.</p>" +
+            "<p>Learning when to lead and when to pause can help direct Aries' natural initiative more constructively.</p>" +
+            "<p>These themes are best understood as opportunities for reflection rather than fixed personality limitations.</p>"
+        }
+
+      };
+      function openModal(key) {
+
+        const topic = topics[key];
+
+        if (!topic) return;
+
+        label.textContent = topic.label;
+        title.textContent = topic.title;
+        content.innerHTML = topic.html;
+
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModal() {
+
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      document.querySelectorAll("[data-zodiac-modal]").forEach(function (button) {
+
+        button.addEventListener("click", function () {
+          openModal(button.getAttribute("data-zodiac-modal"));
+        });
+
+      });
+
+      modal.querySelector(".zodiac-single-modal-close")
+        .addEventListener("click", closeModal);
+
+      modal.querySelector(".zodiac-single-modal-backdrop")
+        .addEventListener("click", closeModal);
+
+      document.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape" && modal.classList.contains("is-open")) {
+          closeModal();
+        }
+
+      });
+
+    });
+  </script>
+
+</article>
+{{ end }}
+
+
+

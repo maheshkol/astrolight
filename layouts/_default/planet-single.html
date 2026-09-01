@@ -1,0 +1,13 @@
+{{ define "main" }}
+{{ $planet := .Params.planet }}
+{{ $planetKey := $planet | title }}
+{{ $data := index site.Data.planets $planetKey }}
+<article>
+  <h1>{{ $data.symbol }} {{ $planetKey }} in Astrology</h1>
+  <p><strong>Keywords:</strong> {{ delimit $data.keywords ", " }}</p>
+  <p><strong>Rules:</strong> {{ delimit $data.rules ", " }}</p>
+
+  {{ partial "ad-slot.html" (dict "Site" .Site "slot" "4444444444") }}
+{{ .Content }}
+</article>
+{{ end }}

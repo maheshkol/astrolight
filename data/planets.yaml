@@ -1,0 +1,40 @@
+Sun:
+  symbol: "☉"
+  keywords: ["Identity", "Ego", "Vitality", "Purpose"]
+  rules: ["Leo"]
+Moon:
+  symbol: "☽"
+  keywords: ["Emotions", "Instinct", "Habits", "Nurturing"]
+  rules: ["Cancer"]
+Mercury:
+  symbol: "☿"
+  keywords: ["Communication", "Thought", "Learning"]
+  rules: ["Gemini", "Virgo"]
+Venus:
+  symbol: "♀"
+  keywords: ["Love", "Beauty", "Values", "Attraction"]
+  rules: ["Taurus", "Libra"]
+Mars:
+  symbol: "♂"
+  keywords: ["Action", "Drive", "Conflict", "Desire"]
+  rules: ["Aries"]
+Jupiter:
+  symbol: "♃"
+  keywords: ["Growth", "Luck", "Philosophy", "Expansion"]
+  rules: ["Sagittarius"]
+Saturn:
+  symbol: "♄"
+  keywords: ["Discipline", "Structure", "Responsibility", "Limits"]
+  rules: ["Capricorn"]
+Uranus:
+  symbol: "♅"
+  keywords: ["Change", "Rebellion", "Innovation"]
+  rules: ["Aquarius"]
+Neptune:
+  symbol: "♆"
+  keywords: ["Dreams", "Illusion", "Spirituality"]
+  rules: ["Pisces"]
+Pluto:
+  symbol: "♇"
+  keywords: ["Transformation", "Power", "Rebirth"]
+  rules: ["Scorpio"]

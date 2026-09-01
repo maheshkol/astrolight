@@ -1,0 +1,14 @@
+{{ define "main" }}
+{{ $slug := .Params.nakshatra }}
+{{ $data := index site.Data.nakshatras $slug }}
+<article>
+  <h1>{{ $data.name }} Nakshatra</h1>
+  <ul>
+    <li><strong>Ruling Planet:</strong> {{ $data.ruling_planet }}</li>
+    <li><strong>Sidereal Range:</strong> {{ $data.sidereal_start_deg }}° – {{ $data.sidereal_end_deg }}°</li>
+  </ul>
+
+  {{ partial "ad-slot.html" (dict "Site" .Site "slot" "9333333333") }}
+{{ .Content }}
+</article>
+{{ end }}

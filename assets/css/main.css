@@ -1,0 +1,1687 @@
+:root{
+
+  --bg:#05060d;--bg-2:#090b17;--panel:#0d1120;--panel-2:#11162a;--text:#f7f5ff;--muted:#a7acc4;--soft:#d6d8e6;
+
+  --line:rgba(203,207,255,.15);--line-strong:rgba(203,207,255,.27);--violet:#a78bfa;--cyan:#72e6f5;--gold:#f4d58d;--max:1180px;--radius:24px
+
+}
+
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 15% -10%,rgba(114,230,245,.08),transparent 28rem),radial-gradient(circle at 90% 0%,rgba(167,139,250,.12),transparent 32rem),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}a{color:inherit}main{max-width:var(--max);margin:auto;padding:1rem 1.25rem}.site-header{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;max-width:var(--max);margin:auto;padding:.9rem 1.25rem;background:rgba(5,6,13,.78);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.logo{text-decoration:none;font-weight:850;letter-spacing:.02em}.logo-mark{color:var(--gold);margin-right:.4rem}.site-nav ul{display:flex;gap:.2rem;list-style:none;margin:0;padding:0}.site-nav a{display:block;padding:.55rem .68rem;border-radius:10px;text-decoration:none;color:var(--muted);font-size:.88rem}.site-nav a:hover{color:var(--text);background:rgba(255,255,255,.05)}.nav-toggle{display:none;background:none;border:0;color:var(--text);font-size:1.35rem;min-width:44px;min-height:44px}
+
+.eyebrow{margin:0 0 .8rem;color:var(--cyan);font-size:.7rem;font-weight:850;letter-spacing:.18em}.landing-hero{position:relative;min-height:760px;overflow:hidden;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;padding:5rem 4rem;border:1px solid var(--line);border-radius:32px;background:linear-gradient(145deg,#070915,#0b0e20 55%,#060711);isolation:isolate}.landing-hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 55% 48%,transparent 0 17%,rgba(5,6,13,.18) 42%,rgba(5,6,13,.72) 100%);z-index:0;pointer-events:none}.landing-hero #star-field{position:absolute;inset:0;width:100%;height:100%;z-index:-2}.hero-noise{position:absolute;inset:0;opacity:.08;z-index:-1;background-image:radial-gradient(rgba(255,255,255,.8) .5px,transparent .5px);background-size:5px 5px}.hero-copy{position:relative;z-index:5;max-width:650px}.hero-copy h1{margin:0;font-size:clamp(3.2rem,6vw,6.3rem);line-height:.96;letter-spacing:-.065em}.hero-copy h1 span{background:linear-gradient(100deg,#fff,var(--gold) 50%,#c7b8ff);-webkit-background-clip:text;background-clip:text;color:transparent}.hero-lede{max-width:610px;margin:1.5rem 0 0;color:#c3c7da;font-size:1.12rem}.hero-actions{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:2rem}.cta{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 1.2rem;border-radius:999px;text-decoration:none;font-weight:800;transition:transform .2s ease,*background* .2s ease,border-color .2s ease}.cta:hover{transform:translateY(-2px)}.cta-primary{background:linear-gradient(135deg,var(--violet),#7c3aed);color:#fff}.cta-ghost{border:1px solid var(--line);background:rgba(255,255,255,.035);color:var(--soft)}.hero-proof{display:flex;gap:1.2rem;flex-wrap:wrap;margin-top:2.3rem;color:var(--muted);font-size:.78rem}.hero-proof b{color:var(--text);font-size:.9rem}.hero-sky{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0}.sky-label{font-size:.64rem;letter-spacing:.16em;color:var(--muted);margin-bottom:-.2rem}.landing-wheel{width:min(100%,540px);aspect-ratio:1}.landing-wheel-svg{width:100%;height:100%;overflow:visible}.wheel-bg{fill:rgba(8,10,22,.65);stroke:rgba(255,255,255,.06);stroke-width:1}.wheel-ring{fill:none;stroke:rgba(192,197,255,.2);stroke-width:1}.ring-1{stroke:rgba(167,139,250,.18)}.ring-2{stroke:rgba(114,230,245,.15)}.wheel-divider{stroke:rgba(192,197,255,.11);stroke-width:1}.wheel-sign{font-size:23px;fill:#dcdcf4}.sun-glow{animation:pulseGlow 4s ease-in-out infinite}.sun-core{fill:#f4d58d;filter:drop-shadow(0 0 12px rgba(244,213,141,.55))}.sun-glyph{fill:#241b0b;font-size:19px;font-weight:900}.planet-marker{animation:planetFloat 4s ease-in-out infinite;animation-delay:var(--delay)}.planet-dot{fill:#72e6f5;filter:drop-shadow(0 0 7px rgba(114,230,245,.65))}.planet-marker:nth-of-type(2n) .planet-dot{fill:#c7b8ff}.planet-text{font-size:18px;fill:#f5f3ff;font-weight:700}.sky-caption{max-width:420px;text-align:center;color:var(--muted);font-size:.78rem;margin-top:-.3rem}.hero-orbit{position:absolute;border:1px solid rgba(167,139,250,.09);border-radius:50%;pointer-events:none;z-index:1;animation:slowSpin 38s linear infinite}.hero-orbit-a{width:600px;height:600px;right:-60px;top:50%;margin-top:-300px}.hero-orbit-b{width:820px;height:820px;right:-170px;top:50%;margin-top:-410px;animation-direction:reverse;animation-duration:62s}.hero-glow{position:absolute;width:320px;height:320px;border-radius:50%;filter:blur(60px);opacity:.18;pointer-events:none}.hero-glow-a{background:#8b5cf6;right:18%;top:18%}.hero-glow-b{background:#22d3ee;right:40%;bottom:8%;opacity:.1}.scroll-cue{position:absolute;bottom:1.3rem;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:.55rem;color:#737891;text-decoration:none;font-size:.6rem;letter-spacing:.16em;z-index:6}.scroll-cue span{width:6px;height:6px;border-right:1px solid var(--cyan);border-bottom:1px solid var(--cyan);transform:rotate(45deg);animation:bob 1.5s ease-in-out infinite}
+
+.section{padding:6rem 0}.landing-snapshot{display:grid;grid-template-columns:1.15fr .85fr;gap:5rem;align-items:center}.snapshot-intro h2,.math-copy h2,.section-heading h2,.landing-disclaimer h2{font-size:clamp(2rem,4vw,3.5rem);line-height:1.05;letter-spacing:-.045em;margin:.2rem 0 1.2rem}.snapshot-intro p,.section-heading p,.math-copy>p,.landing-disclaimer>p{color:var(--muted);max-width:720px}.snapshot-card{padding:1.3rem;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,rgba(17,22,42,.9),rgba(8,11,23,.92));box-shadow:0 25px 70px rgba(0,0,0,.2)}.snapshot-card-head{display:flex;justify-content:space-between;gap:1rem;color:var(--cyan);font-size:.67rem;font-weight:800;letter-spacing:.14em;padding:.2rem .2rem 1rem;border-bottom:1px solid var(--line)}.snapshot-card-head time{color:var(--muted);font-weight:600;letter-spacing:0}.sky-results{display:grid;grid-template-columns:1fr 1fr}.sky-result{padding:1.2rem .8rem;border-bottom:1px solid var(--line)}.sky-result:nth-child(odd){border-right:1px solid var(--line)}.sky-result span,.sky-result small{display:block;color:var(--muted);font-size:.75rem}.sky-result strong{display:block;font-size:1.3rem;margin:.18rem 0}.snapshot-note{margin:.9rem .2rem .1rem;color:#777d97;font-size:.72rem}
+
+.landing-math{display:grid;grid-template-columns:.9fr 1.1fr;gap:5rem;align-items:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.math-visual{position:relative;min-height:360px;display:grid;place-items:center}.math-circle{width:270px;height:270px;border:1px solid rgba(167,139,250,.4);border-radius:50%;display:grid;place-items:center;align-content:center;position:relative;box-shadow:inset 0 0 60px rgba(167,139,250,.06),0 0 80px rgba(167,139,250,.08)}.math-circle:before,.math-circle:after{content:"";position:absolute;border-radius:50%;border:1px dashed rgba(114,230,245,.22)}.math-circle:before{inset:22px}.math-circle:after{inset:62px}.math-circle span{font-size:3.1rem;font-weight:850;letter-spacing:-.05em}.math-circle small{color:var(--muted);font-size:.72rem}.math-line{position:absolute;height:1px;background:linear-gradient(90deg,transparent,var(--line-strong),transparent);width:80%;transform:rotate(-22deg)}.math-line-two{transform:rotate(38deg)}.math-node{position:absolute;padding:.55rem .7rem;border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--soft);font-family:ui-monospace,SFMono-Regular,monospace;font-size:.72rem}.node-one{top:15%;right:6%}.node-two{bottom:14%;left:4%}.formula-row{display:flex;gap:.6rem;flex-wrap:wrap;margin:1.5rem 0}.formula-row code{padding:.6rem .7rem;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.025);color:#d8cfff}.text-link{display:inline-flex;gap:.5rem;color:var(--text);font-weight:800;text-decoration:none}.text-link:hover{color:var(--cyan)}
+
+.section-heading{max-width:760px;margin-bottom:2rem}.sign-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}.sign-tile{display:flex;align-items:center;gap:.8rem;padding:1rem;border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,rgba(17,22,42,.75),rgba(8,11,23,.75));text-decoration:none;transition:transform .25s ease,border-color .25s ease,*background* .25s ease}.sign-tile:hover{transform:translateY(-4px);border-color:rgba(167,139,250,.42);background:linear-gradient(145deg,rgba(26,30,57,.9),rgba(9,12,25,.9))}.sign-symbol{font-size:1.7rem;color:var(--gold);width:2rem;text-align:center}.sign-meta{min-width:0}.sign-meta strong{display:block}.sign-meta small{display:block;color:var(--muted);font-size:.68rem}.sign-degree{margin-left:auto;color:#727891;font-family:ui-monospace,monospace;font-size:.7rem}
+
+.landing-features{padding-bottom:4rem}.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.feature-card{display:flex;flex-direction:column;min-height:300px;padding:1.5rem;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,rgba(16,20,39,.8),rgba(8,11,23,.8));text-decoration:none;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}.feature-card:hover{transform:translateY(-5px);border-color:rgba(167,139,250,.42);box-shadow:0 22px 55px rgba(0,0,0,.2)}.feature-kicker{color:#7d849d;font-size:.63rem;letter-spacing:.13em;font-weight:800}.feature-icon{font-size:2.4rem;color:var(--gold);margin:1.4rem 0 .8rem}.feature-card h3{font-size:1.5rem;margin:.1rem 0 .6rem}.feature-card p{color:var(--muted);font-size:.9rem}.feature-arrow{margin-top:auto;color:var(--cyan);font-size:.78rem;font-weight:800}.landing-disclaimer{display:grid;grid-template-columns:1fr 1fr;gap:4rem;padding:3rem;border:1px solid var(--line);border-radius:24px;background:radial-gradient(circle at 90% 10%,rgba(114,230,245,.06),transparent 22rem),rgba(13,17,32,.7)}.landing-disclaimer h2{font-size:2rem}.landing-disclaimer>p{align-self:end}.reveal{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}.reveal.reveal-pending{opacity:0;transform:translateY(20px)}.reveal.is-visible{opacity:1;transform:none}.ad-slot{margin:2rem 0;text-align:center}.site-footer{border-top:1px solid var(--line);margin-top:2rem;padding:3rem 1rem;color:var(--muted)}.footer-inner{max-width:var(--max);margin:auto;display:grid;grid-template-columns:1.5fr 1fr;gap:1rem}.site-footer nav{display:flex;flex-wrap:wrap;gap:1rem;justify-content:flex-end}.site-footer a{color:var(--muted);text-decoration:none}.site-footer a:hover{color:var(--text)}.site-footer small{grid-column:1/-1;color:#737891}
+
+.birth-chart-page,.content-page{max-width:900px;margin:0 auto}#birth-chart-form,#sun-sign-form,#moon-sign-form{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:760px;margin:2rem 0;padding:1.3rem;border:1px solid var(--line);border-radius:22px;background:var(--panel)}#birth-chart-form label,#sun-sign-form label,#moon-sign-form label{display:flex;flex-direction:column;gap:.35rem;color:#d8daea;font-size:.88rem}input,select,button{font:inherit}input,select{width:100%;padding:.8rem .9rem;border-radius:12px;border:1px solid var(--line);background:#080b17;color:var(--text)}button[type=submit]{grid-column:1/-1;padding:.9rem;border:0;border-radius:12px;background:linear-gradient(135deg,var(--violet),#7c3aed);color:white;font-weight:800;cursor:pointer}.chart-mode-toggle{display:flex;gap:1rem;flex-wrap:wrap}.chart-mode-toggle label{padding:.65rem .9rem;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03)}.zodiac-wheel{width:100%;max-width:560px;display:block;margin:2rem auto}.wheel-ring{fill:rgba(15,19,38,.72);stroke:rgba(180,188,255,.3);stroke-width:1}.wheel-divider{stroke:rgba(180,188,255,.22);stroke-width:1}.wheel-sign-symbol{font-size:18px;fill:#dcdcf4}.house-cusp-line{stroke:rgba(114,230,245,.35);stroke-width:.8;stroke-dasharray:3,3}.house-number{font-size:10px;fill:#8e94b1}.planet-glyph{font-size:17px;fill:#f4d58d;font-weight:bold}.chart-table{width:100%;border-collapse:collapse;margin:1.5rem 0}.chart-table th,.chart-table td{border-bottom:1px solid var(--line);padding:.7rem;text-align:left;font-size:.9rem}.chart-table th{color:var(--cyan);font-size:.75rem;text-transform:uppercase;letter-spacing:.08em}.calculating-sequence{list-style:none;padding:1rem;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.025);font-family:ui-monospace,monospace}.calculating-sequence li{animation:fadeUp .25s ease}.calculating-done{color:#9ff0c2;font-weight:bold;margin-top:.5rem}.warning{color:var(--gold);background:rgba(244,213,141,.07);padding:.7rem .9rem;border-radius:10px}.score-total{font-size:1.5rem;font-weight:800}.score-disclaimer{color:var(--muted);font-size:.85rem}
+
+@keyframes slowSpin{to{transform:rotate(360deg)}}@keyframes pulseGlow{0%,100%{opacity:.65;transform:scale(.96)}50%{opacity:1;transform:scale(1.04)}}@keyframes planetFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}@keyframes bob{0%,100%{transform:translateY(-2px) rotate(45deg)}50%{transform:translateY(3px) rotate(45deg)}}@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+@media(max-width:950px){.landing-hero{grid-template-columns:1fr;min-height:900px;padding:4rem 2rem}.hero-copy{text-align:center;justify-self:center}.hero-lede{margin-left:auto;margin-right:auto}.hero-actions,.hero-proof{justify-content:center}.hero-sky{margin-top:-2rem}.hero-orbit-a{right:50%;margin-right:-300px}.hero-orbit-b{right:50%;margin-right:-410px}.landing-snapshot,.landing-math,.landing-disclaimer{grid-template-columns:1fr;gap:2.5rem}.sign-grid{grid-template-columns:repeat(3,1fr)}}
+
+@media(max-width:700px){main{padding:.7rem}.site-header{padding:.7rem 1rem}.site-nav{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(5,6,13,.98);border-bottom:1px solid var(--line);padding:1rem}.site-nav.is-open{display:block}.site-nav ul{flex-direction:column}.nav-toggle{display:block}.landing-hero{min-height:850px;padding:3.5rem 1.2rem;border-radius:24px}.hero-copy h1{font-size:clamp(2.8rem,14vw,4.4rem)}.hero-lede{font-size:1rem}.landing-wheel{width:min(100%,470px)}.hero-proof{gap:.8rem}.section{padding:4.5rem 0}.feature-grid{grid-template-columns:1fr}.sign-grid{grid-template-columns:repeat(2,1fr)}.landing-disclaimer{padding:1.5rem}.sky-results{grid-template-columns:1fr}.sky-result:nth-child(odd){border-right:0}.sky-result{border-bottom:1px solid var(--line)}.math-visual{min-height:300px}.math-circle{width:220px;height:220px}.math-circle span{font-size:2.5rem}}
+
+@media(max-width:430px){.sign-grid{grid-template-columns:1fr}.hero-proof{display:grid;grid-template-columns:1fr 1fr;text-align:left}.hero-sky{margin-top:0}.landing-wheel{width:112%}.scroll-cue{font-size:.52rem}}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero-orbit,.sun-glow,.planet-marker,.scroll-cue span{animation:none}.reveal,.reveal.reveal-pending{opacity:1;transform:none;transition:none}.cta,.sign-tile,.feature-card{transition:none}}
+
+/* =========================================================
+
+   ZODIAC EXPLORER
+
+   ========================================================= */
+
+.zodiac-explorer {
+
+  max-width: 1180px;
+
+  margin: 0 auto;
+
+}
+
+.zodiac-explorer-hero {
+
+  min-height: 720px;
+
+  display: grid;
+
+  grid-template-columns: .9fr 1.1fr;
+
+  align-items: center;
+
+  gap: 2rem;
+
+  padding: 4rem 0 5rem;
+
+}
+
+.zodiac-explorer-copy {
+
+  max-width: 560px;
+
+}
+
+.zodiac-explorer-copy h1 {
+
+  margin: 0;
+
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+
+  line-height: .92;
+
+  letter-spacing: -.07em;
+
+}
+
+.zodiac-explorer-copy h1 span {
+
+  background: linear-gradient(
+
+    100deg,
+
+    #ffffff,
+
+    var(--gold),
+
+    #c8b8ff
+
+  );
+
+  -webkit-background-clip: text;
+
+  background-clip: text;
+
+  color: transparent;
+
+}
+
+.zodiac-lede {
+
+  max-width: 560px;
+
+  margin: 1.7rem 0 0;
+
+  color: var(--muted);
+
+  font-size: 1.05rem;
+
+}
+
+.zodiac-equation {
+
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: .65rem;
+
+  margin: 2rem 0 1rem;
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+}
+
+.zodiac-equation span,
+
+.zodiac-equation strong {
+
+  padding: .55rem .7rem;
+
+  border: 1px solid var(--line);
+
+  border-radius: 10px;
+
+  background: rgba(255,255,255,.035);
+
+}
+
+.zodiac-equation strong {
+
+  color: var(--gold);
+
+}
+
+.zodiac-equation i {
+
+  color: var(--muted);
+
+  font-style: normal;
+
+}
+
+.zodiac-explainer {
+
+  color: #747b96;
+
+  font-size: .78rem;
+
+}
+
+.zodiac-wheel-stage {
+
+  position: relative;
+
+  display: grid;
+
+  place-items: center;
+
+  min-width: 0;
+
+  aspect-ratio: 1;
+
+}
+
+.zodiac-explorer-wheel {
+
+  width: min(100%, 650px);
+
+  aspect-ratio: 1;
+
+  position: relative;
+
+  z-index: 3;
+
+}
+
+.zodiac-explorer-svg {
+
+  width: 100%;
+
+  height: 100%;
+
+  overflow: visible;
+
+}
+
+.explorer-ring {
+
+  fill: none;
+
+}
+
+.explorer-ring-1 {
+
+  stroke: rgba(244,213,141,.14);
+
+  stroke-width: 1;
+
+}
+
+.explorer-ring-2 {
+
+  stroke: rgba(167,139,250,.18);
+
+  stroke-width: 1;
+
+  stroke-dasharray: 2 8;
+
+}
+
+.explorer-ring-3 {
+
+  stroke: rgba(114,230,245,.13);
+
+  stroke-width: 1;
+
+}
+
+.explorer-ring-4 {
+
+  stroke: rgba(255,255,255,.07);
+
+  stroke-width: 1;
+
+}
+
+.zodiac-sector {
+
+  outline: none;
+
+  cursor: pointer;
+
+}
+
+.zodiac-sector-fill {
+
+  fill: rgba(255,255,255,.012);
+
+  stroke: rgba(255,255,255,.04);
+
+  stroke-width: 1;
+
+  transition:
+
+    fill .35s ease,
+
+    stroke .35s ease,
+
+    transform .35s ease;
+
+  transform-origin: 310px 310px;
+
+}
+
+.zodiac-sector:hover .zodiac-sector-fill,
+
+.zodiac-sector:focus .zodiac-sector-fill,
+
+.zodiac-sector.is-selected .zodiac-sector-fill {
+
+  fill: rgba(167,139,250,.14);
+
+  stroke: rgba(167,139,250,.55);
+
+  stroke-width: 1.5;
+
+}
+
+.zodiac-sector.is-selected .zodiac-sector-fill {
+
+  fill: rgba(244,213,141,.08);
+
+  stroke: rgba(244,213,141,.62);
+
+}
+
+.zodiac-sector-symbol {
+
+  fill: #c9cbe0;
+
+  font-size: 28px;
+
+  pointer-events: none;
+
+  transition:
+
+    fill .3s ease,
+
+    font-size .3s ease;
+
+}
+
+.zodiac-sector:hover .zodiac-sector-symbol,
+
+.zodiac-sector:focus .zodiac-sector-symbol,
+
+.zodiac-sector.is-selected .zodiac-sector-symbol {
+
+  fill: var(--gold);
+
+  font-size: 33px;
+
+}
+
+.zodiac-sector-degree {
+
+  fill: #646b86;
+
+  font-size: 10px;
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  pointer-events: none;
+
+}
+
+.zodiac-sector-divider {
+
+  stroke: rgba(255,255,255,.12);
+
+  stroke-width: 1;
+
+}
+
+.degree-tick {
+
+  stroke: rgba(255,255,255,.12);
+
+  stroke-width: 1;
+
+}
+
+.degree-tick-major {
+
+  stroke: rgba(244,213,141,.5);
+
+  stroke-width: 1.5;
+
+}
+
+.wheel-center-circle {
+
+  fill: rgba(8,10,20,.96);
+
+  stroke: rgba(244,213,141,.22);
+
+  stroke-width: 1;
+
+}
+
+.wheel-center-dot {
+
+  fill: var(--gold);
+
+  filter: drop-shadow(0 0 8px rgba(244,213,141,.45));
+
+}
+
+.wheel-direction {
+
+  fill: #6d748e;
+
+  font-size: 9px;
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+}
+
+.wheel-orbit {
+
+  position: absolute;
+
+  border: 1px solid rgba(167,139,250,.08);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+}
+
+.orbit-one {
+
+  width: 84%;
+
+  height: 84%;
+
+  animation: zodiacOrbit 40s linear infinite;
+
+}
+
+.orbit-two {
+
+  width: 66%;
+
+  height: 66%;
+
+  border-color: rgba(114,230,245,.06);
+
+  animation: zodiacOrbitReverse 28s linear infinite;
+
+}
+
+.wheel-center {
+
+  position: absolute;
+
+  z-index: 5;
+
+  inset: 50% auto auto 50%;
+
+  transform: translate(-50%, -50%);
+
+  text-align: center;
+
+  pointer-events: none;
+
+}
+
+.wheel-center-degree {
+
+  display: block;
+
+  color: var(--gold);
+
+  font-size: 1.4rem;
+
+  font-weight: 800;
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+}
+
+.wheel-center small {
+
+  display: block;
+
+  margin-top: .2rem;
+
+  color: var(--muted);
+
+  font-size: .58rem;
+
+  letter-spacing: .18em;
+
+}
+
+.zodiac-selection {
+
+  padding: 4rem 0;
+
+  border-top: 1px solid var(--line);
+
+  border-bottom: 1px solid var(--line);
+
+}
+
+.selection-heading h2 {
+
+  margin: 0;
+
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+
+  letter-spacing: -.045em;
+
+}
+
+.selection-heading > p:last-child {
+
+  margin-top: .25rem;
+
+  color: var(--muted);
+
+}
+
+.selection-grid {
+
+  display: grid;
+
+  grid-template-columns: 1.4fr .6fr;
+
+  gap: 1rem;
+
+  margin-top: 2rem;
+
+}
+
+.selection-main,
+
+.selection-facts {
+
+  border: 1px solid var(--line);
+
+  border-radius: 22px;
+
+  background: linear-gradient(
+
+    145deg,
+
+    rgba(17,22,42,.78),
+
+    rgba(8,11,23,.78)
+
+  );
+
+}
+
+.selection-main {
+
+  padding: 1.5rem;
+
+}
+
+.selection-position > span {
+
+  color: var(--cyan);
+
+  font-size: .65rem;
+
+  font-weight: 800;
+
+  letter-spacing: .15em;
+
+}
+
+.degree-range {
+
+  display: flex;
+
+  align-items: baseline;
+
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  margin-top: .8rem;
+
+}
+
+.degree-range strong {
+
+  font-size: 2rem;
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+}
+
+.degree-range small {
+
+  color: var(--muted);
+
+}
+
+.degree-track {
+
+  height: 5px;
+
+  margin: 1.1rem 0 1.5rem;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.07);
+
+}
+
+.degree-track div {
+
+  height: 100%;
+
+  width: 8.33%;
+
+  border-radius: inherit;
+
+  background: linear-gradient(
+
+    90deg,
+
+    var(--violet),
+
+    var(--cyan)
+
+  );
+
+  transition: width .45s ease;
+
+}
+
+.selection-main > p {
+
+  max-width: 680px;
+
+  color: var(--muted);
+
+}
+
+.selection-facts {
+
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+}
+
+.zodiac-fact {
+
+  padding: 1.25rem;
+
+  border-bottom: 1px solid var(--line);
+
+}
+
+.zodiac-fact:last-child {
+
+  border-bottom: 0;
+
+}
+
+.zodiac-fact span {
+
+  display: block;
+
+  color: #737a94;
+
+  font-size: .62rem;
+
+  font-weight: 800;
+
+  letter-spacing: .14em;
+
+}
+
+.zodiac-fact strong {
+
+  display: block;
+
+  margin-top: .25rem;
+
+  font-size: 1.15rem;
+
+}
+
+.zodiac-mathematics {
+
+  display: grid;
+
+  grid-template-columns: .8fr 1.2fr;
+
+  gap: 4rem;
+
+  align-items: center;
+
+  padding: 6rem 0;
+
+}
+
+.zodiac-mathematics h2 {
+
+  margin: .2rem 0 1rem;
+
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+
+  line-height: 1;
+
+  letter-spacing: -.05em;
+
+}
+
+.zodiac-mathematics p {
+
+  color: var(--muted);
+
+  max-width: 520px;
+
+}
+
+.math-diagram {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: .8rem;
+
+}
+
+.math-number {
+
+  min-width: 120px;
+
+  padding: 1.25rem;
+
+  text-align: center;
+
+  border: 1px solid var(--line);
+
+  border-radius: 18px;
+
+  background: rgba(255,255,255,.025);
+
+}
+
+.math-number strong {
+
+  display: block;
+
+  font-size: 1.7rem;
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+}
+
+.math-number span {
+
+  display: block;
+
+  margin-top: .2rem;
+
+  color: var(--muted);
+
+  font-size: .7rem;
+
+}
+
+.math-result {
+
+  border-color: rgba(244,213,141,.3);
+
+}
+
+.math-result strong {
+
+  color: var(--gold);
+
+}
+
+.math-operation {
+
+  color: #777d98;
+
+  font-size: 1.5rem;
+
+}
+
+.zodiac-signs-section {
+
+  padding: 5rem 0;
+
+}
+
+.zodiac-explorer-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: .9rem;
+
+}
+
+.zodiac-explorer-card {
+
+  display: block;
+
+  padding: 1.2rem;
+
+  border: 1px solid var(--line);
+
+  border-radius: 18px;
+
+  background: linear-gradient(
+
+    145deg,
+
+    rgba(17,22,42,.72),
+
+    rgba(8,11,23,.72)
+
+  );
+
+  text-decoration: none;
+
+  transition:
+
+    transform .25s ease,
+
+    border-color .25s ease,
+
+    *background* .25s ease;
+
+}
+
+.zodiac-explorer-card:hover,
+
+.zodiac-explorer-card.is-selected {
+
+  transform: translateY(-4px);
+
+  border-color: rgba(167,139,250,.45);
+
+  background: linear-gradient(
+
+    145deg,
+
+    rgba(26,30,57,.9),
+
+    rgba(9,12,25,.9)
+
+  );
+
+}
+
+.explorer-card-top {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+}
+
+.explorer-symbol {
+
+  color: var(--gold);
+
+  font-size: 2rem;
+
+}
+
+.explorer-degree {
+
+  color: #656c87;
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  font-size: .7rem;
+
+}
+
+.zodiac-explorer-card h3 {
+
+  margin: .7rem 0 .1rem;
+
+  font-size: 1.3rem;
+
+}
+
+.explorer-dates {
+
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: .75rem;
+
+}
+
+.explorer-meta {
+
+  display: flex;
+
+  gap: .5rem;
+
+  margin-top: 1rem;
+
+}
+
+.explorer-meta span {
+
+  padding: .3rem .5rem;
+
+  border: 1px solid var(--line);
+
+  border-radius: 999px;
+
+  color: #b5b8c9;
+
+  font-size: .62rem;
+
+}
+
+.explorer-ruler {
+
+  margin-top: 1rem;
+
+  padding-top: .8rem;
+
+  border-top: 1px solid var(--line);
+
+  color: #777d97;
+
+  font-size: .7rem;
+
+}
+
+.explorer-ruler strong {
+
+  color: var(--soft);
+
+}
+
+.zodiac-how-it-works {
+
+  display: grid;
+
+  grid-template-columns: 180px 1fr;
+
+  gap: 2rem;
+
+  align-items: center;
+
+  margin: 2rem 0 5rem;
+
+  padding: 2rem;
+
+  border: 1px solid var(--line);
+
+  border-radius: 24px;
+
+  background: rgba(13,17,32,.7);
+
+}
+
+.how-icon {
+
+  display: grid;
+
+  place-items: center;
+
+  width: 150px;
+
+  height: 150px;
+
+  border: 1px solid rgba(244,213,141,.25);
+
+  border-radius: 50%;
+
+  color: var(--gold);
+
+  font-size: 1.6rem;
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+}
+
+.zodiac-how-it-works h2 {
+
+  margin: .2rem 0 .8rem;
+
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+
+  letter-spacing: -.04em;
+
+}
+
+.zodiac-how-it-works p:last-child {
+
+  max-width: 720px;
+
+  color: var(--muted);
+
+}
+
+@keyframes zodiacOrbit {
+
+  from {
+
+    transform: rotate(0deg);
+
+  }
+
+  to {
+
+    transform: rotate(360deg);
+
+  }
+
+}
+
+@keyframes zodiacOrbitReverse {
+
+  from {
+
+    transform: rotate(360deg);
+
+  }
+
+  to {
+
+    transform: rotate(0deg);
+
+  }
+
+}
+
+@media (max-width: 900px) {
+
+  .zodiac-explorer-hero {
+
+    grid-template-columns: 1fr;
+
+    padding-top: 3rem;
+
+  }
+
+  .zodiac-explorer-copy {
+
+    max-width: 700px;
+
+  }
+
+  .zodiac-wheel-stage {
+
+    max-width: 680px;
+
+    width: 100%;
+
+    margin: auto;
+
+  }
+
+  .selection-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .selection-facts {
+
+    grid-template-columns: repeat(3, 1fr);
+
+  }
+
+  .zodiac-mathematics {
+
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+
+  }
+
+  .zodiac-explorer-grid {
+
+    grid-template-columns: repeat(2, 1fr);
+
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .zodiac-explorer-hero {
+
+    min-height: auto;
+
+    padding: 2.5rem 0 3rem;
+
+  }
+
+  .zodiac-explorer-copy h1 {
+
+    font-size: clamp(3rem, 17vw, 4.5rem);
+
+  }
+
+  .zodiac-equation {
+
+    font-size: .75rem;
+
+  }
+
+  .zodiac-wheel-stage {
+
+    width: 108%;
+
+    margin-left: -4%;
+
+  }
+
+  .selection-facts {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .degree-range {
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: .2rem;
+
+  }
+
+  .zodiac-explorer-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .math-diagram {
+
+    gap: .5rem;
+
+  }
+
+  .math-number {
+
+    min-width: 95px;
+
+    padding: .9rem .6rem;
+
+  }
+
+  .math-operation {
+
+    font-size: 1.1rem;
+
+  }
+
+  .zodiac-how-it-works {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .how-icon {
+
+    width: 110px;
+
+    height: 110px;
+
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .orbit-one,
+
+  .orbit-two {
+
+    animation: none;
+
+  }
+
+  .zodiac-sector-fill,
+
+  .zodiac-sector-symbol,
+
+  .zodiac-explorer-card,
+
+  .degree-track div {
+
+    transition: none;
+
+  }
+
+}
+
+/* =========================================================
+   ASTROLIGHT — ZODIAC CENTER / ARIES ILLUSTRATION
+   Canonical version — single source for center artwork.
+   ========================================================= */
+
+.zodiac-center-art {
+  pointer-events: none;
+}
+
+.zodiac-center-glow {
+  fill: rgba(244, 213, 141, 0.025);
+  stroke: rgba(244, 213, 141, 0.14);
+  stroke-width: 1;
+  filter: drop-shadow(0 0 14px rgba(244, 213, 141, .08));
+}
+
+.zodiac-center-orbit {
+  fill: none;
+  stroke: rgba(167, 139, 250, .25);
+  stroke-width: 1;
+  stroke-dasharray: 2 9;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: zodiacCenterOrbit 28s linear infinite;
+}
+
+/* ---------------------------------------------------------
+   Aries stars + constellation
+   --------------------------------------------------------- */
+
+.aries-star {
+  fill: #ffffff;
+  opacity: .35;
+  transform-box: fill-box;
+  transform-origin: center;
+  filter: drop-shadow(0 0 4px rgba(255,255,255,.8));
+  animation: ariesStarPulse 3.8s ease-in-out infinite;
+}
+
+.aries-constellation-line {
+  stroke: rgba(244, 213, 141, .18);
+  stroke-width: .8;
+  fill: none;
+  stroke-dasharray: 24 24;
+  stroke-dashoffset: 24;
+  animation: ariesConstellationDraw 1.4s ease forwards;
+}
+
+/* ---------------------------------------------------------
+   Aries ram
+   --------------------------------------------------------- */
+
+.aries-ram {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ariesRamFloat 5s ease-in-out infinite;
+  filter: drop-shadow(0 0 5px rgba(244,213,141,.22));
+}
+
+.aries-ram-body {
+  fill: rgba(244, 213, 141, .018);
+  stroke: #f4d58d;
+  stroke-width: 1.8;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 5px rgba(244,213,141,.35));
+  animation: ariesFigureAppear 1.4s ease forwards;
+}
+
+.aries-ram-horn {
+  fill: none;
+  stroke: #f4d58d;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 6px rgba(244,213,141,.5));
+  animation:
+    ariesHornAppear 1.5s ease forwards,
+    ariesHornGlow 3.5s ease-in-out 1.5s infinite;
+}
+
+.aries-ram-detail {
+  fill: none;
+  stroke: #f4d58d;
+  stroke-width: 1.45;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: .9;
+  animation: ariesDetailAppear 1.6s ease .15s forwards;
+}
+
+.aries-ram-eye {
+  fill: #ffffff;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,.95));
+  opacity: .5;
+  animation: ariesEyeGlow 3s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------------
+   Aries information
+   --------------------------------------------------------- */
+
+.aries-center-glyph {
+  fill: #f4d58d;
+  font-size: 14px;
+  font-weight: 600;
+  opacity: .8;
+  filter: drop-shadow(0 0 5px rgba(244,213,141,.35));
+}
+
+.aries-center-name {
+  fill: #f4d58d;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  opacity: .95;
+}
+
+.aries-center-degree-range {
+  fill: rgba(244, 213, 141, .72);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  opacity: .9;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* ---------------------------------------------------------
+   Animations
+   --------------------------------------------------------- */
+
+@keyframes zodiacCenterOrbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes ariesFigureAppear {
+  from {
+    opacity: 0;
+    transform: scale(.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes ariesHornAppear {
+  from {
+    opacity: 0;
+    transform: scale(.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes ariesDetailAppear {
+  from { opacity: 0; }
+  to { opacity: .9; }
+}
+
+@keyframes ariesRamFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes ariesStarPulse {
+  0%, 100% {
+    opacity: .18;
+    transform: scale(.75);
+  }
+  50% {
+    opacity: .9;
+    transform: scale(1.35);
+  }
+}
+
+@keyframes ariesConstellationDraw {
+  from {
+    stroke-dashoffset: 24;
+    opacity: 0;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes ariesHornGlow {
+  0%, 100% { opacity: .65; }
+  50% { opacity: 1; }
+}
+
+@keyframes ariesEyeGlow {
+  0%, 100% { opacity: .45; }
+  50% { opacity: 1; }
+}
+
+/* ---------------------------------------------------------
+   Accessibility
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .zodiac-center-orbit,
+  .aries-star,
+  .aries-ram,
+  .aries-ram-horn,
+  .aries-ram-body,
+  .aries-ram-detail,
+  .aries-ram-eye,
+  .aries-constellation-line {
+    animation: none;
+  }
+}
+
+/* =========================================================
+   TAURUS CENTER FIGURE
+   ========================================================= */
+
+.taurus-bull {
+  pointer-events: none;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: taurusBullFloat 5.5s ease-in-out infinite;
+
+  filter:
+    drop-shadow(0 0 5px rgba(244,213,141,.25));
+}
+
+.taurus-bull-body {
+  fill: rgba(244,213,141,.018);
+  stroke: #f4d58d;
+  stroke-width: 1.8;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+
+  filter:
+    drop-shadow(0 0 5px rgba(244,213,141,.35));
+
+  animation:
+    taurusBullAppear 1.3s ease forwards;
+}
+
+.taurus-bull-detail {
+  fill: none;
+  stroke: #f4d58d;
+  stroke-width: 1.45;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: .9;
+
+  stroke-dasharray: 120;
+  stroke-dashoffset: 120;
+
+  animation:
+    taurusDetailDraw 2s ease .15s forwards;
+}
+
+.taurus-bull-eye {
+  fill: #ffffff;
+  opacity: .55;
+
+  filter:
+    drop-shadow(0 0 5px rgba(255,255,255,.9));
+
+  animation:
+    taurusEyeGlow 3s ease-in-out infinite;
+}
+
+.taurus-center-name {
+  opacity: .95;
+}
+
+
+/* ---------------------------------------------------------
+   Taurus animation
+   --------------------------------------------------------- */
+
+@keyframes taurusBullAppear {
+
+  from {
+    opacity: 0;
+    transform: scale(.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+}
+
+@keyframes taurusDetailDraw {
+
+  from {
+    stroke-dashoffset: 120;
+    opacity: 0;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+    opacity: .9;
+  }
+
+}
+
+@keyframes taurusBullFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+
+}
+
+@keyframes taurusEyeGlow {
+
+  0%,
+  100% {
+    opacity: .45;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+}
+
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .taurus-bull,
+  .taurus-bull-body,
+  .taurus-bull-detail,
+  .taurus-bull-eye {
+    animation: none;
+  }
+
+}
+
+/* =========================================================
+   IMAGE-BASED ZODIAC CENTER
+   ========================================================= */
+
+.zodiac-center-art {
+  pointer-events: none;
+}
+
+/*
+ * Central atmospheric glow
+ */
+
+.zodiac-center-glow {
+  fill: rgba(244, 213, 141, 0.025);
+
+  stroke: rgba(244, 213, 141, 0.14);
+
+  stroke-width: 1;
+
+  filter:
+    drop-shadow(0 0 14px rgba(244, 213, 141, .08));
+}
+
+
+/*
+ * Subtle rotating inner orbit
+ */
+
+.zodiac-center-orbit {
+  fill: none;
+
+  stroke: rgba(167, 139, 250, .22);
+
+  stroke-width: 1;
+
+  stroke-dasharray: 2 9;
+
+  transform-box: fill-box;
+
+  transform-origin: center;
+
+  animation:
+    zodiacCenterOrbit 28s linear infinite;
+}
+
+
+/*
+ * Zodiac illustration
+ */
+
+.zodiac-center-figure {
+  pointer-events: none;
+
+  opacity: 0;
+
+  transform-box: fill-box;
+
+  transform-origin: center;
+
+  filter:
+    drop-shadow(0 0 7px rgba(244, 213, 141, .30));
+
+  animation:
+    zodiacFigureAppear .9s ease forwards,
+    zodiacFigureFloat 5s ease-in-out .9s infinite;
+}
+
+
+/*
+ * Figure entrance
+ */
+
+@keyframes zodiacFigureAppear {
+
+  from {
+    opacity: 0;
+    transform: scale(.78);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+}
+
+
+/*
+ * Gentle floating motion
+ */
+
+@keyframes zodiacFigureFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+
+}
+
+
+/*
+ * Center sign name
+ */
+
+.zodiac-center-name {
+  fill: #f4d58d;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  opacity: .95;
+
+  filter:
+    drop-shadow(0 0 5px rgba(244, 213, 141, .25));
+}
+
+
+/*
+ * Center degree range
+ */
+
+.zodiac-center-range {
+  fill: rgba(244, 213, 141, .75);
+
+  font-size: 7px;
+
+  font-weight: 500;
+
+  letter-spacing: 1px;
+}
+
+
+/*
+ * Accessibility
+ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .zodiac-center-orbit,
+  .zodiac-center-figure {
+    animation: none;
+  }
+
+  .zodiac-center-figure {
+    opacity: 1;
+    transform: none;
+  }
+
+}
