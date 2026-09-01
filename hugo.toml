@@ -1,4 +1,4 @@
-baseURL = "https://yourusername.github.io/astrolight/"
+baseURL = "https://maheshkol.github.io/astrolight/"
 locale = "en-us"
 title = "AstroLight"
 enableRobotsTXT = true
@@ -39,3 +39,4 @@ enableRobotsTXT = true
 
 [outputs]
   home = ["HTML", "RSS"]
+
