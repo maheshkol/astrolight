@@ -1,56 +1,695 @@
 {{ define "main" }}
-<article class="birth-chart-page">
-  <h1>{{ .Title }}</h1>
-  <p>{{ .Content }}</p>
 
-  <div class="chart-mode-toggle">
-    <label><input type="radio" name="chart-mode" value="western" checked> Western (Tropical)</label>
-    <label><input type="radio" name="chart-mode" value="vedic"> Vedic (Sidereal)</label>
-  </div>
+{{ $css := resources.Get "css/birth-chart-landing.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
 
-  <form id="birth-chart-form">
-    <label>Date of birth
-      <input type="date" name="date" required>
-    </label>
-    <label>Time of birth
-      <input type="time" name="time">
-    </label>
-    <label>UTC offset at birth (hours)
-      <input type="number" step="0.25" name="utcOffset" value="5.5" required>
-      <small>Example: India Standard Time is +5.5. Historical daylight-saving rules can change the correct offset.</small>
-    </label>
-    <label>Birth latitude (° north, negative for south)
-      <input type="number" step="0.0001" name="latitude" required>
-    </label>
-    <label>Birth longitude (° east, negative for west)
-      <input type="number" step="0.0001" name="longitude" required>
-    </label>
-<button type="submit">Generate My Birth Chart</button>
-  </form>
+<article class="birth-landing">
 
-  <div id="calculating-sequence"></div>
-  <div id="birth-chart-wheel"></div>
-  <div id="birth-chart-table"></div>
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+
+  <section class="birth-landing__hero">
+
+    <div class="birth-landing__hero-copy">
+
+      <div class="birth-landing__eyebrow">
+        BIRTH CHART
+      </div>
+
+      <h1>
+        Discover the sky at the moment you were born.
+      </h1>
+
+      <p>
+        Calculate your planetary positions, Ascendant, houses and
+        aspects — then explore how AstroLight turns those
+        coordinates into a transparent astrological reading.
+      </p>
+
+      <div class="birth-landing__actions">
+
+        <a
+          class="birth-landing__button birth-landing__button--primary"
+          href="#calculator"
+        >
+          Generate My Birth Chart ↓
+        </a>
+
+        <a
+          class="birth-landing__button birth-landing__button--secondary"
+          href="#learn"
+        >
+          How It Works
+        </a>
+
+      </div>
+
+    </div>
+
+    <div
+      class="birth-landing__orb"
+      aria-hidden="true"
+    >
+
+      <div
+        class="birth-landing__orb-ring birth-landing__orb-ring--one"
+      ></div>
+
+      <div
+        class="birth-landing__orb-ring birth-landing__orb-ring--two"
+      ></div>
+
+      <div class="birth-landing__orb-core">
+        ☉
+      </div>
+
+      <span class="birth-landing__star birth-landing__star--one">
+        ✦
+      </span>
+
+      <span class="birth-landing__star birth-landing__star--two">
+        ✧
+      </span>
+
+      <span class="birth-landing__star birth-landing__star--three">
+        ·
+      </span>
+
+    </div>
+
+  </section>
 
 
+  <!-- =====================================================
+       FOUR LAYERS
+       ===================================================== -->
 
-  <p><a href="{{ site.Home.RelPermalink }}birth-chart/guide/"></a>Not sure how to read your chart? See the guide →</a></p>
+  <section class="birth-landing__features">
+
+    <div
+      class="birth-landing__section-heading birth-landing__section-heading--center"
+    >
+
+      <span class="birth-landing__eyebrow">
+        WHAT YOU CAN EXPLORE
+      </span>
+
+      <h2>
+        Four layers of a birth chart
+      </h2>
+
+      <p>
+        Read the chart from the big picture to the finer
+        relationships between placements.
+      </p>
+
+    </div>
+
+
+    <div class="birth-landing__feature-grid">
+
+      <a
+        class="birth-landing__feature-card"
+        href="{{ "birth-chart/planets/" | relURL }}"
+      >
+
+        <span class="birth-landing__feature-icon">
+          ☉
+        </span>
+
+        <span class="birth-landing__feature-number">
+          01
+        </span>
+
+        <h3>
+          Planets
+        </h3>
+
+        <p>
+          What planetary function or theme is being described?
+        </p>
+
+        <span class="birth-landing__arrow">
+          Explore planets →
+        </span>
+
+      </a>
+
+
+      <a
+        class="birth-landing__feature-card"
+        href="{{ "birth-chart/houses/" | relURL }}"
+      >
+
+        <span class="birth-landing__feature-icon">
+          ⌂
+        </span>
+
+        <span class="birth-landing__feature-number">
+          02
+        </span>
+
+        <h3>
+          Houses
+        </h3>
+
+        <p>
+          Where in the chart is that symbolism traditionally expressed?
+        </p>
+
+        <span class="birth-landing__arrow">
+          Explore houses →
+        </span>
+
+      </a>
+
+
+      <a
+        class="birth-landing__feature-card"
+        href="{{ "learn/rising-sign/" | relURL }}"
+      >
+
+        <span class="birth-landing__feature-icon">
+          ↑
+        </span>
+
+        <span class="birth-landing__feature-number">
+          03
+        </span>
+
+        <h3>
+          Rising Sign
+        </h3>
+
+        <p>
+          See how the Ascendant anchors the house framework.
+        </p>
+
+        <span class="birth-landing__arrow">
+          Learn about rising signs →
+        </span>
+
+      </a>
+
+
+      <a
+        class="birth-landing__feature-card"
+        href="{{ "birth-chart/nakshatras/" | relURL }}"
+      >
+
+        <span class="birth-landing__feature-icon">
+          ✦
+        </span>
+
+        <span class="birth-landing__feature-number">
+          04
+        </span>
+
+        <h3>
+          Nakshatras
+        </h3>
+
+        <p>
+          Explore the sidereal Moon's Nakshatra and four padas.
+        </p>
+
+        <span class="birth-landing__arrow">
+          Explore Nakshatras →
+        </span>
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       HOW ASTROLIGHT WORKS
+       ===================================================== -->
+
+  <section
+    class="birth-landing__method"
+    id="learn"
+  >
+
+    <div class="birth-landing__method-copy">
+
+      <span class="birth-landing__eyebrow">
+        HOW ASTROLIGHT WORKS
+      </span>
+
+      <h2>
+        Calculation first.
+        <br>
+        <em>Interpretation second.</em>
+      </h2>
+
+      <p>
+        AstroLight keeps the astronomical calculation layer visible
+        instead of treating astrological meanings as if they were
+        measurements.
+      </p>
+
+    </div>
+
+
+    <div class="birth-landing__pipeline">
+
+      <div>
+        <span>01</span>
+        <strong>Birth data</strong>
+        <small>Date · time · location</small>
+      </div>
+
+      <i>→</i>
+
+      <div>
+        <span>02</span>
+        <strong>Astronomy</strong>
+        <small>Planetary coordinates</small>
+      </div>
+
+      <i>→</i>
+
+      <div>
+        <span>03</span>
+        <strong>Chart structure</strong>
+        <small>Ascendant · houses · aspects</small>
+      </div>
+
+      <i>→</i>
+
+      <div>
+        <span>04</span>
+        <strong>Interpretation</strong>
+        <small>Traditional framework</small>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       CALCULATOR
+       ===================================================== -->
+
+  <section
+    class="birth-landing__calculator"
+    id="calculator"
+  >
+
+    <div class="birth-landing__section-heading">
+
+      <div>
+
+        <span class="birth-landing__eyebrow">
+          CALCULATOR
+        </span>
+
+        <h2>
+          Generate your birth chart
+        </h2>
+
+      </div>
+
+      <p>
+        Use your most accurate birth time and birth place
+        for the clearest Ascendant and house calculation.
+      </p>
+
+    </div>
+
+
+    <div class="birth-landing__calculator-shell">
+
+      <!-- Chart framework -->
+
+      <div class="birth-landing__mode-toggle">
+
+        <span class="birth-landing__mode-title">
+          Chart framework
+        </span>
+
+        <label>
+          <input
+            type="radio"
+            name="chart-mode"
+            value="western"
+            checked
+          >
+          Western (Tropical)
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            name="chart-mode"
+            value="vedic"
+          >
+          Vedic (Sidereal)
+        </label>
+
+      </div>
+
+
+      <!-- Calculator form -->
+
+      <form
+        id="birth-chart-form"
+        class="birth-landing__form"
+      >
+
+        <!-- Date -->
+
+        <label>
+          Date of birth
+
+          <input
+            type="date"
+            name="date"
+            required
+          >
+        </label>
+
+
+        <!-- Time -->
+
+        <label>
+          Time of birth
+
+          <input
+            type="time"
+            name="time"
+            required
+          >
+
+          <small>
+            Birth time is important for the Ascendant and houses.
+          </small>
+
+        </label>
+
+
+        <!-- Birth place -->
+
+        <label class="birth-place-field">
+
+          Birth place
+
+          <div class="birth-place-input-row">
+
+            <input
+              type="text"
+              id="birth-place"
+              name="birthPlace"
+              placeholder="City, State/Province, Country"
+              autocomplete="off"
+              required
+            >
+
+            <button
+              type="button"
+              id="resolve-place"
+              class="birth-place-resolve"
+            >
+              Find place
+            </button>
+
+          </div>
+
+          <small>
+            Enter your birth city or place. AstroLight will
+            determine the coordinates and historical time-zone
+            offset automatically.
+          </small>
+
+          <div
+            id="birth-place-status"
+            class="birth-place-status"
+            aria-live="polite"
+          ></div>
+
+        </label>
+
+
+        <!--
+          These remain hidden because the existing astronomical
+          calculator expects these exact fields.
+        -->
+
+        <input
+          type="hidden"
+          name="utcOffset"
+          id="birth-utc-offset"
+        >
+
+        <input
+          type="hidden"
+          name="latitude"
+          id="birth-latitude"
+        >
+
+        <input
+          type="hidden"
+          name="longitude"
+          id="birth-longitude"
+        >
+
+
+        <!-- Submit -->
+
+        <button type="submit">
+          Generate My Birth Chart
+        </button>
+
+      </form>
+
+
+      <!-- Calculation output -->
+
+      <div id="calculating-sequence"></div>
+
+      <div id="birth-chart-wheel"></div>
+
+      <div id="birth-chart-table"></div>
+
+    </div>
+
+
+    <p class="birth-landing__guide-link">
+
+      Not sure how to read your chart?
+
+      <a href="{{ "birth-chart/guide/" | relURL }}">
+        See the Birth Chart Guide →
+      </a>
+
+    </p>
+
+    <p class="birth-place-attribution">
+      Location search provided by
+      <a
+        href="https://www.openstreetmap.org/copyright"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        OpenStreetMap
+      </a>
+      contributors.
+    </p>
+
+  </section>
+
+
+  <!-- =====================================================
+       TWO FRAMEWORKS
+       ===================================================== -->
+
+  <section class="birth-landing__modes">
+
+    <div
+      class="birth-landing__section-heading birth-landing__section-heading--center"
+    >
+
+      <span class="birth-landing__eyebrow">
+        TWO CHART FRAMEWORKS
+      </span>
+
+      <h2>
+        Choose how you want to explore
+      </h2>
+
+    </div>
+
+
+    <div class="birth-landing__mode-grid">
+
+      <div class="birth-landing__mode-card">
+
+        <div class="birth-landing__mode-symbol">
+          ♈
+        </div>
+
+        <div>
+
+          <span class="birth-landing__mode-label">
+            WESTERN
+          </span>
+
+          <h3>
+            Tropical astrology
+          </h3>
+
+          <p>
+            Explore planetary positions in AstroLight's primary
+            Western/Tropical framework.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="birth-landing__mode-card birth-landing__mode-card--vedic"
+      >
+
+        <div class="birth-landing__mode-symbol">
+          ✦
+        </div>
+
+        <div>
+
+          <span class="birth-landing__mode-label">
+            VEDIC
+          </span>
+
+          <h3>
+            Sidereal astrology
+          </h3>
+
+          <p>
+            Explore sidereal positions plus the Moon's Nakshatra
+            and pada in Vedic mode.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       GUIDE CTA
+       ===================================================== -->
+
+  <section class="birth-landing__learn">
+
+    <div>
+
+      <span class="birth-landing__eyebrow">
+        LEARN
+      </span>
+
+      <h2>
+        Want to understand your results?
+      </h2>
+
+      <p>
+        Use the Birth Chart Guide alongside your generated chart,
+        then dive deeper into individual planets, houses and
+        Nakshatras.
+      </p>
+
+    </div>
+
+    <a
+      class="birth-landing__button birth-landing__button--primary"
+      href="{{ "birth-chart/guide/" | relURL }}"
+    >
+      Read the Birth Chart Guide →
+    </a>
+
+  </section>
+
 </article>
 
-<script type="module">
-  import { initChartGenerator } from "/js/tools/chart-generator.js";
 
-  const modeInputs = document.querySelectorAll('input[name="chart-mode"]');
-  const fakeToggle = { addEventListener: (evt, cb) => {
-    modeInputs.forEach((el) => el.addEventListener("change", (e) => cb({ target: { value: e.target.value } })));
-  }};
+<!-- =======================================================
+     EXISTING CALCULATOR INITIALIZATION
+     ======================================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@photostructure/tz-lookup@11.6.1/tz.js"></script>
+     
+<script type="module">
+
+  import {
+    initChartGenerator
+  } from "{{ "js/tools/chart-generator.js" | relURL }}";
+
+  const modeInputs =
+    document.querySelectorAll(
+      'input[name="chart-mode"]'
+    );
+
+  const fakeToggle = {
+
+    addEventListener: (evt, callback) => {
+
+      modeInputs.forEach((input) => {
+
+        input.addEventListener(
+          "change",
+          (event) => {
+
+            callback({
+              target: {
+                value: event.target.value
+              }
+            });
+
+          }
+        );
+
+      });
+
+    }
+
+  };
 
   initChartGenerator({
-    formEl: document.getElementById("birth-chart-form"),
-    wheelEl: document.getElementById("birth-chart-wheel"),
-    sequenceEl: document.getElementById("calculating-sequence"),
-    tableEl: document.getElementById("birth-chart-table"),
-    modeToggleEl: fakeToggle,
+
+    formEl:
+      document.getElementById(
+        "birth-chart-form"
+      ),
+
+    wheelEl:
+      document.getElementById(
+        "birth-chart-wheel"
+      ),
+
+    sequenceEl:
+      document.getElementById(
+        "calculating-sequence"
+      ),
+
+    tableEl:
+      document.getElementById(
+        "birth-chart-table"
+      ),
+
+    modeToggleEl:
+      fakeToggle
+
   });
+
 </script>
+
 {{ end }}

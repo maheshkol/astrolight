@@ -1,0 +1,1189 @@
+/* =========================================================
+   AstroLight — Birth Chart Landing Page
+   ========================================================= */
+
+.birth-landing {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 80px;
+}
+
+/* =========================================================
+   Shared
+   ========================================================= */
+
+.birth-landing__eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #a78bfa;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.birth-landing h1,
+.birth-landing h2,
+.birth-landing h3 {
+  color: #ffffff;
+}
+
+.birth-landing p {
+  color: rgba(255, 255, 255, 0.64);
+  line-height: 1.75;
+}
+
+.birth-landing a {
+  text-decoration: none;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.birth-landing__hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+  align-items: center;
+  gap: 48px;
+
+  min-height: 470px;
+  padding: 64px 58px;
+  margin-bottom: 72px;
+
+  overflow: hidden;
+  border: 1px solid rgba(167, 139, 250, 0.18);
+  border-radius: 30px;
+
+  background:
+    radial-gradient(
+      circle at 80% 40%,
+      rgba(124, 58, 237, 0.20),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 15% 80%,
+      rgba(79, 70, 229, 0.12),
+      transparent 42%
+    ),
+    rgba(10, 10, 18, 0.72);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.25);
+}
+
+.birth-landing__hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.55) 1px, transparent 1px);
+
+  background-size: 95px 95px;
+  opacity: 0.10;
+  pointer-events: none;
+}
+
+.birth-landing__hero-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.birth-landing__hero h1 {
+  max-width: 720px;
+  margin: 0 0 20px;
+
+  font-size: clamp(2.7rem, 5vw, 4.8rem);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+
+.birth-landing__hero h1::first-letter {
+  color: #a78bfa;
+}
+
+.birth-landing__hero p {
+  max-width: 680px;
+  margin: 0 0 28px;
+
+  font-size: 1.05rem;
+}
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.birth-landing__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.birth-landing__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 46px;
+  padding: 0 20px;
+
+  border-radius: 11px;
+
+  font-size: 0.86rem;
+  font-weight: 800;
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.birth-landing__button:hover {
+  transform: translateY(-2px);
+}
+
+.birth-landing__button--primary {
+  color: #ffffff;
+  background: linear-gradient(
+    135deg,
+    #7c3aed,
+    #4f46e5
+  );
+
+  box-shadow:
+    0 12px 28px rgba(79, 70, 229, 0.24);
+}
+
+.birth-landing__button--secondary {
+  color: rgba(255,255,255,.82);
+
+  border: 1px solid rgba(255,255,255,.12);
+
+  background: rgba(255,255,255,.035);
+}
+
+.birth-landing__button--secondary:hover {
+  border-color: rgba(167,139,250,.45);
+  background: rgba(167,139,250,.08);
+}
+
+/* =========================================================
+   CELESTIAL ORB
+   ========================================================= */
+
+.birth-landing__orb {
+  position: relative;
+
+  width: 300px;
+  height: 300px;
+
+  margin: auto;
+
+  border-radius: 50%;
+}
+
+.birth-landing__orb-ring {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  border: 1px solid rgba(167,139,250,.25);
+  border-radius: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+.birth-landing__orb-ring--one {
+  width: 220px;
+  height: 220px;
+}
+
+.birth-landing__orb-ring--two {
+  width: 300px;
+  height: 150px;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-25deg);
+}
+
+.birth-landing__orb-core {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100px;
+  height: 100px;
+
+  transform: translate(-50%, -50%);
+
+  border: 1px solid rgba(167,139,250,.45);
+  border-radius: 50%;
+
+  color: #c4b5fd;
+  font-size: 3rem;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(124,58,237,.28),
+      rgba(17,17,27,.9)
+    );
+
+  box-shadow:
+    0 0 70px rgba(124,58,237,.22);
+}
+
+.birth-landing__star {
+  position: absolute;
+
+  color: #c4b5fd;
+  font-size: 1.1rem;
+}
+
+.birth-landing__star--one {
+  top: 22%;
+  left: 18%;
+}
+
+.birth-landing__star--two {
+  right: 12%;
+  bottom: 25%;
+}
+
+.birth-landing__star--three {
+  top: 12%;
+  right: 30%;
+  font-size: 1.8rem;
+}
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.birth-landing__section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 32px;
+
+  margin-bottom: 28px;
+}
+
+.birth-landing__section-heading h2 {
+  margin: 0;
+
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.birth-landing__section-heading > p {
+  max-width: 430px;
+  margin: 0;
+}
+
+.birth-landing__section-heading--center {
+  display: block;
+  text-align: center;
+}
+
+.birth-landing__section-heading--center > p {
+  max-width: 620px;
+  margin: 12px auto 0;
+}
+
+/* =========================================================
+   FOUR LAYERS
+   ========================================================= */
+
+.birth-landing__features {
+  margin-bottom: 80px;
+}
+
+.birth-landing__feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.birth-landing__feature-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: 250px;
+  padding: 22px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 18px;
+
+  color: inherit;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.035),
+      rgba(255,255,255,.012)
+    );
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.birth-landing__feature-card:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(167,139,250,.38);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(124,58,237,.10),
+      rgba(255,255,255,.025)
+    );
+}
+
+.birth-landing__feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  margin-bottom: 22px;
+
+  border: 1px solid rgba(139,92,246,.30);
+  border-radius: 12px;
+
+  color: #c4b5fd;
+  font-size: 1.25rem;
+
+  background: rgba(124,58,237,.08);
+}
+
+.birth-landing__feature-number {
+  position: absolute;
+
+  top: 22px;
+  right: 22px;
+
+  color: rgba(255,255,255,.25);
+
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+.birth-landing__feature-card h3 {
+  margin: 0 0 8px;
+
+  font-size: 1.1rem;
+}
+
+.birth-landing__feature-card p {
+  margin: 0;
+
+  font-size: .84rem;
+  line-height: 1.65;
+}
+
+.birth-landing__arrow {
+  margin-top: auto;
+  padding-top: 20px;
+
+  color: #a78bfa;
+
+  font-size: .78rem;
+  font-weight: 800;
+}
+
+/* =========================================================
+   HOW ASTROLIGHT WORKS
+   ========================================================= */
+
+.birth-landing__method {
+  display: grid;
+  grid-template-columns: minmax(260px, .9fr) minmax(0, 1.4fr);
+  align-items: center;
+  gap: 45px;
+
+  padding: 56px;
+  margin-bottom: 80px;
+
+  border: 1px solid rgba(139,92,246,.22);
+  border-radius: 26px;
+
+  background:
+    radial-gradient(
+      circle at 15% 50%,
+      rgba(124,58,237,.12),
+      transparent 45%
+    ),
+    rgba(13,12,28,.76);
+}
+
+.birth-landing__method-copy h2 {
+  margin: 0 0 18px;
+
+  font-size: clamp(2.3rem, 4vw, 3.7rem);
+  line-height: 1.02;
+  letter-spacing: -.045em;
+}
+
+.birth-landing__method-copy h2 em {
+  color: #a78bfa;
+  font-style: normal;
+}
+
+.birth-landing__method-copy p {
+  max-width: 440px;
+  margin: 0;
+}
+
+.birth-landing__pipeline {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.birth-landing__pipeline > div {
+  min-height: 108px;
+  padding: 16px;
+
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 13px;
+
+  background: rgba(255,255,255,.025);
+}
+
+.birth-landing__pipeline span {
+  display: block;
+  margin-bottom: 10px;
+
+  color: #a78bfa;
+
+  font-size: .65rem;
+  font-weight: 800;
+}
+
+.birth-landing__pipeline strong {
+  display: block;
+  margin-bottom: 5px;
+
+  color: #ffffff;
+  font-size: .78rem;
+}
+
+.birth-landing__pipeline small {
+  color: rgba(255,255,255,.45);
+
+  font-size: .68rem;
+  line-height: 1.45;
+}
+
+.birth-landing__pipeline i {
+  color: rgba(167,139,250,.55);
+  font-style: normal;
+}
+
+/* =========================================================
+   CALCULATOR
+   ========================================================= */
+
+.birth-landing__calculator {
+  margin-bottom: 80px;
+  scroll-margin-top: 30px;
+}
+
+.birth-landing__calculator-shell {
+  padding: clamp(24px, 4vw, 40px);
+
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.035),
+      rgba(255,255,255,.012)
+    );
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.18);
+}
+
+.birth-landing__mode-toggle {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.birth-landing__mode-title {
+  margin-right: 8px;
+
+  color: rgba(255,255,255,.42);
+
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.birth-landing__mode-toggle label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 9px 13px;
+
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 10px;
+
+  color: rgba(255,255,255,.72);
+
+  background: rgba(255,255,255,.035);
+
+  font-size: .82rem;
+}
+
+.birth-landing__mode-toggle input {
+  accent-color: #8b5cf6;
+}
+
+.birth-landing__form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.birth-landing__form label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  color: rgba(255,255,255,.72);
+
+  font-size: .82rem;
+  font-weight: 700;
+}
+
+.birth-landing__form input {
+  box-sizing: border-box;
+
+  width: 100%;
+  min-height: 45px;
+
+  padding: 10px 12px;
+
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 10px;
+
+  color: #ffffff;
+  background: rgba(255,255,255,.045);
+
+  font: inherit;
+}
+
+.birth-landing__form input:focus {
+  outline: none;
+
+  border-color: rgba(139,92,246,.65);
+
+  box-shadow:
+    0 0 0 3px rgba(139,92,246,.10);
+}
+
+.birth-landing__form small {
+  color: rgba(255,255,255,.40);
+
+  font-size: .68rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.birth-landing__form button {
+  grid-column: 1 / -1;
+
+  min-height: 49px;
+  margin-top: 4px;
+
+  border: 0;
+  border-radius: 11px;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7c3aed,
+      #4f46e5
+    );
+
+  font: inherit;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 28px rgba(79,70,229,.20);
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.birth-landing__form button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 16px 34px rgba(79,70,229,.28);
+}
+
+.birth-landing__guide-link {
+  margin: 14px 4px 0;
+
+  color: rgba(255,255,255,.45);
+
+  font-size: .84rem;
+}
+
+.birth-landing__guide-link a {
+  color: #a78bfa;
+  font-weight: 700;
+}
+
+/* Calculator result containers */
+
+#calculating-sequence,
+#birth-chart-wheel,
+#birth-chart-table {
+  margin-top: 28px;
+}
+
+#calculating-sequence:empty,
+#birth-chart-wheel:empty,
+#birth-chart-table:empty {
+  display: none;
+}
+
+/* =========================================================
+   TWO FRAMEWORKS
+   ========================================================= */
+
+.birth-landing__modes {
+  margin-bottom: 80px;
+}
+
+.birth-landing__mode-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.birth-landing__mode-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+
+  padding: 28px;
+
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.035),
+      rgba(255,255,255,.012)
+    );
+}
+
+.birth-landing__mode-card--vedic {
+  border-color: rgba(167,139,250,.20);
+}
+
+.birth-landing__mode-symbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 52px;
+
+  width: 52px;
+  height: 52px;
+
+  border: 1px solid rgba(139,92,246,.28);
+  border-radius: 14px;
+
+  color: #c4b5fd;
+
+  background: rgba(124,58,237,.08);
+
+  font-size: 1.5rem;
+}
+
+.birth-landing__mode-label {
+  display: block;
+  margin-bottom: 6px;
+
+  color: #a78bfa;
+
+  font-size: .66rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.birth-landing__mode-card h3 {
+  margin: 0 0 7px;
+
+  font-size: 1.15rem;
+}
+
+.birth-landing__mode-card p {
+  margin: 0;
+
+  font-size: .84rem;
+}
+
+/* =========================================================
+   GUIDE CTA
+   ========================================================= */
+
+.birth-landing__learn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+
+  padding: 42px 46px;
+
+  border: 1px solid rgba(139,92,246,.24);
+  border-radius: 22px;
+
+  background:
+    radial-gradient(
+      circle at 80% 50%,
+      rgba(124,58,237,.13),
+      transparent 45%
+    ),
+    rgba(14,13,27,.75);
+}
+
+.birth-landing__learn h2 {
+  margin: 0 0 8px;
+
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  letter-spacing: -.03em;
+}
+
+.birth-landing__learn p {
+  max-width: 620px;
+  margin: 0;
+}
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+  .birth-landing__hero {
+    grid-template-columns: 1fr;
+    padding: 50px 40px;
+  }
+
+  .birth-landing__orb {
+    width: 220px;
+    height: 220px;
+  }
+
+  .birth-landing__orb-ring--one {
+    width: 170px;
+    height: 170px;
+  }
+
+  .birth-landing__orb-ring--two {
+    width: 220px;
+  }
+
+  .birth-landing__feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .birth-landing__method {
+    grid-template-columns: 1fr;
+    padding: 42px;
+  }
+
+  .birth-landing__pipeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .birth-landing__pipeline i {
+    display: none;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+  .birth-landing {
+    width: min(100% - 22px, 1120px);
+    padding-bottom: 50px;
+  }
+
+  .birth-landing__hero {
+    min-height: auto;
+
+    padding: 38px 24px;
+
+    margin-bottom: 52px;
+
+    border-radius: 22px;
+  }
+
+  .birth-landing__hero h1 {
+    font-size: 2.45rem;
+  }
+
+  .birth-landing__hero p {
+    font-size: .92rem;
+  }
+
+  .birth-landing__orb {
+    width: 190px;
+    height: 190px;
+  }
+
+  .birth-landing__orb-core {
+    width: 75px;
+    height: 75px;
+
+    font-size: 2.2rem;
+  }
+
+  .birth-landing__orb-ring--one {
+    width: 140px;
+    height: 140px;
+  }
+
+  .birth-landing__orb-ring--two {
+    width: 190px;
+  }
+
+  .birth-landing__actions {
+    flex-direction: column;
+  }
+
+  .birth-landing__button {
+    width: 100%;
+  }
+
+  .birth-landing__section-heading {
+    display: block;
+  }
+
+  .birth-landing__section-heading > p {
+    margin-top: 14px;
+  }
+
+  .birth-landing__feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .birth-landing__feature-card {
+    min-height: 210px;
+  }
+
+  .birth-landing__method {
+    padding: 30px 24px;
+    border-radius: 22px;
+  }
+
+  .birth-landing__method-copy h2 {
+    font-size: 2.45rem;
+  }
+
+  .birth-landing__pipeline {
+    grid-template-columns: 1fr;
+  }
+
+  .birth-landing__pipeline > div {
+    min-height: auto;
+  }
+
+  .birth-landing__form {
+    grid-template-columns: 1fr;
+  }
+
+  .birth-landing__form button {
+    grid-column: auto;
+  }
+
+  .birth-landing__mode-toggle {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .birth-landing__mode-title {
+    margin-right: 0;
+  }
+
+  .birth-landing__mode-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .birth-landing__mode-card {
+    padding: 22px;
+  }
+
+  .birth-landing__learn {
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 30px 24px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY / REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .birth-landing *,
+  .birth-landing *::before,
+  .birth-landing *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .birth-landing__button:hover,
+  .birth-landing__feature-card:hover,
+  .birth-landing__form button:hover {
+    transform: none;
+  }
+}
+
+/* =========================================================
+   BIRTH PLACE RESOLVER
+   ========================================================= */
+
+.birth-place-field {
+  grid-column: 1 / -1;
+}
+
+.birth-place-input-row {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.birth-place-input-row input {
+  flex: 1;
+}
+
+.birth-place-resolve {
+  flex: 0 0 auto;
+
+  min-width: 115px;
+  padding: 0 17px;
+
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  border-radius: 10px;
+
+  color: #c4b5fd;
+
+  background: rgba(124, 58, 237, 0.08);
+
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.birth-place-resolve:hover:not(:disabled) {
+  transform: translateY(-1px);
+
+  border-color:
+    rgba(167, 139, 250, 0.55);
+
+  background:
+    rgba(124, 58, 237, 0.15);
+}
+
+.birth-place-resolve:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+
+/* =========================================================
+   LOCATION STATUS
+   ========================================================= */
+
+.birth-place-status {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  margin-top: 12px;
+  padding: 12px 14px;
+
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 10px;
+
+  color: rgba(255,255,255,.60);
+
+  background: rgba(255,255,255,.025);
+
+  font-size: .72rem;
+  line-height: 1.5;
+}
+
+.birth-place-status:empty {
+  display: none;
+}
+
+.birth-place-status strong {
+  font-size: .76rem;
+}
+
+.birth-place-status--success {
+  border-color:
+    rgba(74,222,128,.18);
+
+  background:
+    rgba(74,222,128,.035);
+}
+
+.birth-place-status--success strong {
+  color: #86efac;
+}
+
+.birth-place-status--error {
+  color: #fca5a5;
+
+  border-color:
+    rgba(248,113,113,.20);
+
+  background:
+    rgba(248,113,113,.045);
+}
+
+
+/* =========================================================
+   OSM ATTRIBUTION
+   ========================================================= */
+
+.birth-place-attribution {
+  margin: 10px 4px 0;
+
+  color:
+    rgba(255,255,255,.30);
+
+  font-size: .65rem;
+}
+
+.birth-place-attribution a {
+  color:
+    rgba(167,139,250,.70);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+  .birth-place-field {
+    grid-column: auto;
+  }
+
+  .birth-place-input-row {
+    flex-direction: column;
+  }
+
+  .birth-place-resolve {
+    min-height: 44px;
+  }
+
+}
+/* =========================================================
+   BIRTH PLACE RESOLUTION STATUS
+   ========================================================= */
+
+.birth-place-status {
+  display: block !important;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  min-height: 20px;
+}
+
+.birth-place-status:empty {
+  display: none !important;
+}
+
+.birth-place-status strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.birth-place-status span {
+  display: block;
+}
+
+.birth-place-status--info {
+  display: block !important;
+  opacity: 0.8;
+}
+
+.birth-place-status--success {
+  display: block !important;
+  border: 1px solid rgba(100, 220, 150, 0.35);
+  background: rgba(60, 180, 120, 0.08);
+}
+
+.birth-place-status--error {
+  display: block !important;
+  border: 1px solid rgba(240, 100, 100, 0.35);
+  background: rgba(240, 80, 80, 0.08);
+}
