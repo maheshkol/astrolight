@@ -1,0 +1,79 @@
+{{ define "main" }}
+<article class="content-page tool-page">
+  <p class="eyebrow">ASTROLOGY TOOL</p>
+
+  <h1>{{ .Title }}</h1>
+
+  {{ .Content }}
+
+  <form id="compatibility-form">
+    <label>
+      Your Sun Sign
+      <select name="signA" required></select>
+    </label>
+
+    <label>
+      Other Sun Sign
+      <select name="signB" required></select>
+    </label>
+
+    <button type="submit">Calculate Compatibility</button>
+  </form>
+
+  <div id="compatibility-result" class="quote-panel" aria-live="polite">
+    <p>Select two Sun signs to calculate compatibility.</p>
+  </div>
+
+  <section class="compatibility-methodology">
+    <h2>How the score is calculated</h2>
+
+    <p>
+      AstroLight uses a transparent Sun-sign compatibility model based on
+      three disclosed components:
+    </p>
+
+    <ul>
+      <li>
+        <strong>Element — 18 points maximum:</strong>
+        compares the elemental relationship between the two signs.
+      </li>
+      <li>
+        <strong>Modality — 14 points maximum:</strong>
+        compares Cardinal, Fixed and Mutable qualities.
+      </li>
+      <li>
+        <strong>Sign-wheel distance — 20 points maximum:</strong>
+        uses the shortest distance between the two signs around the zodiac
+        wheel.
+      </li>
+    </ul>
+
+    <p>
+      The three components produce a maximum raw score of 52 points.
+      AstroLight scales that result to a percentage for easier reading.
+    </p>
+
+    <p>
+      This is an educational reflection model, not a scientific measure
+      or prediction of relationship success.
+    </p>
+  </section>
+
+  {{ partial "ad-slot.html" (dict "Site" .Site "slot" "9333333333") }}
+</article>
+
+<script type="module">
+  import {
+    initCompatibilityTool,
+    populateCompatibilitySigns
+} from "{{ "js/tools/compatibility.js" | relURL }}?v=2";
+
+  const form = document.getElementById("compatibility-form");
+  const result = document.getElementById("compatibility-result");
+
+  if (form && result) {
+    populateCompatibilitySigns(form);
+    initCompatibilityTool(form, result);
+  }
+</script>
+{{ end }}

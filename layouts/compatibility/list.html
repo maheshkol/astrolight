@@ -1,0 +1,152 @@
+{{ define "main" }}
+
+<article class="content-page compatibility-index-page">
+
+  <p class="eyebrow">SUN-SIGN COMPATIBILITY</p>
+
+  <h1>{{ .Title }}</h1>
+
+  <div class="compatibility-intro">
+    {{ .Content }}
+  </div>
+
+  <div class="compatibility-tool-link">
+    <a
+      class="compatibility-calculator-cta"
+      href="{{ "tools/compatibility-calculator/" | relURL }}"
+    >
+      <span class="compatibility-calculator-cta-icon" aria-hidden="true">♡</span>
+
+      <span class="compatibility-calculator-cta-content">
+        <strong>Compatibility Calculator</strong>
+        <span>
+          Compare two Sun signs using AstroLight's transparent
+          compatibility model.
+        </span>
+      </span>
+
+      <span class="compatibility-calculator-cta-arrow" aria-hidden="true">
+        →
+      </span>
+    </a>
+  </div>
+
+  <section class="compatibility-sign-grid">
+
+    {{ $signs := slice
+      "aries"
+      "taurus"
+      "gemini"
+      "cancer"
+      "leo"
+      "virgo"
+      "libra"
+      "scorpio"
+      "sagittarius"
+      "capricorn"
+      "aquarius"
+      "pisces"
+    }}
+
+    {{ range $signs }}
+
+      {{ $slug := . }}
+      {{ $data := index site.Data.zodiac $slug }}
+
+      <details class="compatibility-sign-card">
+
+        <summary class="compatibility-sign-summary">
+
+          <span class="compatibility-sign-heading">
+
+            <span
+              class="compatibility-sign-symbol"
+              aria-hidden="true"
+            >
+              {{ $data.symbol }}
+            </span>
+
+            <span class="compatibility-sign-heading-text">
+
+              <span class="compatibility-sign-name">
+                {{ $data.name }}
+              </span>
+
+              <span class="compatibility-sign-count">
+                11 Sun-sign pairings
+              </span>
+
+            </span>
+
+          </span>
+
+          <span
+            class="compatibility-sign-toggle"
+            aria-hidden="true"
+          >
+            +
+          </span>
+
+        </summary>
+
+        <div class="compatibility-pair-list">
+
+          {{ range $signs }}
+
+            {{ $otherSlug := . }}
+
+            {{ if ne $otherSlug $slug }}
+
+              {{ range site.RegularPages }}
+
+                {{ if eq .Section "compatibility" }}
+
+                  {{ $sign1 := lower .Params.sign1 }}
+                  {{ $sign2 := lower .Params.sign2 }}
+
+                  {{ if or
+                    (and (eq $sign1 $slug) (eq $sign2 $otherSlug))
+                    (and (eq $sign2 $slug) (eq $sign1 $otherSlug))
+                  }}
+
+                    {{ $otherData := index site.Data.zodiac $otherSlug }}
+
+                    <a
+                      class="compatibility-pair-link"
+                      href="{{ .RelPermalink }}"
+                    >
+                      <span>
+                        {{ $data.symbol }} {{ $data.name }}
+                        +
+                        {{ $otherData.symbol }} {{ $otherData.name }}
+                      </span>
+
+                      <span
+                        class="compatibility-pair-arrow"
+                        aria-hidden="true"
+                      >
+                        →
+                      </span>
+                    </a>
+
+                  {{ end }}
+
+                {{ end }}
+
+              {{ end }}
+
+            {{ end }}
+
+          {{ end }}
+
+        </div>
+
+      </details>
+
+    {{ end }}
+
+  </section>
+
+</article>
+
+{{ end }}

@@ -69,8 +69,9 @@ export function scoreCompatibility(signA, signB) {
     breakdown: [
       { label: "Element compatibility", points: elementScore, outOf: 18 },
       { label: "Modality compatibility", points: modalityScore, outOf: 14 },
-      { label: "Sign-wheel relationship", points: planetaryScore, outOf: 20 },
+      { label: "Sign-wheel distance", points: planetaryScore, outOf: 20 },
     ],
     disclaimer: "AstroLight educational scoring model — a structured reflection tool, not a scientific or predictive claim.",
   };
 }
+

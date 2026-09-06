@@ -1685,3 +1685,795 @@
   }
 
 }
+
+/* =========================================================
+   Compatibility Calculator
+   Presentation layer only — engines remain unchanged.
+   ========================================================= */
+
+.compatibility-result-header {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.12));
+  border-radius: 16px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(120, 100, 255, 0.12),
+      transparent 55%
+    ),
+    rgba(255, 255, 255, 0.025);
+  text-align: center;
+}
+
+.compatibility-result-header h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.compatibility-result-header .score-total {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.compatibility-tone {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0.08em;
+  opacity: 0.8;
+}
+
+.compatibility-overview {
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.35rem;
+  border-left: 3px solid currentColor;
+  border-radius: 0 12px 12px 0;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.compatibility-overview h3,
+.compatibility-section h3,
+.compatibility-themes h3 {
+  margin-top: 0;
+}
+
+.compatibility-overview p:last-child,
+.compatibility-section p:last-child {
+  margin-bottom: 0;
+}
+
+/* Individual scoring components */
+
+.compatibility-section {
+  margin-top: 1rem;
+  padding: 1.25rem 1.35rem;
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.compatibility-section > p:first-of-type {
+  margin-bottom: 0.75rem;
+}
+
+.compatibility-section > p:first-of-type strong {
+  font-size: 1.1rem;
+}
+
+.compatibility-section > p:first-of-type {
+  opacity: 0.9;
+}
+
+.compatibility-section h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.65rem;
+}
+
+/* Relationship themes */
+
+.compatibility-themes {
+  margin-top: 1rem;
+  padding: 1.25rem 1.35rem;
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.compatibility-themes ul {
+  margin-bottom: 0;
+}
+
+.compatibility-themes li {
+  margin-bottom: 0.45rem;
+}
+
+.compatibility-themes li:last-child {
+  margin-bottom: 0;
+}
+
+/* Disclaimer and engine metadata */
+
+.score-disclaimer {
+  margin-top: 1.25rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  opacity: 0.72;
+}
+
+.compatibility-engine-note {
+  margin-top: 0.5rem;
+  font-size: 0.72rem;
+  text-align: right;
+  opacity: 0.45;
+}
+
+/* Calculator form */
+
+#compatibility-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+  align-items: end;
+}
+
+#compatibility-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-weight: 600;
+}
+
+#compatibility-form select {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.15));
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  color: inherit;
+  font: inherit;
+}
+
+#compatibility-form button {
+  grid-column: 1 / -1;
+  justify-self: center;
+  min-height: 2.75rem;
+  padding: 0.7rem 1.25rem;
+  border-radius: 10px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Result transition */
+
+#compatibility-result {
+  margin-top: 1.5rem;
+}
+
+#compatibility-result .compatibility-section,
+#compatibility-result .compatibility-overview,
+#compatibility-result .compatibility-themes {
+  animation: compatibility-fade-in 0.35s ease-out both;
+}
+
+@keyframes compatibility-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  #compatibility-result .compatibility-section,
+  #compatibility-result .compatibility-overview,
+  #compatibility-result .compatibility-themes {
+    animation: none;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  #compatibility-form {
+    grid-template-columns: 1fr;
+  }
+
+  #compatibility-form button {
+    grid-column: auto;
+    width: 100%;
+  }
+
+  .compatibility-result-header {
+    padding: 1.25rem;
+  }
+
+  .compatibility-section,
+  .compatibility-overview,
+  .compatibility-themes {
+    padding: 1rem;
+  }
+
+  .compatibility-engine-note {
+    text-align: left;
+  }
+}
+
+/* =========================================================
+   Compatibility Index
+   ========================================================= */
+
+.compatibility-index-page {
+  max-width: 1100px;
+}
+
+.compatibility-intro {
+  max-width: 850px;
+  margin-bottom: 2rem;
+}
+
+.compatibility-sign-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.compatibility-sign-card {
+  padding: 1.25rem;
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+  border-radius: 16px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(120, 100, 255, 0.08),
+      transparent 60%
+    ),
+    rgba(255, 255, 255, 0.02);
+}
+
+.compatibility-sign-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.compatibility-sign-symbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  flex: 0 0 3rem;
+  border-radius: 10px;
+  background: rgba(130, 100, 255, 0.16);
+  font-size: 1.65rem;
+}
+
+.compatibility-sign-heading h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.compatibility-sign-heading p {
+  margin: 0.2rem 0 0;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.compatibility-pair-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.compatibility-pair-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 9px;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.compatibility-pair-link:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateX(3px);
+}
+
+.compatibility-pair-link span:last-child {
+  opacity: 0.55;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .compatibility-pair-link {
+    transition: none;
+  }
+
+  .compatibility-pair-link:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 750px) {
+  .compatibility-sign-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Compatibility calculator select options */
+
+#compatibility-form select option {
+  background: #11111a;
+  color: #ffffff;
+}
+
+#compatibility-form select option:checked {
+  background: #6f4de8;
+  color: #ffffff;
+}
+
+/* =========================================================
+   Tools Landing Page
+   ========================================================= */
+
+.tools-index-page {
+  max-width: 1100px;
+}
+
+.tools-intro {
+  max-width: 760px;
+  margin-bottom: 2.5rem;
+}
+
+.tools-intro p:last-child {
+  margin-bottom: 0;
+  opacity: 0.75;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.tool-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.35rem;
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+  border-radius: 16px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(120, 100, 255, 0.09),
+      transparent 60%
+    ),
+    rgba(255, 255, 255, 0.02);
+
+  color: inherit;
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(160, 130, 255, 0.35);
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(120, 100, 255, 0.14),
+      transparent 60%
+    ),
+    rgba(255, 255, 255, 0.035);
+}
+
+.tool-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 3.2rem;
+  height: 3.2rem;
+  flex: 0 0 3.2rem;
+
+  border-radius: 12px;
+
+  background: rgba(130, 100, 255, 0.15);
+
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+.tool-card-content {
+  min-width: 0;
+}
+
+.tool-card h2 {
+  margin: 0 0 0.45rem;
+  font-size: 1.15rem;
+}
+
+.tool-card p {
+  margin: 0 0 0.8rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  opacity: 0.72;
+}
+
+.tool-card-link {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+.tool-card:hover .tool-card-link {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tool-card {
+    transition: none;
+  }
+
+  .tool-card:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 750px) {
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-card {
+    padding: 1.15rem;
+  }
+}
+
+/* =========================================================
+   Compatibility Index — Final UI
+   ========================================================= */
+
+.compatibility-index-page {
+  max-width: 1100px;
+}
+
+.compatibility-intro {
+  max-width: 850px;
+  margin-bottom: 1.75rem;
+}
+
+.compatibility-intro p:last-child {
+  margin-bottom: 0;
+}
+
+/* Calculator CTA */
+
+.compatibility-tool-link {
+  margin: 1.5rem 0 2rem;
+}
+
+.compatibility-calculator-cta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 1rem 1.15rem;
+
+  border: 1px solid rgba(160, 130, 255, 0.28);
+  border-radius: 14px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(120, 100, 255, 0.14),
+      transparent 60%
+    ),
+    rgba(255, 255, 255, 0.025);
+
+  color: inherit;
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.compatibility-calculator-cta:hover {
+  transform: translateY(-2px);
+  border-color: rgba(170, 140, 255, 0.5);
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(120, 100, 255, 0.2),
+      transparent 60%
+    ),
+    rgba(255, 255, 255, 0.04);
+}
+
+.compatibility-calculator-cta-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 2.8rem;
+  height: 2.8rem;
+  flex: 0 0 2.8rem;
+
+  border-radius: 10px;
+
+  background: rgba(130, 100, 255, 0.16);
+
+  font-size: 1.5rem;
+}
+
+.compatibility-calculator-cta-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+
+  min-width: 0;
+}
+
+.compatibility-calculator-cta-content strong {
+  font-size: 1rem;
+}
+
+.compatibility-calculator-cta-content span {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  opacity: 0.7;
+}
+
+.compatibility-calculator-cta-arrow {
+  margin-left: auto;
+  font-size: 1.2rem;
+  opacity: 0.65;
+}
+
+/* Sign cards */
+
+.compatibility-sign-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+
+  margin-top: 1.5rem;
+}
+
+.compatibility-sign-card {
+  align-self: start;
+
+  border: 1px solid var(
+    --border-color,
+    rgba(255, 255, 255, 0.1)
+  );
+
+  border-radius: 16px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(120, 100, 255, 0.08),
+      transparent 65%
+    ),
+    rgba(255, 255, 255, 0.02);
+
+  overflow: hidden;
+}
+
+.compatibility-sign-card[open] {
+  border-color: rgba(160, 130, 255, 0.32);
+}
+
+/* Native details summary */
+
+.compatibility-sign-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  padding: 1rem 1.1rem;
+
+  cursor: pointer;
+  list-style: none;
+}
+
+.compatibility-sign-summary::-webkit-details-marker {
+  display: none;
+}
+
+.compatibility-sign-summary::marker {
+  display: none;
+}
+
+.compatibility-sign-summary:hover {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.compatibility-sign-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  min-width: 0;
+}
+
+.compatibility-sign-symbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: 0 0 2.75rem;
+
+  border-radius: 10px;
+
+  background: rgba(130, 100, 255, 0.15);
+
+  font-size: 1.45rem;
+}
+
+.compatibility-sign-heading-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+
+  min-width: 0;
+}
+
+.compatibility-sign-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.compatibility-sign-count {
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+.compatibility-sign-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 1.8rem;
+  height: 1.8rem;
+  flex: 0 0 1.8rem;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  font-size: 1.15rem;
+  line-height: 1;
+
+  opacity: 0.65;
+
+  transition: transform 0.2s ease;
+}
+
+.compatibility-sign-card[open]
+.compatibility-sign-toggle {
+  transform: rotate(45deg);
+}
+
+/* Pair links */
+
+.compatibility-pair-list {
+  padding: 0 0.65rem 0.7rem;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.compatibility-pair-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 0.75rem;
+
+  padding: 0.65rem 0.55rem;
+
+  border-radius: 8px;
+
+  color: inherit;
+  text-decoration: none;
+
+  font-size: 0.88rem;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.compatibility-pair-link:hover {
+  background: rgba(255, 255, 255, 0.055);
+  transform: translateX(3px);
+}
+
+.compatibility-pair-arrow {
+  flex: 0 0 auto;
+  opacity: 0.5;
+}
+
+/* Accessibility */
+
+.compatibility-sign-summary:focus-visible,
+.compatibility-pair-link:focus-visible,
+.compatibility-calculator-cta:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .compatibility-calculator-cta,
+  .compatibility-pair-link,
+  .compatibility-sign-toggle {
+    transition: none;
+  }
+
+  .compatibility-calculator-cta:hover,
+  .compatibility-pair-link:hover {
+    transform: none;
+  }
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .compatibility-sign-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 650px) {
+  .compatibility-sign-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .compatibility-calculator-cta {
+    align-items: flex-start;
+  }
+
+  .compatibility-calculator-cta-arrow {
+    padding-top: 0.3rem;
+  }
+
+  .compatibility-sign-summary {
+    padding: 0.9rem;
+  }
+}

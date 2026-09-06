@@ -1,0 +1,69 @@
+{{ define "main" }}
+
+<article class="content-page tools-index-page">
+
+  <p class="eyebrow">ASTROLOGY TOOLS</p>
+
+  <h1>{{ .Title }}</h1>
+
+  <div class="tools-intro">
+    <p>
+      Explore AstroLight's interactive tools for astrology,
+      astronomy and numerology.
+    </p>
+
+    <p>
+      Each tool is designed to make its method and assumptions
+      clear while keeping the experience simple to use.
+    </p>
+  </div>
+
+  <section class="tools-grid">
+
+    {{ range .RegularPages.ByTitle }}
+
+      {{ $icon := "✦" }}
+
+      {{ if eq .File.TranslationBaseName "retrograde-dates" }}
+        {{ $icon = "☿" }}
+      {{ else if eq .File.TranslationBaseName "moon-phase" }}
+        {{ $icon = "☾" }}
+      {{ else if eq .File.TranslationBaseName "moon-sign-calculator" }}
+        {{ $icon = "☽" }}
+      {{ else if eq .File.TranslationBaseName "numerology" }}
+        {{ $icon = "①" }}
+      {{ else if eq .File.TranslationBaseName "sun-sign-calculator" }}
+        {{ $icon = "☀" }}
+      {{ else if eq .File.TranslationBaseName "compatibility-calculator" }}
+        {{ $icon = "♡" }}
+      {{ end }}
+
+      <a class="tool-card" href="{{ .RelPermalink }}">
+
+        <span class="tool-card-icon" aria-hidden="true">
+          {{ $icon }}
+        </span>
+
+        <div class="tool-card-content">
+
+          <h2>{{ .Title }}</h2>
+
+          {{ with .Description }}
+            <p>{{ . }}</p>
+          {{ end }}
+
+          <span class="tool-card-link">
+            Open tool →
+          </span>
+
+        </div>
+
+      </a>
+
+    {{ end }}
+
+  </section>
+
+</article>
+
+{{ end }}

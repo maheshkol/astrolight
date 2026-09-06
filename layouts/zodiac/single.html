@@ -2,40 +2,12 @@
 {{ $sign := .Params.sign }}
 {{ $data := index site.Data.zodiac $sign }}
 
-{{ $degreeStart := mul $data.index 30 }}
-{{ $degreeEnd := add $degreeStart 30 }}
-{{ $signNumber := add $data.index 1 }}
-
-{{ $zodiacOrder := slice
-  "aries"
-  "taurus"
-  "gemini"
-  "cancer"
-  "leo"
-  "virgo"
-  "libra"
-  "scorpio"
-  "sagittarius"
-  "capricorn"
-  "aquarius"
-  "pisces"
-}}
-
-{{ $nextIndex := mod (add $data.index 1) 12 }}
-{{ $prevIndex := mod (add $data.index 11) 12 }}
-
-{{ $nextSlug := index $zodiacOrder $nextIndex }}
-{{ $prevSlug := index $zodiacOrder $prevIndex }}
-
-{{ $nextData := index site.Data.zodiac $nextSlug }}
-{{ $prevData := index site.Data.zodiac $prevSlug }}
-
 <article class="content-page zodiac-page zodiac-single-page">
 
   <section class="zodiac-single-hero">
 
     <div class="zodiac-single-hero-copy">
-      <p class="eyebrow">ZODIAC REFERENCE · {{ $degreeStart }}° — {{ $degreeEnd }}°</p>
+      <p class="eyebrow">ZODIAC REFERENCE · {{ $data.degree_start }}° — {{ $data.degree_end }}°</p>
 
       <h1>{{ $data.symbol }} {{ $data.name }}</h1>
 
@@ -44,16 +16,17 @@
       </p>
 
       <p class="zodiac-single-first-sign">
-        The {{ $signNumber }}{{ if eq $signNumber 1 }}st{{ else if eq $signNumber 2 }}nd{{ else if eq $signNumber 3 }}rd{{ else }}th{{ end }} Sign      </p>
+        The First Sign
+      </p>
 
       <p class="zodiac-single-intro">
         {{ $data.dates }} · {{ $data.element }} · {{ $data.modality }} · Ruled by {{ $data.ruling_planet }}
       </p>
 
       <div class="zodiac-single-degree-track" aria-label="{{ $data.name }} zodiac position">
-        <span>{{ $degreeStart }}°</span>
+        <span>{{ $data.degree_start }}°</span>
         <div><i></i></div>
-        <span>{{ $degreeEnd }}°</span>
+        <span>{{ $data.degree_end }}°</span>
       </div>
     </div>
 
@@ -169,7 +142,7 @@
       <h2>
         {{ $data.name }} occupies<br>
       <span class="zodiac-position-degrees">
-        {{ $degreeStart }}° — {{ $degreeEnd }}°
+        {{ $data.degree_start }}° — {{ $data.degree_end }}°
       </span>
       </h2>
       <p>
@@ -178,9 +151,9 @@
       </p>
 
       <div class="zodiac-single-equation">
-        <span>{{ $degreeStart }}°</span>
+        <span>{{ $data.degree_start }}°</span>
         <div><i></i></div>
-        <span>{{ $degreeEnd }}°</span>
+        <span>{{ $data.degree_end }}°</span>
       </div>
 
       <p class="zodiac-single-math">
@@ -190,14 +163,12 @@
 
     <div class="zodiac-single-wheel">
       <div class="zodiac-single-wheel-ring"></div>
-      <div
-        class="zodiac-single-wheel-sector"
-        style="--zodiac-start: {{ $degreeStart }}deg;"
-      ></div>
+      <div class="zodiac-single-wheel-sector"></div>
+
       <div class="zodiac-single-wheel-center">
         <span>{{ $data.symbol }}</span>
         <strong>{{ upper $data.name }}</strong>
-        <small>{{ $degreeStart }}° — {{ $degreeEnd }}°</small>
+        <small>{{ $data.degree_start }}° — {{ $data.degree_end }}°</small>
       </div>
     </div>
 
@@ -232,118 +203,39 @@
     </div>
 
   </section>
+
+
   <section class="zodiac-single-compatibility">
 
-<p class="eyebrow">{{ upper $data.name }} &amp; RELATIONSHIPS</p>
+    <p class="eyebrow">COMMON SUN-SIGN COMPARISONS</p>
+    <h2>Explore {{ $data.name }} with other signs.</h2>
 
-    <h2>How {{ $data.name }} connects with other signs.</h2>
-
-    <p class="zodiac-single-relationship-intro">
-      In traditional compatibility readings, {{ $data.name }}
-      is compared with another person's element, modality,
-      ruling planets and—when birth data is available—the
-      Moon, Venus, Mars and other chart factors.
-    </p>
-
-    <div class="zodiac-single-links zodiac-single-relationship-links">
-
+    <div class="zodiac-single-links">
       {{ range $data.compatible }}
-
         {{ $other := index site.Data.zodiac . }}
-
-        <a
-          href="{{ printf "/zodiac/%s/" . | relURL }}"
-          class="zodiac-single-relationship-card"
-        >
-
-          <span class="zodiac-single-relationship-symbol">
-            {{ $other.symbol }}
-          </span>
-
-          <strong>{{ $other.name }}</strong>
-
-          <small>Explore compatibility →</small>
-
+        <a href="{{ printf "/zodiac/%s/" . | relURL }}">
+          <span>{{ $other.symbol }}</span>
+          {{ $other.name }} →
         </a>
-
       {{ end }}
-
     </div>
-
-    <a
-      href="{{ "/compatibility/" | relURL }}"
-      class="zodiac-single-compatibility-cta"
-    >
-      Compare {{ $data.name }} with another sign →
-    </a>
 
   </section>
-<section class="zodiac-single-next">
 
-    <div class="zodiac-single-next-heading">
-      <p class="eyebrow">EXPLORE MORE</p>
-      <h2>Continue your journey.</h2>
-      <p>
-        Explore compatibility, build a birth chart, or discover another
-        sign in the zodiac.
-      </p>
-    </div>
 
-    <div class="zodiac-single-explore-grid">
+  <section class="zodiac-single-next">
 
-      <a
-        href="{{ "/compatibility/" | relURL }}"
-        class="zodiac-single-explore-card"
-      >
-        <span class="zodiac-explore-number">01</span>
-        <div>
-          <h3>Compatibility</h3>
-          <p>See how {{ $data.name }} connects with other signs.</p>
-        </div>
-        <strong>→</strong>
+    <a href="{{ "/zodiac/" | relURL }}">
+      <span>BACK TO</span>
+      Zodiac Explorer →
+    </a>
+
+    {{ if eq $data.name "Aries" }}
+      <a href="{{ "/zodiac/taurus/" | relURL }}">
+        <span>NEXT SIGN</span>
+        Taurus →
       </a>
-
-      <a
-        href="{{ "/birth-chart/" | relURL }}"
-        class="zodiac-single-explore-card"
-      >
-        <span class="zodiac-explore-number">02</span>
-        <div>
-          <h3>Birth Chart</h3>
-          <p>Go beyond the Sun sign and explore the full chart.</p>
-        </div>
-        <strong>→</strong>
-      </a>
-
-      <a
-        href="{{ "/zodiac/" | relURL }}"
-        class="zodiac-single-explore-card"
-      >
-        <span class="zodiac-explore-number">03</span>
-        <div>
-          <h3>Other Zodiac Signs</h3>
-          <p>Explore the complete twelve-sign zodiac.</p>
-        </div>
-        <strong>→</strong>
-      </a>
-
-    </div>
-
-    <div class="zodiac-single-next-links">
-
-      <a href="{{ "/zodiac/" | relURL }}">
-        <span>BACK TO</span>
-        Zodiac Explorer →
-      </a>
-
-      {{ if eq $data.name "Aries" }}
-        <a href="{{ "/zodiac/taurus/" | relURL }}">
-          <span>NEXT SIGN</span>
-          Taurus →
-        </a>
-      {{ end }}
-
-    </div>
+    {{ end }}
 
   </section>
 
@@ -396,15 +288,15 @@
         #05060d;
     }
 
-      .zodiac-single-hero {
-        max-width: 1320px;
-        min-height: 700px;
-        margin: 0 auto;
-        padding: 90px 55px 70px;
-        display: grid;
-        grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr);
-        align-items: center;
-        gap: 35px;
+    .zodiac-single-hero {
+      max-width: 1320px;
+      min-height: 700px;
+      margin: 0 auto;
+      padding: 90px 55px 70px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 40px;
     }
 
     .zodiac-single-hero-copy {
@@ -423,10 +315,9 @@
     .zodiac-single-hero h1 {
       margin: 12px 0;
       color: var(--zstext);
-      font-size: clamp(64px, 8vw, 130px);
+      font-size: clamp(70px, 10vw, 150px);
       line-height: .85;
-      letter-spacing: -5px;
-      overflow-wrap: break-word;
+      letter-spacing: -6px;
     }
 
     .zodiac-single-tagline {
@@ -517,19 +408,17 @@
     }
 
     .zodiac-single-orbit-a {
-  width: min(430px, 85%);
-  aspect-ratio: 1 / 1;
-  height: auto;
-  animation: astrolightSingleOrbit 24s linear infinite;
-}
+      width: 430px;
+      height: 430px;
+      animation: astrolightSingleOrbit 24s linear infinite;
+    }
 
-.zodiac-single-orbit-b {
-  width: min(540px, 105%);
-  aspect-ratio: 1 / 1;
-  height: auto;
-  border-color: rgba(94,232,255,.08);
-  animation: astrolightSingleOrbitReverse 34s linear infinite;
-}
+    .zodiac-single-orbit-b {
+      width: 540px;
+      height: 540px;
+      border-color: rgba(94,232,255,.08);
+      animation: astrolightSingleOrbitReverse 34s linear infinite;
+    }
 
     .zodiac-single-symbol {
       position: absolute;
@@ -700,16 +589,13 @@
       position: absolute;
       inset: 0;
       border-radius: 50%;
-
       background: conic-gradient(
-      from calc(-15deg + var(--zodiac-start, 0deg)),
-      rgba(244,213,141,.24) 0deg 30deg,
-      transparent 30deg 360deg
-  );
-
-  animation:
-    astrolightSingleSectorIn 1.2s ease both;
-}
+        from -15deg,
+        rgba(244,213,141,.24) 0deg 30deg,
+        transparent 30deg 360deg
+      );
+      animation: astrolightSingleSectorIn 1.2s ease both;
+    }
 
     .zodiac-single-wheel-center {
       position: relative;
@@ -740,7 +626,89 @@
       color: #aab4ca;
       line-height: 1.9;
     }
+    /* ---------------------------------------------------------
+   ARTICLE TABLES
+   --------------------------------------------------------- */
 
+    .zodiac-single-content .article-body table {
+      width: 100%;
+      margin: 32px 0 42px;
+      border-collapse: separate;
+      border-spacing: 0;
+      overflow: hidden;
+
+      background: rgba(255, 255, 255, .018);
+      border: 1px solid rgba(255, 255, 255, .09);
+    }
+
+.zodiac-single-content .article-body thead {
+  background: rgba(244, 213, 141, .055);
+}
+
+.zodiac-single-content .article-body th {
+  padding: 16px 20px;
+
+  color: #f4d58d;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-align: left;
+
+  border-bottom: 1px solid rgba(244, 213, 141, .18);
+}
+
+.zodiac-single-content .article-body td {
+  padding: 15px 20px;
+
+  color: #aab4ca;
+  vertical-align: top;
+
+  border-bottom: 1px solid rgba(255, 255, 255, .065);
+}
+
+.zodiac-single-content .article-body tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.zodiac-single-content .article-body tbody tr {
+  transition:
+    background .25s ease,
+    transform .25s ease;
+}
+
+.zodiac-single-content .article-body tbody tr:hover {
+  background: rgba(94, 232, 255, .025);
+}
+
+.zodiac-single-content .article-body td:first-child {
+  width: 32%;
+
+  color: #f5f1e8;
+  font-weight: 600;
+}
+
+.zodiac-single-content .article-body td:last-child {
+  color: #9da9c3;
+}
+
+
+/* Mobile table */
+
+@media (max-width: 600px) {
+
+  .zodiac-single-content .article-body table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .zodiac-single-content .article-body th,
+  .zodiac-single-content .article-body td {
+    padding: 13px 16px;
+  }
+
+}
     .zodiac-single-content .article-body h2 {
       margin-top: 55px;
       color: var(--zstext);
@@ -752,75 +720,81 @@
 
     .zodiac-single-content .article-body a {
       color: var(--zscyan);
-    }    
+    }
+
     /* =====================================================
-       ZODIAC ARTICLE TABLE
-       ===================================================== */
+   ZODIAC ARTICLE TABLE
+   ===================================================== */
 
-    .zodiac-single-content .article-body table {
-      width: 100%;
-      margin: 35px 0 45px;
-      border-collapse: separate;
-      border-spacing: 0;
-      border: 1px solid var(--zsborder);
-      background: rgba(255,255,255,.015);
-      overflow: hidden;
-    }
+.zodiac-single-content .article-body table {
+  width: 100%;
+  margin: 35px 0 45px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--zsborder);
+  background: rgba(255,255,255,.015);
+  overflow: hidden;
+}
 
-    .zodiac-single-content .article-body thead {
-      background: rgba(244,213,141,.055);
-    }
+.zodiac-single-content .article-body thead {
+  background: rgba(244,213,141,.055);
+}
 
-    .zodiac-single-content .article-body th {
-      padding: 16px 20px;
-      border-bottom: 1px solid var(--zsborder);
-      color: var(--zsgold);
-      text-align: left;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
+.zodiac-single-content .article-body th {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--zsborder);
+  color: var(--zsgold);
+  text-align: left;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
 
-    .zodiac-single-content .article-body td {
-      padding: 15px 20px;
-      border-bottom: 1px solid rgba(255,255,255,.055);
-      color: #aab4ca;
-      font-size: 15px;
-      line-height: 1.6;
-      vertical-align: top;
-    }
+.zodiac-single-content .article-body td {
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(255,255,255,.055);
+  color: #aab4ca;
+  font-size: 15px;
+  line-height: 1.6;
+  vertical-align: top;
+}
 
-    .zodiac-single-content .article-body tbody tr:last-child td {
-      border-bottom: 0;
-    }
+.zodiac-single-content .article-body tbody tr:last-child td {
+  border-bottom: 0;
+}
 
-    .zodiac-single-content .article-body tbody tr:hover {
-      background: rgba(244,213,141,.035);
-    }
+.zodiac-single-content .article-body tbody tr {
+  transition: background .25s ease;
+}
 
-    .zodiac-single-content .article-body td:first-child {
-      width: 28%;
-      color: var(--zstext);
-      font-weight: 600;
-    }
+.zodiac-single-content .article-body tbody tr:hover {
+  background: rgba(244,213,141,.035);
+}
 
-    @media (max-width: 700px) {
-      .zodiac-single-content .article-body {
-        overflow-x: auto;
-      }
+.zodiac-single-content .article-body td:first-child {
+  width: 28%;
+  color: var(--zstext);
+  font-weight: 600;
+}
 
-      .zodiac-single-content .article-body table {
-        min-width: 560px;
-      }
+/* Mobile */
+@media (max-width: 700px) {
 
-      .zodiac-single-content .article-body th,
-      .zodiac-single-content .article-body td {
-        padding: 13px 15px;
-      }
-    }
+  .zodiac-single-content .article-body {
+    overflow-x: auto;
+  }
 
+  .zodiac-single-content .article-body table {
+    min-width: 560px;
+  }
 
+  .zodiac-single-content .article-body th,
+  .zodiac-single-content .article-body td {
+    padding: 13px 15px;
+  }
+
+}
     .zodiac-single-keywords {
       display: flex;
       flex-wrap: wrap;
@@ -991,13 +965,8 @@
     }
 
     @keyframes astrolightSingleSectorIn {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
+      from { opacity: 0; transform: scale(.85); }
+      to { opacity: 1; transform: scale(1); }
     }
 
     @media (max-width: 850px) {
@@ -1071,160 +1040,7 @@
         transition: none !important;
       }
     }
-  
-    /* =====================================================
-       EXPLORE MORE — FINAL LAYOUT
-       ===================================================== */
-
-    .zodiac-single-next {
-      display: grid !important;
-      grid-template-columns: minmax(260px, 0.8fr) minmax(480px, 1.2fr) !important;
-      column-gap: 70px !important;
-      row-gap: 18px !important;
-      align-items: start !important;
-      max-width: 1180px !important;
-      margin: 0 auto !important;
-      padding: 100px 40px 140px !important;
-    }
-
-    /* Left heading */
-
-    .zodiac-single-next-heading {
-      grid-column: 1 !important;
-      grid-row: 1 !important;
-      max-width: 430px !important;
-      margin: 0 !important;
-    }
-
-    .zodiac-single-next-heading h2 {
-      margin: 0 0 22px !important;
-    }
-
-    .zodiac-single-next-heading p {
-      max-width: 400px !important;
-      margin: 0 !important;
-      line-height: 1.8 !important;
-    }
-
-    /* Right-side cards */
-
-    .zodiac-single-explore-grid {
-      grid-column: 2 !important;
-      grid-row: 1 !important;
-      display: grid !important;
-      grid-template-columns: 1fr !important;
-      gap: 0 !important;
-      width: 100% !important;
-      margin: 0 !important;
-    }
-
-    .zodiac-single-explore-card {
-      min-height: 0 !important;
-      padding: 30px 28px !important;
-      display: grid !important;
-      grid-template-columns: 45px 1fr 30px !important;
-      align-items: center !important;
-      gap: 12px !important;
-      border: 1px solid var(--zsborder) !important;
-      background: rgba(255,255,255,.015) !important;
-      color: var(--zstext) !important;
-      text-decoration: none !important;
-      transition:
-        transform .3s ease,
-        border-color .3s ease,
-        background .3s ease !important;
-    }
-
-    .zodiac-single-explore-card + .zodiac-single-explore-card {
-      border-top: 0 !important;
-    }
-
-    .zodiac-single-explore-card:hover {
-      transform: translateX(5px) !important;
-      border-color: rgba(244,213,141,.4) !important;
-      background: rgba(255,255,255,.035) !important;
-    }
-
-    .zodiac-explore-number {
-      display: block !important;
-      align-self: start !important;
-      padding-top: 3px !important;
-      color: #68748f !important;
-      font-size: 10px !important;
-      letter-spacing: 2px !important;
-    }
-
-    .zodiac-single-explore-card h3 {
-      margin: 0 0 8px !important;
-      color: var(--zstext) !important;
-      font-size: 22px !important;
-    }
-
-    .zodiac-single-explore-card p {
-      margin: 0 !important;
-      color: var(--zsmuted) !important;
-      line-height: 1.6 !important;
-    }
-
-    .zodiac-single-explore-card > strong {
-      display: block !important;
-      margin: 0 !important;
-      color: var(--zsgold) !important;
-      font-size: 20px !important;
-      text-align: right !important;
-    }
-
-    /* Back / Next navigation */
-
-    .zodiac-single-next > a {
-      grid-column: 1 !important;
-      width: 100% !important;
-      box-sizing: border-box !important;
-    }
-
-    .zodiac-single-next > a:first-of-type {
-      grid-row: 2 !important;
-      margin-top: 45px !important;
-    }
-
-    .zodiac-single-next > a:last-of-type {
-      grid-row: 3 !important;
-    }
-
-    /* =====================================================
-       MOBILE
-       ===================================================== */
-
-    @media (max-width: 899px) {
-
-      .zodiac-single-next {
-        display: block !important;
-        padding: 80px 24px 100px !important;
-      }
-
-      .zodiac-single-next-heading {
-        margin-bottom: 40px !important;
-      }
-
-      .zodiac-single-explore-grid {
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-        margin-bottom: 40px !important;
-      }
-
-      .zodiac-single-explore-card {
-        grid-template-columns: 35px 1fr 25px !important;
-        padding: 24px 20px !important;
-      }
-
-      .zodiac-single-next > a {
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-      }
-
-    }
-
-</style>
+  </style>
 
 
   <script>
@@ -1250,101 +1066,76 @@
 
       const topics = {
 
-  symbol: {
-    label: "SYMBOL",
-    title: signName + " " + symbol,
-    html:
-      "<p>" +
-      signName +
-      " is traditionally represented by " +
-      (signName === "Aries"
-        ? "the Ram"
-        : "its traditional zodiac symbol") +
-      ".</p>" +
-      "<p>The zodiac symbol provides a visual language for the traditional interpretation of " +
-      signName +
-      ".</p>" +
-      "<p>Traditional symbolism connects the sign with themes associated with its place and role within the zodiac.</p>"
-  },
+        symbol: {
+          label: "SYMBOL",
+          title: symbol + " " + signName,
+          html:
+            "<p>" +
+            signName +
+            " is traditionally represented by " +
+            (signName === "Aries" ? "the Ram" : "its traditional zodiac symbol") +
+            ".</p>" +
+            "<p>The symbol provides a visual language for the traditional interpretation of the sign.</p>"
+        },
 
-  element: {
-    label: "ELEMENT",
-    title: element,
-    html:
-      "<p>" +
-      element +
-      " is the traditional element associated with " +
-      signName +
-      ".</p>" +
-      "<p>In traditional astrology, the elements describe broad styles of energy: Fire, Earth, Air and Water.</p>" +
-      "<p>For " +
-      signName +
-      ", the element provides a framework for understanding its traditional style of expression.</p>"
-  },
+        element: {
+          label: "ELEMENT",
+          title: element,
+          html:
+            "<p>" +
+            element +
+            " is the traditional element associated with " +
+            signName +
+            ".</p>" +
+            "<p>Element describes a broad style of energy within traditional astrological interpretation.</p>"
+        },
 
-  modality: {
-    label: "MODALITY",
-    title: modality,
-    html:
-    "<p>" +
-    signName +
-    " is traditionally classified as a " +
-    modality +
-    " sign.</p>" +
-    "<p>Modalities describe how a sign's energy is traditionally expressed through initiation, stability or adaptation.</p>" +
-    "<p>As a " +
-    modality +
-    " sign, " +
-    signName +
-    " is interpreted through the qualities traditionally associated with this mode.</p>"
-  },
+        modality: {
+          label: "MODALITY",
+          title: modality,
+          html:
+            "<p>" +
+            modality +
+            " is the traditional modality associated with " +
+            signName +
+            ".</p>" +
+            "<p>Modality describes how the sign's energy is traditionally expressed through initiation, stability or adaptation.</p>"
+        },
 
-  ruler: {
-    label: "TRADITIONAL RULER",
-    title: ruler,
-    html:
-      "<p>" +
-      ruler +
-      " is the traditional ruling planet associated with " +
-      signName +
-      ".</p>" +
-      "<p>In traditional astrological interpretation, the ruling planet provides another symbolic layer for understanding the sign.</p>" +
-      "<p>" +
-      ruler +
-      " is associated with themes that contribute to the traditional interpretation of " +
-      signName +
-      ".</p>" +
-      "<p>This is a traditional astrological association, not a scientifically established planetary effect.</p>"
-  },
+        ruler: {
+          label: "TRADITIONAL RULER",
+          title: ruler,
+          html:
+            "<p>" +
+            ruler +
+            " is the traditional ruling planet associated with " +
+            signName +
+            ".</p>" +
+            "<p>This is presented as a traditional astrological association rather than a scientifically established effect.</p>"
+        },
 
-  strengths: {
-    label: "TRADITIONAL QUALITIES",
-    title: signName + " strengths",
-    html:
-      "<p>Traditional interpretations commonly associate " +
-      signName +
-      " with qualities such as:</p>" +
-      "<ul>" +
-      traits.map(function (trait) {
-        return "<li>" + trait + "</li>";
-      }).join("") +
-      "</ul>" +
-      "<p>These qualities are interpretive themes within astrology rather than measurements of personality.</p>"
-  },
+        strengths: {
+          label: "TRADITIONAL QUALITIES",
+          title: signName + " strengths",
+          html:
+            "<ul>" +
+            traits.map(function (trait) {
+              return "<li>" + trait + "</li>";
+            }).join("") +
+            "</ul>" +
+            "<p>These are interpretive themes rather than measurements of personality.</p>"
+        },
 
-  growth: {
-    label: "SELF-AWARENESS",
-    title: signName + " growth areas",
-    html:
-      "<p>Traditional astrology often treats strengths and challenges as two sides of the same pattern.</p>" +
-      "<p>The qualities associated with " +
-      signName +
-      " may become less helpful when they are expressed without balance or reflection.</p>" +
-      "<p>Self-awareness can therefore involve recognising when a traditional strength is being overused and developing a more balanced expression of it.</p>" +
-      "<p>These themes are opportunities for reflection rather than fixed personality limitations.</p>"
-  }
+        growth: {
+          label: "SELF-AWARENESS",
+          title: "Growth areas",
+          html:
+            "<p>Traditional astrology often treats strengths and challenges as two sides of the same pattern.</p>" +
+            "<p>A quality that helps in one situation can become unhelpful when overused. A complete natal chart can also place different planets and points in different signs.</p>"
+        }
 
-};
+      };
+
       function openModal(key) {
 
         const topic = topics[key];
@@ -1394,8 +1185,3 @@
 
 </article>
 {{ end }}
-
-
-
-
-

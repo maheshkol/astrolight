@@ -1,36 +1,239 @@
 {{ define "main" }}
+
 {{ $sign1 := index site.Data.zodiac .Params.sign1 }}
 {{ $sign2 := index site.Data.zodiac .Params.sign2 }}
 
 <article class="content-page compatibility-page">
-  <p class="eyebrow">SUN-SIGN COMPATIBILITY</p>
-  <h1>{{ $sign1.symbol }} {{ $sign1.name }} + {{ $sign2.symbol }} {{ $sign2.name }}</h1>
 
-  <div id="compat-score" data-sign-a="{{ .Params.sign1 }}" data-sign-b="{{ .Params.sign2 }}">
-    Calculating the transparent score…
+  <p class="eyebrow">SUN-SIGN COMPATIBILITY</p>
+
+  <h1>
+    {{ $sign1.symbol }} {{ $sign1.name }} +
+    {{ $sign2.symbol }} {{ $sign2.name }}
+  </h1>
+
+  <div
+    id="compat-score"
+    class="compatibility-result"
+    data-sign-a="{{ .Params.sign1 }}"
+    data-sign-b="{{ .Params.sign2 }}"
+  >
+    <p>Calculating compatibility…</p>
   </div>
+
+  <section class="compatibility-methodology">
+
+    <h2>How the compatibility score is calculated</h2>
+
+    <p>
+      AstroLight's Sun-sign compatibility score combines three disclosed
+      components of its educational reflection model.
+    </p>
+
+    <ul>
+      <li>
+        <strong>Element — 18 points maximum:</strong>
+        compares the elemental relationship between the two signs.
+      </li>
+
+      <li>
+        <strong>Modality — 14 points maximum:</strong>
+        compares Cardinal, Fixed and Mutable qualities.
+      </li>
+
+      <li>
+        <strong>Sign-wheel distance — 20 points maximum:</strong>
+        uses the shortest distance between the two signs around the zodiac
+        wheel.
+      </li>
+    </ul>
+
+    <p>
+      The three components produce a maximum raw score of 52 points,
+      which AstroLight scales to a percentage for easier reading.
+    </p>
+
+    <p>
+      This is a structured educational and reflection model, not a
+      scientific measure or prediction of relationship success.
+    </p>
+
+  </section>
 
   {{ partial "ad-slot.html" (dict "Site" .Site "slot" "2222222222") }}
 
-  <div class="article-body">{{ .Content }}</div>
-
   <div class="feature-grid">
-    <a class="feature-card" href="{{ site.Home.RelPermalink }}zodiac/{{ .Params.sign1 }}/">Read {{ $sign1.name }} →</a>
-    <a class="feature-card" href="{{ site.Home.RelPermalink }}zodiac/{{ .Params.sign2 }}/">Read {{ $sign2.name }} →</a>
+
+    <a
+      class="feature-card"
+      href="{{ printf "zodiac/%s/" .Params.sign1 | relURL }}"
+    >
+      Read {{ $sign1.name }} →
+    </a>
+
+    <a
+      class="feature-card"
+      href="{{ printf "zodiac/%s/" .Params.sign2 | relURL }}"
+    >
+      Read {{ $sign2.name }} →
+    </a>
+
   </div>
+
 </article>
 
 <script type="module">
-  import { scoreCompatibility } from "{{ "js/astrology/compatibility.js" | relURL }}";
+
+  import { scoreCompatibility } from "{{ "js/astrology/compatibility.js" | relURL }}?v=2";
+
+  import {
+    generateCompatibilityProse,
+    COMPATIBILITY_PROSE_VERSION
+  } from "{{ "js/astrology/compatibility-prose.js" | relURL }}";
+
   const el = document.getElementById("compat-score");
+
   if (el) {
-    const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
-    const result = scoreCompatibility(cap(el.dataset.signA), cap(el.dataset.signB));
-    el.innerHTML = `
-      <div class="score-total">Overall Compatibility: ${result.total}%</div>
-      <ul class="score-breakdown">${result.breakdown.map(b => `<li>${b.label}: ${b.points}/${b.outOf}</li>`).join("")}</ul>
-      <p class="score-disclaimer"><em>${result.disclaimer}</em></p>
-    `;
+
+    const cap = (sign) =>
+      sign.charAt(0).toUpperCase() + sign.slice(1);
+
+    const signA = cap(el.dataset.signA);
+    const signB = cap(el.dataset.signB);
+
+    try {
+
+      const score = scoreCompatibility(
+        signA,
+        signB
+      );
+
+      const prose = generateCompatibilityProse(
+        signA,
+        signB,
+        score
+      );
+
+      el.innerHTML = `
+
+        <section class="compatibility-score-card">
+
+          <h2>${signA} + ${signB}</h2>
+
+          <div class="score-total">
+            ${score.total}%
+          </div>
+
+          <p class="compatibility-score-label">
+            Overall Compatibility
+          </p>
+
+          <p class="compatibility-tone">
+            ${prose.overall.tone}
+          </p>
+
+        </section>
+
+        <section class="compatibility-overview">
+
+          <h2>Overall interpretation</h2>
+
+          <p>
+            ${prose.sections.overview}
+          </p>
+
+        </section>
+
+        <section class="compatibility-section">
+
+          <h2>Element</h2>
+
+          <p>
+            <strong>
+              ${prose.sections.element.score}/${prose.sections.element.outOf}
+            </strong>
+            — ${prose.sections.element.tone}
+          </p>
+
+          <p>
+            ${prose.sections.element.text}
+          </p>
+
+        </section>
+
+        <section class="compatibility-section">
+
+          <h2>Modality</h2>
+
+          <p>
+            <strong>
+              ${prose.sections.modality.score}/${prose.sections.modality.outOf}
+            </strong>
+            — ${prose.sections.modality.tone}
+          </p>
+
+          <p>
+            ${prose.sections.modality.text}
+          </p>
+
+        </section>
+
+        <section class="compatibility-section">
+
+          <h2>Sign-wheel distance</h2>
+
+          <p>
+            <strong>
+              ${prose.sections.distance.score}/${prose.sections.distance.outOf}
+            </strong>
+            — ${prose.sections.distance.tone}
+          </p>
+
+          <p>
+            ${prose.sections.distance.text}
+          </p>
+
+        </section>
+
+        <section class="compatibility-themes">
+
+          <h2>Relationship themes</h2>
+
+          <ul>
+            ${prose.themes
+              .map(theme => `<li>${theme}</li>`)
+              .join("")}
+          </ul>
+
+        </section>
+
+        <p class="score-disclaimer">
+          <em>${score.disclaimer}</em>
+        </p>
+
+        <p class="compatibility-engine-note">
+          Interpretation engine ${COMPATIBILITY_PROSE_VERSION}
+        </p>
+
+      `;
+
+    } catch (error) {
+
+      console.error(
+        "Compatibility interpretation error:",
+        error
+      );
+
+      el.innerHTML = `
+        <p class="warning">
+          Unable to calculate this compatibility result.
+        </p>
+      `;
+
+    }
+
   }
+
 </script>
+
 {{ end }}

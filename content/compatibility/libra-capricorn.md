@@ -3,7 +3,7 @@ title: "Libra and Capricorn Compatibility"
 layout: "compatibility-single"
 sign1: "libra"
 sign2: "capricorn"
-description: "Libra and Capricorn compatibility: a transparent Sun-sign comparison of elements, modalities and sign-wheel relationships."
+description: "Libra and Capricorn compatibility: a transparent Sun-sign comparison of elements, modalities and Sign-wheel distances."
 ---
 
 ## Libra ♎ + Capricorn ♑
@@ -18,7 +18,7 @@ This number is not a measurement of relationship success. It is a repeatable way
 |---|---:|
 | Element compatibility | 8 / 18 |
 | Modality compatibility | 10 / 14 |
-| Sign-wheel relationship | 8 / 20 |
+| Sign-wheel distance | 8 / 20 |
 | **Normalized score** | **50 / 100** |
 
 ### Element dynamic
@@ -55,3 +55,4 @@ The sign-wheel component uses the shortest distance between the two signs on the
 For a deeper comparison, use two complete birth charts and compare the Moon, Venus, Mars, Ascendants and planetary aspects rather than relying on Sun signs alone.
 
 > **Interpretation note:** Compatibility content is presented as traditional astrology and an educational reflection tool. It should not be treated as a prediction or as a substitute for communication and personal judgment.
+

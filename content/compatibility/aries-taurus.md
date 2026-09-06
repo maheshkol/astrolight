@@ -3,7 +3,7 @@ title: "Aries and Taurus Compatibility"
 layout: "compatibility-single"
 sign1: "aries"
 sign2: "taurus"
-description: "Aries and Taurus compatibility: a transparent Sun-sign comparison of elements, modalities and sign-wheel relationships."
+description: "Aries and Taurus compatibility: a transparent Sun-sign comparison of elements, modalities and Sign-wheel distances."
 ---
 
 ## Aries ♈ + Taurus ♉
@@ -18,7 +18,7 @@ This number is not a measurement of relationship success. It is a repeatable way
 |---|---:|
 | Element compatibility | 10 / 18 |
 | Modality compatibility | 12 / 14 |
-| Sign-wheel relationship | 12 / 20 |
+| Sign-wheel distance | 12 / 20 |
 | **Normalized score** | **65 / 100** |
 
 ### Element dynamic
@@ -55,3 +55,4 @@ The sign-wheel component uses the shortest distance between the two signs on the
 For a deeper comparison, use two complete birth charts and compare the Moon, Venus, Mars, Ascendants and planetary aspects rather than relying on Sun signs alone.
 
 > **Interpretation note:** Compatibility content is presented as traditional astrology and an educational reflection tool. It should not be treated as a prediction or as a substitute for communication and personal judgment.
+

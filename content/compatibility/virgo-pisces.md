@@ -3,7 +3,7 @@ title: "Virgo and Pisces Compatibility"
 layout: "compatibility-single"
 sign1: "virgo"
 sign2: "pisces"
-description: "Virgo and Pisces compatibility: a transparent Sun-sign comparison of elements, modalities and sign-wheel relationships."
+description: "Virgo and Pisces compatibility: a transparent Sun-sign comparison of elements, modalities and Sign-wheel distances."
 ---
 
 ## Virgo ♍ + Pisces ♓
@@ -18,7 +18,7 @@ This number is not a measurement of relationship success. It is a repeatable way
 |---|---:|
 | Element compatibility | 16 / 18 |
 | Modality compatibility | 14 / 14 |
-| Sign-wheel relationship | 6 / 20 |
+| Sign-wheel distance | 6 / 20 |
 | **Normalized score** | **69 / 100** |
 
 ### Element dynamic
@@ -55,3 +55,4 @@ The sign-wheel component uses the shortest distance between the two signs on the
 For a deeper comparison, use two complete birth charts and compare the Moon, Venus, Mars, Ascendants and planetary aspects rather than relying on Sun signs alone.
 
 > **Interpretation note:** Compatibility content is presented as traditional astrology and an educational reflection tool. It should not be treated as a prediction or as a substitute for communication and personal judgment.
+

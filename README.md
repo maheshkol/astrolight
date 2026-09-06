@@ -120,16 +120,76 @@ The content should still receive a final human editorial pass before an AdSense 
 
 ## Horoscope system
 
+AstroLight provides dynamically calculated daily Sun-sign horoscopes using the site's Western/Tropical astrology framework.
+
+Each daily horoscope is calculated from the astronomical positions of the planets for the requested date and then interpreted through deterministic, sign-specific interpretation engines.
+
+The horoscope pipeline is structured as:
+
+```text
+Astronomical positions
+        ↓
+Planetary snapshot
+        ↓
+Sign relationships and aspects
+        ↓
+Independent section interpretation engines
+        ↓
+Section-specific prose
+        ↓
+Daily horoscope
+
+The current daily horoscope includes:
+
+    overall interpretation;
+
+    love;
+
+    career;
+
+    money;
+
+    energy;
+
+    communication;
+
+    emotional themes;
+
+    opportunities;
+
+    guidance.
+
+The system is deterministic and does not use randomization or generate arbitrary AI text per request.
+
+The current horoscope scope is daily Western/Tropical Sun-sign readings. Weekly, monthly and yearly horoscope systems are not currently part of the project.
+```
+
+### Replace only that section
+
+So in `README.md`, replace:
+
+```markdown
+## Horoscope system
+
 Horoscope pages use a static, pre-written content bank in:
 
 ```text
 static/js/horoscope-bank.json
-```
 
 The browser selects an entry deterministically based on the sign, period and date. It does not generate arbitrary horoscope text.
 
 This is intentionally different from an AI-generated horoscope-per-request system.
 
+
+with the new version above.
+```
+Then verify there are **no references to the deleted system anywhere**:
+
+```powershell
+Get-ChildItem "." -Recurse -File |
+  Where-Object { $_.FullName -notlike "*\public\*" } |
+  Select-String -Pattern "horoscope-bank\.json|horoscope-rotator\.js"
+```
 ## Visual design
 
 The current visual system includes:
