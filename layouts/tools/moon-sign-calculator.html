@@ -1,0 +1,256 @@
+{{ define "main" }}
+{{ $css := resources.Get "css/moon-sign-calculator.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+
+<article class="moon-sign-tool">
+
+  <header class="moon-sign-hero">
+    <p class="eyebrow">VEDIC MOON CALCULATOR</p>
+    <h1>Moon Sign &amp; Nakshatra Calculator</h1>
+    <p class="moon-sign-lede">
+      Calculate your sidereal Moon sign, Nakshatra and Pada from your birth
+      date, time and place.
+    </p>
+  </header>
+
+  <section class="moon-sign-shell">
+
+    <div class="moon-sign-section-heading">
+      <p class="eyebrow">BIRTH DETAILS</p>
+      <h2>Enter your birth information</h2>
+      <p>
+        For the most precise result, provide your exact birth time and birth place.
+      </p>
+    </div>
+
+    <form id="moon-sign-form" class="moon-sign-form">
+
+      <label>
+        Date of birth
+        <input type="date" name="date" required>
+      </label>
+
+      <label>
+        Time of birth
+        <input type="time" name="time" required>
+      </label>
+
+      <label class="moon-sign-place-field">
+        Birth place
+
+        <div class="moon-sign-place-row">
+          <input
+            type="text"
+            id="moon-sign-place"
+            name="birthPlace"
+            placeholder="City, State/Province, Country"
+            autocomplete="off"
+            required
+          >
+
+          <button
+            type="button"
+            id="resolve-moon-sign-place"
+          >
+            Find place
+          </button>
+        </div>
+
+        <small>
+          AstroLight determines the coordinates and historical time-zone
+          offset automatically.
+        </small>
+
+        <div
+          id="moon-sign-place-status"
+          class="moon-sign-status"
+          aria-live="polite"
+        ></div>
+      </label>
+
+      <input
+        type="hidden"
+        name="utcOffset"
+        id="moon-sign-utc-offset"
+      >
+
+      <input
+        type="hidden"
+        name="latitude"
+        id="moon-sign-latitude"
+      >
+
+      <input
+        type="hidden"
+        name="longitude"
+        id="moon-sign-longitude"
+      >
+
+      <button
+        type="submit"
+        class="moon-sign-submit"
+      >
+        Calculate Moon Sign &amp; Nakshatra
+      </button>
+
+    </form>
+
+  </section>
+
+
+  <!-- CALCULATION RESULT -->
+
+  <section
+    id="moon-sign-result"
+    class="moon-sign-result"
+    aria-live="polite"
+  >
+
+    <div class="moon-sign-empty">
+      <p class="eyebrow">RESULT</p>
+
+      <h2>Your Vedic Moon details will appear here</h2>
+
+      <p>
+        Enter your birth details and calculate the result.
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- METHODOLOGY -->
+
+  <section class="moon-sign-method">
+
+    <div class="moon-sign-section-heading">
+      <p class="eyebrow">CALCULATION FIRST</p>
+
+      <h2>How it is calculated</h2>
+    </div>
+
+    <div class="moon-sign-method-grid">
+
+      <article>
+        <span>01</span>
+
+        <h3>Geocentric Moon</h3>
+
+        <p>
+          AstroLight calculates the Moon's geocentric ecliptic longitude
+          for the supplied birth moment.
+        </p>
+      </article>
+
+
+      <article>
+        <span>02</span>
+
+        <h3>Sidereal conversion</h3>
+
+        <p>
+          The tropical longitude is converted to a sidereal longitude
+          using a Lahiri-style ayanamsa.
+        </p>
+      </article>
+
+
+      <article>
+        <span>03</span>
+
+        <h3>Moon sign</h3>
+
+        <p>
+          The sidereal longitude is divided into twelve 30° zodiac signs
+          to determine the Vedic Moon sign.
+        </p>
+      </article>
+
+
+      <article>
+        <span>04</span>
+
+        <h3>Nakshatra &amp; Pada</h3>
+
+        <p>
+          The sidereal longitude is divided across 27 Nakshatras,
+          each spanning 13°20′, with four Padas of 3°20′ each.
+        </p>
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- EDUCATION -->
+
+  <section class="moon-sign-notes">
+
+    <h2>Moon sign, Nakshatra and Pada</h2>
+
+    <div class="moon-sign-note-grid">
+
+      <article>
+
+        <h3>Moon sign (Rashi)</h3>
+
+        <p>
+          The sidereal sign occupied by the Moon at birth.
+          In Jyotisha, the Moon is traditionally associated with
+          the mind, emotions, habits and subjective experience.
+        </p>
+
+      </article>
+
+
+      <article>
+
+        <h3>Nakshatra</h3>
+
+        <p>
+          The lunar mansion occupied by the Moon.
+          Each Nakshatra covers 13°20′ of the sidereal zodiac
+          and has four Padas.
+        </p>
+
+      </article>
+
+
+      <article>
+
+        <h3>Pada</h3>
+
+        <p>
+          The quarter of the Nakshatra containing the Moon.
+          Each Pada spans 3°20′ and adds a more specific
+          traditional layer of interpretation.
+        </p>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <p class="moon-sign-disclaimer">
+    AstroLight presents the astronomical calculation separately from
+    traditional Jyotisha symbolism. Astrological interpretations are
+    offered for cultural and reflective purposes and are not scientific
+    predictions or guarantees.
+  </p>
+
+</article>
+
+
+<script src="https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.19/astronomy.browser.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@photostructure/tz-lookup@11.6.1/tz.js"></script>
+
+<script
+  type="module"
+  src="{{ "js/tools/moon-sign-calculator.js" | relURL }}?v=2">
+</script>
+
+{{ end }}
