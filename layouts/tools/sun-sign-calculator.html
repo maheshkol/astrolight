@@ -1,0 +1,272 @@
+{{ define "main" }}
+
+{{ $css := resources.Get "css/sun-sign-calculator.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+
+<article class="sun-sign-tool">
+
+  <!-- HERO -->
+  <section class="sun-sign-hero">
+
+    <p class="eyebrow">
+      WESTERN · TROPICAL ASTROLOGY
+    </p>
+
+    <h1>
+      Sun Sign Calculator
+    </h1>
+
+    <p class="sun-sign-lede">
+      Enter your birth date to calculate your Western
+      Tropical Sun Sign from the astronomical position
+      of the Sun.
+    </p>
+
+  </section>
+
+
+  <!-- CALCULATOR -->
+  <section class="sun-sign-shell">
+
+    <div class="sun-sign-section-heading">
+
+      <p class="eyebrow">
+        CALCULATE
+      </p>
+
+      <h2>
+        Enter your birth date
+      </h2>
+
+      <p>
+        AstroLight calculates the Sun's geocentric tropical
+        longitude and maps it to the twelve Western zodiac signs.
+      </p>
+
+    </div>
+
+
+    <form
+      id="sun-sign-form"
+      class="sun-sign-form"
+    >
+
+      <label>
+        Date of birth
+
+        <input
+          type="date"
+          id="sun-sign-date"
+          name="date"
+          required
+        >
+
+        <small>
+          Your birth date is sufficient for most dates.
+          Dates close to a sign boundary may require your
+          exact birth time for maximum precision.
+        </small>
+      </label>
+
+
+      <button
+        type="submit"
+        class="sun-sign-submit"
+      >
+        Calculate Sun Sign
+      </button>
+
+    </form>
+
+  </section>
+
+
+  <!-- RESULT -->
+  <section
+    id="sun-sign-result"
+    class="sun-sign-result"
+    aria-live="polite"
+  >
+
+    <div class="sun-sign-empty">
+      <p>
+        Enter your birth date above to calculate your
+        Sun Sign.
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- METHODOLOGY -->
+  <section class="sun-sign-method">
+
+    <div class="sun-sign-section-heading">
+
+      <p class="eyebrow">
+        METHODOLOGY
+      </p>
+
+      <h2>
+        How the Sun Sign is calculated
+      </h2>
+
+      <p>
+        AstroLight uses astronomical solar longitude rather
+        than relying only on a fixed date-range table.
+      </p>
+
+    </div>
+
+
+    <div class="sun-sign-method-grid">
+
+      <article>
+        <span>01</span>
+
+        <h3>
+          Birth date
+        </h3>
+
+        <p>
+          The selected calendar date is converted into
+          an astronomical calculation time.
+        </p>
+      </article>
+
+
+      <article>
+        <span>02</span>
+
+        <h3>
+          Solar position
+        </h3>
+
+        <p>
+          Astronomy Engine calculates the geocentric
+          position of the Sun.
+        </p>
+      </article>
+
+
+      <article>
+        <span>03</span>
+
+        <h3>
+          Tropical longitude
+        </h3>
+
+        <p>
+          The Sun's longitude is measured from 0° through
+          360° in the Tropical zodiac.
+        </p>
+      </article>
+
+
+      <article>
+        <span>04</span>
+
+        <h3>
+          Zodiac sign
+        </h3>
+
+        <p>
+          Each 30° sector corresponds to one Western
+          Tropical zodiac sign.
+        </p>
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- EDUCATION -->
+  <section class="sun-sign-notes">
+
+    <div class="sun-sign-section-heading">
+
+      <p class="eyebrow">
+        UNDERSTANDING YOUR SUN SIGN
+      </p>
+
+      <h2>
+        What does the Sun Sign represent?
+      </h2>
+
+    </div>
+
+
+    <div class="sun-sign-note-grid">
+
+      <article>
+
+        <h3>
+          Traditional astrology
+        </h3>
+
+        <p>
+          In Western astrology, the Sun is traditionally
+          associated with identity, vitality, purpose,
+          self-expression and conscious direction.
+        </p>
+
+      </article>
+
+
+      <article>
+
+        <h3>
+          Tropical zodiac
+        </h3>
+
+        <p>
+          The Western Tropical zodiac divides the ecliptic
+          into twelve equal 30° signs beginning at the
+          traditional Aries point.
+        </p>
+
+      </article>
+
+
+      <article>
+
+        <h3>
+          Boundary dates
+        </h3>
+
+        <p>
+          The Sun changes signs at an astronomical moment,
+          not always at midnight. People born close to a
+          sign boundary should use an exact birth time
+          for a more precise determination.
+        </p>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- DISCLAIMER -->
+  <p class="sun-sign-disclaimer">
+    Astrology interpretations are presented for educational
+    and reflective purposes. They are not scientific
+    measurements or guarantees about personality or future
+    events.
+  </p>
+
+</article>
+
+
+<script
+  src="https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.19/astronomy.browser.min.js"
+></script>
+
+<script
+  type="module"
+  src="{{ "js/tools/sun-sign-calculator.js" | relURL }}?v=1"
+></script>
+
+{{ end }}

@@ -1,0 +1,438 @@
+/* =========================================================
+   AstroLight — Numerology Life Path Calculator
+   ========================================================= */
+
+.numerology-tool {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 48px 20px 80px;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.numerology-hero {
+  max-width: 820px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.numerology-hero h1 {
+  margin: 8px 0 18px;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+}
+
+.numerology-lede {
+  max-width: 720px;
+  margin: auto;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  opacity: .82;
+}
+
+
+/* =========================================================
+   COMMON CARDS
+   ========================================================= */
+
+.numerology-shell,
+.numerology-result,
+.numerology-method,
+.numerology-notes {
+  margin-bottom: 28px;
+  padding: 30px;
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 22px;
+  background: rgba(15,15,27,.72);
+  box-shadow: 0 18px 55px rgba(0,0,0,.20);
+}
+
+
+/* =========================================================
+   HEADINGS
+   ========================================================= */
+
+.numerology-section-heading h2,
+.numerology-section-heading h3 {
+  margin: 4px 0 8px;
+}
+
+.numerology-section-heading > p:last-child {
+  opacity: .72;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.numerology-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.numerology-form label {
+  display: block;
+  font-weight: 600;
+}
+
+.numerology-form input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 8px;
+  padding: 14px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 10px;
+  background: rgba(255,255,255,.055);
+  color: #fff;
+}
+
+.numerology-form small {
+  display: block;
+  margin-top: 7px;
+  opacity: .62;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.numerology-submit {
+  border: 0;
+  border-radius: 10px;
+  padding: 14px 20px;
+  background: #6f4de8;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.numerology-submit:hover {
+  filter: brightness(1.08);
+}
+
+
+/* =========================================================
+   EMPTY / CALCULATING / ERROR
+   ========================================================= */
+
+.numerology-empty,
+.numerology-calculating {
+  padding: 40px 15px;
+  text-align: center;
+  opacity: .72;
+}
+
+.numerology-error {
+  padding: 18px;
+  border: 1px solid rgba(240,100,100,.35);
+  border-radius: 12px;
+  background: rgba(240,80,80,.08);
+}
+
+.numerology-error strong {
+  display: block;
+  margin-bottom: 7px;
+}
+
+.numerology-error p {
+  margin: 0;
+  opacity: .78;
+}
+
+
+/* =========================================================
+   RESULT HEADER
+   ========================================================= */
+
+.numerology-result-header {
+  text-align: center;
+  padding: 8px 0 32px;
+}
+
+.numerology-number {
+  width: 130px;
+  height: 130px;
+  margin: 18px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 50%;
+  background: rgba(255,255,255,.045);
+  box-shadow:
+    0 0 45px rgba(111,77,232,.18);
+  font-size: 4rem;
+  font-weight: 800;
+}
+
+.numerology-result-header h2 {
+  margin: 8px 0;
+  font-size: 1.8rem;
+}
+
+.numerology-result-date {
+  margin: 0;
+  opacity: .62;
+}
+
+
+/* =========================================================
+   TRADITIONAL MEANING
+   ========================================================= */
+
+.numerology-meaning {
+  padding-top: 25px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.numerology-theme {
+  max-width: 850px;
+  margin: 20px auto 25px;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  opacity: .84;
+}
+
+.numerology-meaning-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.numerology-meaning-grid article {
+  padding: 22px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 15px;
+  background: rgba(255,255,255,.035);
+}
+
+.numerology-meaning-grid h4 {
+  margin: 0 0 12px;
+}
+
+.numerology-meaning-grid ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.numerology-meaning-grid li {
+  margin: 8px 0;
+  line-height: 1.5;
+  opacity: .78;
+}
+
+
+/* =========================================================
+   CALCULATION BREAKDOWN
+   ========================================================= */
+
+.numerology-breakdown {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.numerology-calculation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.numerology-calculation-card {
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 15px;
+  background: rgba(255,255,255,.035);
+}
+
+.numerology-calculation-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: .74rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  opacity: .55;
+}
+
+.numerology-calculation-card strong {
+  font-size: 1.5rem;
+}
+
+.numerology-calculation-card p {
+  margin: 12px 0 5px;
+  font-size: 1rem;
+}
+
+.numerology-calculation-card small {
+  opacity: .68;
+}
+
+.numerology-final-calculation {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 14px;
+  text-align: center;
+  background: rgba(111,77,232,.07);
+}
+
+.numerology-final-calculation span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: .76rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity: .58;
+}
+
+.numerology-final-calculation strong {
+  font-size: 1.1rem;
+}
+
+
+/* =========================================================
+   MASTER NUMBER NOTE
+   ========================================================= */
+
+.numerology-master-note {
+  margin-top: 24px;
+  padding: 22px;
+  border-left: 3px solid rgba(255,255,255,.22);
+  background: rgba(255,255,255,.025);
+}
+
+.numerology-master-note h3 {
+  margin-top: 0;
+}
+
+.numerology-master-note p {
+  margin-bottom: 0;
+  line-height: 1.7;
+  opacity: .76;
+}
+
+
+/* =========================================================
+   METHODOLOGY
+   ========================================================= */
+
+.numerology-method-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.numerology-method-grid article {
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 15px;
+  background: rgba(255,255,255,.035);
+}
+
+.numerology-method-grid span {
+  font-size: .75rem;
+  letter-spacing: .1em;
+  opacity: .55;
+}
+
+.numerology-method-grid h3 {
+  margin: 9px 0 7px;
+}
+
+.numerology-method-grid p {
+  margin: 0;
+  line-height: 1.65;
+  opacity: .76;
+}
+
+
+/* =========================================================
+   EDUCATION
+   ========================================================= */
+
+.numerology-note-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.numerology-note-grid article {
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 15px;
+  background: rgba(255,255,255,.035);
+}
+
+.numerology-note-grid h3 {
+  margin-top: 0;
+}
+
+.numerology-note-grid p {
+  margin-bottom: 0;
+  line-height: 1.65;
+  opacity: .76;
+}
+
+
+/* =========================================================
+   DISCLAIMER
+   ========================================================= */
+
+.numerology-disclaimer,
+.numerology-result-disclaimer {
+  max-width: 900px;
+  margin: 24px auto 0;
+  text-align: center;
+  opacity: .62;
+  line-height: 1.65;
+}
+
+.numerology-result-disclaimer {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .numerology-form,
+  .numerology-meaning-grid,
+  .numerology-calculation-grid,
+  .numerology-method-grid,
+  .numerology-note-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .numerology-submit {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .numerology-tool * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+}

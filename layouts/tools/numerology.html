@@ -1,0 +1,259 @@
+{{ define "main" }}
+
+{{ $css := resources.Get "css/numerology.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+
+<article class="numerology-tool">
+
+  <!-- HERO -->
+  <section class="numerology-hero">
+
+    <p class="eyebrow">
+      NUMEROLOGY CALCULATOR
+    </p>
+
+    <h1>
+      {{ .Title }}
+    </h1>
+
+    <p class="numerology-lede">
+      Enter your birth date to calculate your Life Path Number
+      and explore its traditional numerology meaning.
+    </p>
+
+  </section>
+
+
+  <!-- CALCULATOR -->
+  <section class="numerology-shell">
+
+    <div class="numerology-section-heading">
+
+      <p class="eyebrow">
+        CALCULATE
+      </p>
+
+      <h2>
+        Enter your birth date
+      </h2>
+
+      <p>
+        Your Life Path Number is calculated from the full
+        date of birth.
+      </p>
+
+    </div>
+
+
+    <form
+      id="numerology-form"
+      class="numerology-form"
+    >
+
+      <label>
+        Date of birth
+
+        <input
+          type="date"
+          id="numerology-date"
+          name="date"
+          required
+        >
+
+        <small>
+          Enter your complete date of birth.
+        </small>
+      </label>
+
+
+      <button
+        type="submit"
+        class="numerology-submit"
+      >
+        Calculate Life Path Number
+      </button>
+
+    </form>
+
+  </section>
+
+
+  <!-- RESULT -->
+  <section
+    id="numerology-result"
+    class="numerology-result"
+    aria-live="polite"
+  >
+
+    <div class="numerology-empty">
+      <p>
+        Enter your birth date above to calculate your
+        Life Path Number.
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- METHODOLOGY -->
+  <section class="numerology-method">
+
+    <div class="numerology-section-heading">
+
+      <p class="eyebrow">
+        METHODOLOGY
+      </p>
+
+      <h2>
+        How the Life Path Number is calculated
+      </h2>
+
+      <p>
+        AstroLight shows the arithmetic used to arrive at
+        the final number rather than presenting the result
+        as a black-box calculation.
+      </p>
+
+    </div>
+
+
+    <div class="numerology-method-grid">
+
+      <article>
+        <span>01</span>
+
+        <h3>
+          Birth date
+        </h3>
+
+        <p>
+          The month, day and year of birth form the
+          numerical input.
+        </p>
+      </article>
+
+
+      <article>
+        <span>02</span>
+
+        <h3>
+          Digit reduction
+        </h3>
+
+        <p>
+          The date components are reduced according to
+          the traditional numerology method.
+        </p>
+      </article>
+
+
+      <article>
+        <span>03</span>
+
+        <h3>
+          Master Numbers
+        </h3>
+
+        <p>
+          11, 22 and 33 are preserved rather than
+          immediately reduced to a single digit.
+        </p>
+      </article>
+
+
+      <article>
+        <span>04</span>
+
+        <h3>
+          Life Path
+        </h3>
+
+        <p>
+          The reduced components are combined to produce
+          the Life Path Number.
+        </p>
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- EDUCATION -->
+  <section class="numerology-notes">
+
+    <div class="numerology-section-heading">
+
+      <p class="eyebrow">
+        UNDERSTANDING THE RESULT
+      </p>
+
+      <h2>
+        What does a Life Path Number represent?
+      </h2>
+
+    </div>
+
+
+    <div class="numerology-note-grid">
+
+      <article>
+        <h3>
+          Traditional symbolism
+        </h3>
+
+        <p>
+          In numerology traditions, the Life Path Number
+          is interpreted as a symbolic theme associated
+          with the journey through life.
+        </p>
+      </article>
+
+
+      <article>
+        <h3>
+          Master Numbers
+        </h3>
+
+        <p>
+          Numbers 11, 22 and 33 are traditionally treated
+          as Master Numbers and are given additional
+          interpretive significance.
+        </p>
+      </article>
+
+
+      <article>
+        <h3>
+          Reflective use
+        </h3>
+
+        <p>
+          Use the interpretation as a traditional
+          reflection framework rather than a deterministic
+          prediction of personality or future events.
+        </p>
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- DISCLAIMER -->
+  <p class="numerology-disclaimer">
+    Numerology interpretations are presented for
+    educational and reflective purposes. They are not
+    scientific measurements or guarantees about personality,
+    events or future outcomes.
+  </p>
+
+</article>
+
+
+<script
+  type="module"
+  src="{{ "js/tools/numerology.js" | relURL }}?v=1"
+></script>
+
+{{ end }}
